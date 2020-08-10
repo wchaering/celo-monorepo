@@ -1,0 +1,2 @@
+-keep class kotlin.** { *; }
+-dontwarn kotlin.**

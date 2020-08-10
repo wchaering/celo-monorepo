@@ -85,6 +85,8 @@ project.ext.react = [
         devDisabledInPilot: true,
         bundleInMainnet: true,
         devDisabledInMainnet: true,
+        bundleInDetox: true,
+        devDisabledInDetox: true,
         cliPath: "../../node_modules/react-native/cli.js",
         hermesCommand: "../../../../node_modules/hermes-engine/%OS-BIN%/hermes",
         composeSourceMapsPath: "../../node_modules/react-native/scripts/compose-source-maps.js",
@@ -100,7 +102,7 @@ project.ext.envConfigFiles = [
 ]
 
 project.ext.sentryCli = [
-    logLevel: "debug"
+    // logLevel: "debug"
 ]
 
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
@@ -166,6 +168,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode appVersionCode
         versionName "1.8.2"
+
         testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resValue "string", "app_name", project.env.get("APP_DISPLAY_NAME")
@@ -216,6 +219,16 @@ android {
             signingConfig signingConfigs.release
         }
 
+        detox {
+            multiDexEnabled true
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            proguardFile "test-proguard-rules.pro"
+            proguardFile "${rootProject.projectDir}/../../../node_modules/detox/android/detox/proguard-rules-app.pro"
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
+        }
+
         alfajores {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
@@ -251,7 +264,6 @@ android {
     }
 
     packagingOptions {
-        exclude 'META-INF/-no-jdk.kotlin_module'
         exclude 'META-INF/androidx.exifinterface_exifinterface.version'
         pickFirst '**/libjsc.so'
         pickFirst '**/libc++_shared.so'
@@ -268,14 +280,12 @@ dependencies {
 
     def multidex_version = "2.0.1"
     implementation 'androidx.multidex:multidex:$multidex_version'
-    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation project(':react-native-geth')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
@@ -295,6 +305,7 @@ dependencies {
         pilotImplementation files(hermesPath + "hermes-release.aar")
         mainnetImplementation files(hermesPath + "hermes-release.aar")
         releaseImplementation files(hermesPath + "hermes-release.aar")
+        detoxImplementation files(hermesPath + "hermes-release.aar")
     } else {
         implementation jscFlavor
     }
@@ -319,8 +330,16 @@ if (enableFirebase.toBoolean()){
 // https://github.com/facebook/react-native/issues/26400#issuecomment-539395814
 configurations.all {
      resolutionStrategy {
-       force "com.facebook.soloader:soloader:0.8.2"
+       force "com.facebook.soloader:soloader:0.9.0"
      }
 }
 
 apply from: file("../../../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+
+gradle.projectsEvaluated {
+    def tasksToSkip = project.tasks.matching {
+        it.name.contains("SentryUpload") &&
+        it.name.contains("Detox")
+    }
+    tasksToSkip.all { enabled = false }
+}

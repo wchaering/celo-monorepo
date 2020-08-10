@@ -3,7 +3,7 @@ import SearchInput from '@celo/react-components/components/SearchInput'
 import colors from '@celo/react-components/styles/colors.v2'
 import { LocalizedCountry } from '@celo/utils/src/countries'
 import { StackScreenProps } from '@react-navigation/stack'
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FlatList, StyleSheet, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -23,10 +23,7 @@ export default function SelectCountry({ navigation, route }: Props) {
   const { t } = useTranslation(Namespaces.accountScreen10)
   const [searchText, setSearchText] = useState('')
 
-  const filteredCountries = useMemo(() => countries.getFilteredCountries(searchText), [
-    countries,
-    searchText,
-  ])
+  const filteredCountries = countries.getFilteredCountries(searchText)
 
   function onSelect(country: LocalizedCountry) {
     navigation.navigate(Screens.NameAndNumber, {

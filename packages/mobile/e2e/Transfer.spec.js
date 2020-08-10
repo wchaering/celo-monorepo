@@ -72,6 +72,9 @@ describe('Transfer Works', () => {
 
     await element(by.id('CountrySelectionButton')).tap()
     await element(by.id('SearchInput')).replaceText(VERIFICATION_COUNTRY)
+    await waitFor(element(by.id('Country_DE')))
+      .toBeVisible()
+      .withTimeout(2000)
     await element(by.id('Country_DE')).tap()
 
     await expect(element(by.id('PhoneNumberField'))).toBeVisible()

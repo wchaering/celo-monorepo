@@ -10,6 +10,18 @@
 # Add any project specific keep options here:
 
 # Detox
+-dontobfuscate
+-dontnote android.net.**
+-dontnote org.apache.**
+
+# An addition to RN's 'keep' and 'dontwarn' configs -- need to also 'dontnote' some stuff.
+
+-dontnote com.facebook.**
+-dontnote sun.misc.Unsafe
+-dontnote okhttp3.**
+-dontnote okio.**
+
+
 -keep class com.facebook.react.ReactInstanceManager { *; }
 
 # RN Firebase
