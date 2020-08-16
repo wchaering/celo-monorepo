@@ -88,7 +88,7 @@ i18n
     resources: availableResources,
     ns: ['common', ...Object.keys(Namespaces)],
     defaultNS: 'common',
-    debug: true,
+    debug: __DEV__ === true,
     interpolation: {
       escapeValue: false,
       defaultVariables: { appName: APP_NAME },

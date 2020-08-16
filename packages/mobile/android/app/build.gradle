@@ -88,7 +88,7 @@ project.ext.react = [
         bundleInDetox: true,
         devDisabledInDetox: true,
         cliPath: "../../node_modules/react-native/cli.js",
-        hermesCommand: "../../../../node_modules/hermes-engine/%OS-BIN%/hermes",
+        hermesCommand: "../../../../node_modules/hermes-engine/%OS-BIN%/hermesc",
         composeSourceMapsPath: "../../node_modules/react-native/scripts/compose-source-maps.js",
         entryFile: "index.js",
 ]
@@ -265,7 +265,6 @@ android {
 
     packagingOptions {
         exclude 'META-INF/androidx.exifinterface_exifinterface.version'
-        pickFirst '**/libjsc.so'
         pickFirst '**/libc++_shared.so'
     }
 
@@ -292,6 +291,7 @@ dependencies {
     }
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'
+        exclude group:'com.squareup.okhttp3', module:'okhttp'
     }
     debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'

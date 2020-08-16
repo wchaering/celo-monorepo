@@ -102,7 +102,7 @@ async function createNewGeth(sync: boolean = true): Promise<typeof RNGeth> {
   const gethLogFilePath = Logger.getGethLogFilePath()
 
   // Upload logs first
-  await uploadLogs(gethLogFilePath, Logger.getReactNativeLogsFilePath())
+  // await uploadLogs(gethLogFilePath, Logger.getReactNativeLogsFilePath())
   gethOptions.logFile = gethLogFilePath
   // Only log info and above to the log file.
   // The logcat logging mode remains unchanged.

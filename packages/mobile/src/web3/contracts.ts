@@ -6,7 +6,7 @@
 import { ContractKit, newKitFromWeb3 } from '@celo/contractkit'
 import { RpcWallet } from '@celo/contractkit/lib/wallets/rpc-wallet'
 import { sleep } from '@celo/utils/src/async'
-import { call, delay, select } from 'redux-saga/effects'
+import { call, delay, put, select, take } from 'redux-saga/effects'
 import { ContractKitEvents } from 'src/analytics/Events'
 import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import { ErrorMessages } from 'src/app/ErrorMessages'
@@ -69,6 +69,7 @@ export function* initContractKit() {
       contractKit = newKitFromWeb3(web3, gethWallet)
       Logger.info(`${TAG}@initContractKit`, 'Initialized kit')
       ValoraAnalytics.track(ContractKitEvents.init_contractkit_finish)
+      yield put({ type: 'CONTRACTKIT_INIT' })
       return
     } catch (error) {
       if (isProviderConnectionError(error)) {
@@ -103,9 +104,7 @@ export function destroyContractKit() {
 }
 
 export function* getContractKit() {
-  if (!contractKit) {
-    yield call(initContractKit)
-  }
+  yield call(waitForContractKit)
   return contractKit
 }
 
@@ -126,10 +125,15 @@ export async function getContractKitAsync() {
   return contractKit
 }
 
-export function* getWallet() {
-  if (!gethWallet) {
-    yield call(initContractKit)
+export function* waitForContractKit() {
+  if (contractKit) {
+    return
   }
+  yield take('CONTRACTKIT_INIT')
+}
+
+export function* getWallet() {
+  yield call(waitForContractKit)
   return gethWallet
 }
 

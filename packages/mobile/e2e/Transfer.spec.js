@@ -37,6 +37,7 @@ async function bannerDismiss(inElement, tapElement) {
 
 describe('Transfer Works', () => {
   beforeEach(async () => {
+    await device.disableSynchronization()
     await bannerDismiss(by.id('errorBanner'))
     await bannerDismiss(by.id('SmartTopAlertButton'))
   })
@@ -174,9 +175,14 @@ describe('Transfer Works', () => {
     await waitFor(element(by.id('commentInput/send')))
       .toBeVisible()
       .withTimeout(10000)
+    await sleep(5000)
 
-    await element(by.id('commentInput/send')).replaceText(RANDOM_COMMENT)
+    await element(by.id('commentInput/send')).tap()
+    await sleep(5000)
+    await element(by.id('commentInput/send')).typeText(RANDOM_COMMENT)
+    await sleep(5000)
     await element(by.id('commentInput/send')).tapReturnKey()
+    await sleep(5000)
 
     if (device.getPlatform() === 'android') {
       // Workaround keyboard remaining open on Android (tapReturnKey doesn't work there and just adds a new line)

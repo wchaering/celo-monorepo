@@ -63,6 +63,7 @@ export default class KeyboardAwareScrollView extends React.Component<Props> {
     scrollView: ScrollView | null,
     customKeyboardHeight: number = 0
   ) {
+    return
     const inputHandle = findNodeHandle(input)
     const { hasNavBar } = this.props
     if (!inputHandle || !scrollView) {
