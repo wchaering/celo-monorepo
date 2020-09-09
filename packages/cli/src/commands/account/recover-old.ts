@@ -4,6 +4,9 @@ import { flags } from '@oclif/command'
 import { toChecksumAddress } from 'ethereumjs-util'
 import { printValueMap } from '../../utils/cli'
 import NewAccount from './new'
+import { ContractKit, newKitFromWeb3 } from '@celo/contractkit'
+import { LocalWallet } from '@celo/contractkit/lib/wallets/local-wallet'
+import Web3 from 'web3'
 
 // TODO: This command should be prune in the future after all accounts had been migrated
 export default class RecoverOld extends NewAccount {
@@ -48,5 +51,36 @@ export default class RecoverOld extends NewAccount {
     )
     const accountAddress = toChecksumAddress(privateKeyToAddress(keys.privateKey))
     printValueMap({ accountAddress, ...keys })
+
+    // 1. Use celocli to get your pepper
+    //  https://github.com/celo-org/celo-monorepo/pull/4976
+
+    const DEFAULT_TESTNET = 'rc1'
+    const provider = new Web3.providers.HttpProvider(
+      `https://${DEFAULT_TESTNET}-forno.celo-testnet.org`
+    )
+    const web3 = new Web3(provider)
+    const wallet = new LocalWallet()
+    wallet.addAccount(keys.privateKey)
+    const contractKit = newKitFromWeb3(web3, wallet)
+    // 4. Note the address you want to remove and add it here (should match with the mnemonic)
+    // contractKit.defaultAccount = "<ADDRESS_FROM_MNEMONIC>"
+
+    const attestations = await contractKit.contracts.getAttestations()
+
+    // 2. Update your phone number (with +country code) and pepper here
+    // 3. Save your mnemonic to a file and run this command `./bin/run account:recover-old --mnemonicPath <FILE>`
+    const identifier = web3.utils.soliditySha3({
+      type: 'string',
+      value: 'tel://<PHONE_NUMBER>__<PEPPER>',
+    })
+    console.log(await attestations.lookupIdentifiers([identifier]))
+
+    // 5. Uncomment, ensure your mnemonic is funded with CELO, and run rerun this command
+    // await (
+    //   await attestations.revoke(identifier, contractKit.defaultAccount)
+    // ).sendAndWaitForReceipt()
+
+    console.log(await attestations.lookupIdentifiers([identifier]))
   }
 }
