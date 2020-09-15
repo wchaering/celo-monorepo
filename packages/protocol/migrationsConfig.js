@@ -43,7 +43,7 @@ const DefaultConfig = {
       patch: 0,
     },
     deploymentBlockGasLimit: 20000000,
-    blockGasLimit: 10000000,
+    blockGasLimit: 20000000,
   },
   doubleSigningSlasher: {
     reward: '1000000000000000000000', // 1000 cGLD
@@ -55,8 +55,8 @@ const DefaultConfig = {
     slashableDowntime: (8 * HOUR) / 5, // ~8 hours
   },
   election: {
-    minElectableValidators: '3',
-    maxElectableValidators: '10',
+    minElectableValidators: '22',
+    maxElectableValidators: '100',
     maxVotesPerAccount: 10,
     electabilityThreshold: 1 / 1000,
     frozen: false,
@@ -275,7 +275,7 @@ const NetworkConfigs = {
     },
     election: {
       minElectableValidators: '3',
-      maxElectableValidators: '10',
+      maxElectableValidators: '100',
       frozen: false,
     },
     epochRewards: {
