@@ -2,7 +2,7 @@ import Button, { BtnTypes } from '@celo/react-components/components/Button.v2'
 import KeyboardAwareScrollView from '@celo/react-components/components/KeyboardAwareScrollView'
 import KeyboardSpacer from '@celo/react-components/components/KeyboardSpacer'
 import TextButton from '@celo/react-components/components/TextButton.v2'
-import colors from '@celo/react-components/styles/colors.v2'
+import colors from '@celo/react-components/styles/colors'
 import fontStyles from '@celo/react-components/styles/fonts.v2'
 import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
@@ -204,6 +204,7 @@ export class ValidateRecipientAccount extends React.Component<Props, State> {
             inputPlaceholder={placeholderValue}
             // tslint:disable-next-line:jsx-no-lambda
             onInputChange={(value) => this.onSingleDigitInputChange(value, index)}
+            testID={`SingleDigitInput/digit${index}`}
           />
         </View>
       )
