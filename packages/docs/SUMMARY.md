@@ -20,6 +20,7 @@
 - [Glossary](GLOSSARY.md)
 
 ## CELO Holder Guide
+
 - [Quick Start](celo-holder-guide/quick-start.md)
 - [Using a Ledger Wallet](celo-holder-guide/ledger.md)
 - [Understanding ReleaseGold](celo-holder-guide/release-gold.md)
@@ -40,6 +41,7 @@
 - [Celo Foundation Voting Policy](operations-manual/celo-foundation-voting-policy.md)
 
 ## Developer Guide
+
 - [Quick Start](developer-resources/start.md)
   - [Hello Celo](developer-resources/walkthroughs/hellocelo.md)
   - [Hello Contracts](developer-resources/walkthroughs/hellocontracts.md)
@@ -47,7 +49,7 @@
   - [Hello Mobile Dapp](developer-resources/walkthroughs/hello-mobile-dapp.md)
   - [Using Windows](developer-resources/develop-on-windows.md)
   <!-- - [Building a dApp with Contracts on Celo]() -->
-- [Overview]()
+- [Overview](developer-resources/overview.md)
   <!-- - [The Celo Protocol]()
     - [Architecture]()
     - [Similarities with Ethereum]()
@@ -69,7 +71,6 @@
       - [Using Web3 from the Kit](developer-resources/contractkit/notes-web3-with-contractkit.md)
       - [Celo Core Contracts. Wrappers / Registry](developer-resources/contractkit/contracts-wrappers-registry.md)
       - [Querying on-chain identifiers with ODIS](developer-resources/contractkit/odis.md)
-    - [Forno](developer-resources/forno/README.md)
       <!-- - [Example of querying (web3, kit)]()
       - [Example of sending tx (kit)]() -->
     <!-- - [Using Truffle]()
@@ -83,6 +84,7 @@
         - [Expo]() -->
       - [Usage](developer-resources/dappkit/usage.md)
     <!-- - [Guide to Asset Custody]() -->
+  - [Forno](developer-resources/forno/README.md)
   - [Celo for Ethereum Developers](developer-resources/celo-for-eth-devs.md)
   - [Celo DApp Gallery](developer-resources/celo-dapp-gallery.md)
   - [Integrations](developer-resources/integrations/integrations.md)
@@ -110,6 +112,7 @@
       - [explorer/log-explorer](developer-resources/contractkit/reference/modules/_explorer_log_explorer_.md)
       - [LogExplorer](developer-resources/contractkit/reference/classes/_explorer_log_explorer_.logexplorer.md)
       - [governance/proposals](developer-resources/contractkit/reference/modules/_governance_proposals_.md)
+      - [InteractiveProposalBuilder](developer-resources/contractkit/reference/classes/_governance_proposals_.interactiveproposalbuilder.md)
       - [ProposalBuilder](developer-resources/contractkit/reference/classes/_governance_proposals_.proposalbuilder.md)
       - [ProposalTransactionJSON](developer-resources/contractkit/reference/interfaces/_governance_proposals_.proposaltransactionjson.md)
       - [governance/proxy](developer-resources/contractkit/reference/modules/_governance_proxy_.md)
@@ -230,10 +233,12 @@
       - [wrappers/Accounts](developer-resources/contractkit/reference/modules/_wrappers_accounts_.md)
       - [AccountsWrapper](developer-resources/contractkit/reference/classes/_wrappers_accounts_.accountswrapper.md)
       - [wrappers/Attestations](developer-resources/contractkit/reference/modules/_wrappers_attestations_.md)
+      - [AttestationServiceStatusState](developer-resources/contractkit/reference/enums/_wrappers_attestations_.attestationservicestatusstate.md)
       - [AttestationState](developer-resources/contractkit/reference/enums/_wrappers_attestations_.attestationstate.md)
       - [AttestationsWrapper](developer-resources/contractkit/reference/classes/_wrappers_attestations_.attestationswrapper.md)
       - [ActionableAttestation](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.actionableattestation.md)
       - [AttesationServiceRevealRequest](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attesationservicerevealrequest.md)
+      - [AttestationServiceStatusResponse](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attestationservicestatusresponse.md)
       - [AttestationStat](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attestationstat.md)
       - [AttestationStateForIssuer](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attestationstateforissuer.md)
       - [AttestationsConfig](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attestationsconfig.md)
@@ -328,6 +333,7 @@
       - [WrapperCache](developer-resources/contractkit/reference/classes/_contract_cache_.wrappercache.md)
       - [BlockExplorer](developer-resources/contractkit/reference/classes/_explorer_block_explorer_.blockexplorer.md)
       - [LogExplorer](developer-resources/contractkit/reference/classes/_explorer_log_explorer_.logexplorer.md)
+      - [InteractiveProposalBuilder](developer-resources/contractkit/reference/classes/_governance_proposals_.interactiveproposalbuilder.md)
       - [ProposalBuilder](developer-resources/contractkit/reference/classes/_governance_proposals_.proposalbuilder.md)
       - [IdentityMetadataWrapper](developer-resources/contractkit/reference/classes/_identity_metadata_.identitymetadatawrapper.md)
       - [WasmBlsBlindingClient](developer-resources/contractkit/reference/classes/_identity_odis_bls_blinding_client_.wasmblsblindingclient.md)
@@ -394,6 +400,7 @@
       - [SchemaErrorTypes](developer-resources/contractkit/reference/enums/_identity_offchain_schema_utils_.schemaerrortypes.md)
       - [AddressValidation](developer-resources/contractkit/reference/enums/_wallets_ledger_wallet_.addressvalidation.md)
       - [RpcWalletErrors](developer-resources/contractkit/reference/enums/_wallets_rpc_wallet_.rpcwalleterrors.md)
+      - [AttestationServiceStatusState](developer-resources/contractkit/reference/enums/_wrappers_attestations_.attestationservicestatusstate.md)
       - [AttestationState](developer-resources/contractkit/reference/enums/_wrappers_attestations_.attestationstate.md)
       - [ProposalStage](developer-resources/contractkit/reference/enums/_wrappers_governance_.proposalstage.md)
       - [VoteValue](developer-resources/contractkit/reference/enums/_wrappers_governance_.votevalue.md)
@@ -426,6 +433,7 @@
       - [Wallet](developer-resources/contractkit/reference/interfaces/_wallets_wallet_.wallet.md)
       - [ActionableAttestation](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.actionableattestation.md)
       - [AttesationServiceRevealRequest](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attesationservicerevealrequest.md)
+      - [AttestationServiceStatusResponse](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attestationservicestatusresponse.md)
       - [AttestationStat](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attestationstat.md)
       - [AttestationStateForIssuer](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attestationstateforissuer.md)
       - [AttestationsConfig](developer-resources/contractkit/reference/interfaces/_wrappers_attestations_.attestationsconfig.md)
