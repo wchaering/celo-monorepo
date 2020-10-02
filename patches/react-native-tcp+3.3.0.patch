@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-native-tcp/react-native-tcp.podspec b/node_modules/react-native-tcp/react-native-tcp.podspec
+index af38c6e..84af5dd 100644
+--- a/node_modules/react-native-tcp/react-native-tcp.podspec
++++ b/node_modules/react-native-tcp/react-native-tcp.podspec
+@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
+ 
+   s.preserve_paths = 'README.md', 'package.json', '**/*.js'
+   s.source_files   = 'ios/**/*.{h,m}'
+-  s.dependency 'React'
++  s.dependency 'React-Core'
+ 
+ end

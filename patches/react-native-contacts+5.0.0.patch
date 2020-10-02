@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-native-contacts/react-native-contacts.podspec b/node_modules/react-native-contacts/react-native-contacts.podspec
+index 9e14d72..da1a915 100644
+--- a/node_modules/react-native-contacts/react-native-contacts.podspec
++++ b/node_modules/react-native-contacts/react-native-contacts.podspec
+@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
+   s.source         = { :git => package_json["repository"]["url"] }
+   s.source_files   = 'ios/RCTContacts/*.{h,m}'
+ 
+-  s.dependency 'React'
++  s.dependency 'React-Core'
+ 
+ end

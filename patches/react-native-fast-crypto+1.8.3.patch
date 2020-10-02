@@ -1,0 +1,11 @@
+diff --git a/node_modules/react-native-fast-crypto/react-native-fast-crypto.podspec b/node_modules/react-native-fast-crypto/react-native-fast-crypto.podspec
+index 2e22ab3..1a196f3 100644
+--- a/node_modules/react-native-fast-crypto/react-native-fast-crypto.podspec
++++ b/node_modules/react-native-fast-crypto/react-native-fast-crypto.podspec
+@@ -32,5 +32,5 @@ Pod::Spec.new do |s|
+     "ios/Libraries/libssl.a",
+     "ios/Libraries/libz.a"
+ 
+-  s.dependency "React"
++  s.dependency "React-Core"
+ end

@@ -1,0 +1,11 @@
+diff --git a/node_modules/react-native-geth/react-native-geth.podspec b/node_modules/react-native-geth/react-native-geth.podspec
+index 9c96339..e9a92c8 100644
+--- a/node_modules/react-native-geth/react-native-geth.podspec
++++ b/node_modules/react-native-geth/react-native-geth.podspec
+@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
+     s.requires_arc = true
+ 
+     s.dependency 'CeloBlockchain'
+-    s.dependency 'React'
++    s.dependency 'React-Core'
+ end

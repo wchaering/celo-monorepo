@@ -1,5 +1,6 @@
-patch-package
+diff --git a/node_modules/react-native-secure-randombytes/RNRandomBytes.podspec b/node_modules/react-native-secure-randombytes/RNRandomBytes.podspec
 new file mode 100644
+index 0000000..45ed26f
 --- /dev/null
 +++ b/node_modules/react-native-secure-randombytes/RNRandomBytes.podspec
 @@ -0,0 +1,18 @@
@@ -21,3 +22,15 @@ new file mode 100644
 +
 +    s.dependency 'React'
 +end
+diff --git a/node_modules/react-native-secure-randombytes/react-native-secure-randombytes.podspec b/node_modules/react-native-secure-randombytes/react-native-secure-randombytes.podspec
+index d1a615a..dc7ecdc 100644
+--- a/node_modules/react-native-secure-randombytes/react-native-secure-randombytes.podspec
++++ b/node_modules/react-native-secure-randombytes/react-native-secure-randombytes.podspec
+@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
+   s.platform       = :ios, "7.0"
+   s.source         = { :git => "#{package_json["repository"]["url"]}" }
+   s.source_files   = '*.{h,m}'
+-  s.dependency 'React'
++  s.dependency 'React-Core'
+ 
+ end

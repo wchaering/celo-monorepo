@@ -1,0 +1,12 @@
+diff --git a/node_modules/react-native-simple-toast/react-native-simple-toast.podspec b/node_modules/react-native-simple-toast/react-native-simple-toast.podspec
+index 2cab138..7775bf9 100644
+--- a/node_modules/react-native-simple-toast/react-native-simple-toast.podspec
++++ b/node_modules/react-native-simple-toast/react-native-simple-toast.podspec
+@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
+   s.source       = { :git => "https://github.com/vonovak/react-native-simple-toast.git", :tag => "v#{s.version}" }
+   s.source_files  = "ios/**/*.{h,m}"
+ 
+-  s.dependency 'React'
++  s.dependency 'React-Core'
+   s.dependency 'Toast', '~> 4.0.0'
+ end
