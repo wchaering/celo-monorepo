@@ -1,0 +1,1780 @@
+{
+  "contractName": "ProposalsTest",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "networkWeight",
+          "type": "uint256"
+        }
+      ],
+      "name": "setNetworkWeight",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "yes",
+          "type": "uint256"
+        },
+        {
+          "name": "no",
+          "type": "uint256"
+        },
+        {
+          "name": "abstain",
+          "type": "uint256"
+        }
+      ],
+      "name": "setVotes",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "criticalBaseline",
+          "type": "uint256"
+        }
+      ],
+      "name": "getSupportWithQuorumPadding",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"networkWeight\",\"type\":\"uint256\"}],\"name\":\"setNetworkWeight\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"yes\",\"type\":\"uint256\"},{\"name\":\"no\",\"type\":\"uint256\"},{\"name\":\"abstain\",\"type\":\"uint256\"}],\"name\":\"setVotes\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"criticalBaseline\",\"type\":\"uint256\"}],\"name\":\"getSupportWithQuorumPadding\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/test/ProposalsTest.sol\":\"ProposalsTest\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/common/FixidityLib.sol\":{\"keccak256\":\"0xb3e459e74b9ecee3af7522aeca89ac11af936462c0c8c5b8c68bde48c79fc4fe\",\"urls\":[\"bzzr://0885a4e138af8fde4522564718424978f5554ad76526ff5a550e5bd8d5f23efa\"]},\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/common/libraries/AddressesHelper.sol\":{\"keccak256\":\"0x6b2f7bea2209245f3be4b87755626efc442eb00970e062600db75c72164b109b\",\"urls\":[\"bzzr://408e2a85e0b26e8568e3acfe9542391963f9890e4a4d781868317a9cb4dc89c6\"]},\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/Proposals.sol\":{\"keccak256\":\"0x2ef169aca6397bb338ea370ded10346836815484c337eb9320f438ee43fd55bd\",\"urls\":[\"bzzr://7c72da0cf2433dcd5eff04cbea7346c7b61b5cb0e48f7e3bdce64c695e3af51f\"]},\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/test/ProposalsTest.sol\":{\"keccak256\":\"0x856940397767fdc86ab8e9b40986f8d9025c1badab36fa08a74cb8b80d1d30aa\",\"urls\":[\"bzzr://89788773996c975e3203030eeeda383c8fb168ba6893fff66a805094cd8b89a8\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xc2a200a877c4a9b2475c246c54ffecc69ffde3e11af83319c63c2dc5458bac80\",\"urls\":[\"bzzr://c8876e2c39b60f155d748d71d715c8f3903fae5a405ac599adcb6ad2f9a583f9\"]},\"solidity-bytes-utils/contracts/BytesLib.sol\":{\"keccak256\":\"0xdd38cd94f336b6f3a7ab680b0c1c1b8b61af23a0197d80ee9c15ea883dab486a\",\"urls\":[\"bzzr://cef8ba4556f0f07f985124f66111f46a5491cb184ed286bb953b37809041f588\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610777806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80631d3bee681461004657806347dffa9314610074578063f2ed1728146100b6575b600080fd5b6100726004803603602081101561005c57600080fd5b81019080803590602001909291905050506100f8565b005b6100b46004803603606081101561008a57600080fd5b81019080803590602001909291908035906020019092919080359060200190929190505050610105565b005b6100e2600480360360208110156100cc57600080fd5b8101908080359060200190929190505050610131565b6040518082815260200191505060405180910390f35b8060006008018190555050565b826000600301600001819055508160006003016001018190555080600060030160020181905550505050565b60006101576101526101428461015e565b600061017c90919063ffffffff16565b61026b565b9050919050565b610166610738565b6040518060200160405280838152509050919050565b610184610738565b60008360030160000154905060008114156101ab576101a36000610279565b915050610265565b60008460030160010154905060006101e586600301600201546101d784866102b790919063ffffffff16565b6102b790919063ffffffff16565b9050600061021061020b6101fc8960080154610279565b886102d690919063ffffffff16565b610528565b9050818111156102425761023f610230838361054990919063ffffffff16565b846102b790919063ffffffff16565b92505b61025e8461025985876102b790919063ffffffff16565b610569565b9450505050505b92915050565b600081600001519050919050565b610281610738565b6102896105e1565b82111561029557600080fd5b604051806020016040528069d3c21bcecceda100000084028152509050919050565b6000808284019050838110156102cc57600080fd5b8091505092915050565b6102de610738565b6000836000015114806102f5575060008260000151145b1561031157604051806020016040528060008152509050610522565b69d3c21bcecceda10000008260000151141561032f57829050610522565b69d3c21bcecceda10000008360000151141561034d57819050610522565b600069d3c21bcecceda100000061036385610600565b600001518161036e57fe5b049050600061037c85610637565b600001519050600069d3c21bcecceda100000061039886610600565b60000151816103a357fe5b04905060006103b186610637565b60000151905060008285029050600085146103dc57828582816103d057fe5b04146103db57600080fd5b5b600069d3c21bcecceda100000082029050600082146104155769d3c21bcecceda100000082828161040957fe5b041461041457600080fd5b5b809150600084860290506000861461043d578486828161043157fe5b041461043c57600080fd5b5b6000848802905060008814610462578488828161045657fe5b041461046157600080fd5b5b61046a610674565b878161047257fe5b04965061047d610674565b858161048557fe5b04945060008588029050600088146104ad57858882816104a157fe5b04146104ac57600080fd5b5b6104b5610738565b60405180602001604052808781525090506104de81604051806020016040528087815250610681565b90506104f881604051806020016040528086815250610681565b905061051281604051806020016040528085815250610681565b9050809a50505050505050505050505b92915050565b600069d3c21bcecceda100000082600001518161054157fe5b049050919050565b60008282111561055857600080fd5b600082840390508091505092915050565b610571610738565b6105796105e1565b83111561058557600080fd5b61058d6105e1565b82111561059957600080fd5b60008214156105a757600080fd5b6105af610738565b6105b884610279565b90506105c2610738565b6105cb84610279565b90506105d782826106c1565b9250505092915050565b60007601357c299a88ea76a58924d52ce4f26a85af186c2b9e74905090565b610608610738565b604051806020016040528069d3c21bcecceda10000008085600001518161062b57fe5b04028152509050919050565b61063f610738565b604051806020016040528069d3c21bcecceda10000008085600001518161066257fe5b04028460000151038152509050919050565b600064e8d4a51000905090565b610689610738565b60008260000151846000015101905083600001518110156106a957600080fd5b60405180602001604052808281525091505092915050565b6106c9610738565b6000826000015114156106db57600080fd5b600069d3c21bcecceda10000008460000151029050836000015169d3c21bcecceda1000000828161070857fe5b041461071357600080fd5b60405180602001604052808460000151838161072b57fe5b0481525091505092915050565b604051806020016040528060008152509056fea165627a7a7230582035d8bee5fed357b0a4afd859d69485c70057907e1f120297f94fb70c59cd55b90029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80631d3bee681461004657806347dffa9314610074578063f2ed1728146100b6575b600080fd5b6100726004803603602081101561005c57600080fd5b81019080803590602001909291905050506100f8565b005b6100b46004803603606081101561008a57600080fd5b81019080803590602001909291908035906020019092919080359060200190929190505050610105565b005b6100e2600480360360208110156100cc57600080fd5b8101908080359060200190929190505050610131565b6040518082815260200191505060405180910390f35b8060006008018190555050565b826000600301600001819055508160006003016001018190555080600060030160020181905550505050565b60006101576101526101428461015e565b600061017c90919063ffffffff16565b61026b565b9050919050565b610166610738565b6040518060200160405280838152509050919050565b610184610738565b60008360030160000154905060008114156101ab576101a36000610279565b915050610265565b60008460030160010154905060006101e586600301600201546101d784866102b790919063ffffffff16565b6102b790919063ffffffff16565b9050600061021061020b6101fc8960080154610279565b886102d690919063ffffffff16565b610528565b9050818111156102425761023f610230838361054990919063ffffffff16565b846102b790919063ffffffff16565b92505b61025e8461025985876102b790919063ffffffff16565b610569565b9450505050505b92915050565b600081600001519050919050565b610281610738565b6102896105e1565b82111561029557600080fd5b604051806020016040528069d3c21bcecceda100000084028152509050919050565b6000808284019050838110156102cc57600080fd5b8091505092915050565b6102de610738565b6000836000015114806102f5575060008260000151145b1561031157604051806020016040528060008152509050610522565b69d3c21bcecceda10000008260000151141561032f57829050610522565b69d3c21bcecceda10000008360000151141561034d57819050610522565b600069d3c21bcecceda100000061036385610600565b600001518161036e57fe5b049050600061037c85610637565b600001519050600069d3c21bcecceda100000061039886610600565b60000151816103a357fe5b04905060006103b186610637565b60000151905060008285029050600085146103dc57828582816103d057fe5b04146103db57600080fd5b5b600069d3c21bcecceda100000082029050600082146104155769d3c21bcecceda100000082828161040957fe5b041461041457600080fd5b5b809150600084860290506000861461043d578486828161043157fe5b041461043c57600080fd5b5b6000848802905060008814610462578488828161045657fe5b041461046157600080fd5b5b61046a610674565b878161047257fe5b04965061047d610674565b858161048557fe5b04945060008588029050600088146104ad57858882816104a157fe5b04146104ac57600080fd5b5b6104b5610738565b60405180602001604052808781525090506104de81604051806020016040528087815250610681565b90506104f881604051806020016040528086815250610681565b905061051281604051806020016040528085815250610681565b9050809a50505050505050505050505b92915050565b600069d3c21bcecceda100000082600001518161054157fe5b049050919050565b60008282111561055857600080fd5b600082840390508091505092915050565b610571610738565b6105796105e1565b83111561058557600080fd5b61058d6105e1565b82111561059957600080fd5b60008214156105a757600080fd5b6105af610738565b6105b884610279565b90506105c2610738565b6105cb84610279565b90506105d782826106c1565b9250505092915050565b60007601357c299a88ea76a58924d52ce4f26a85af186c2b9e74905090565b610608610738565b604051806020016040528069d3c21bcecceda10000008085600001518161062b57fe5b04028152509050919050565b61063f610738565b604051806020016040528069d3c21bcecceda10000008085600001518161066257fe5b04028460000151038152509050919050565b600064e8d4a51000905090565b610689610738565b60008260000151846000015101905083600001518110156106a957600080fd5b60405180602001604052808281525091505092915050565b6106c9610738565b6000826000015114156106db57600080fd5b600069d3c21bcecceda10000008460000151029050836000015169d3c21bcecceda1000000828161070857fe5b041461071357600080fd5b60405180602001604052808460000151838161072b57fe5b0481525091505092915050565b604051806020016040528060008152509056fea165627a7a7230582035d8bee5fed357b0a4afd859d69485c70057907e1f120297f94fb70c59cd55b90029",
+  "sourceMap": "92:608:74:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;92:608:74;;;;;;;",
+  "deployedSourceMap": "92:608:74:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;92:608:74;;;;;;;;;;;;;;;;;;;;;;;;;;;;;202:107;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;202:107:74;;;;;;;;;;;;;;;;;:::i;:::-;;313:170;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;313:170:74;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;487:211;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;487:211:74;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;202:107;291:13;266:8;:22;;:38;;;;202:107;:::o;313:170::-;409:3;388:8;:14;;:18;;:24;;;;438:2;418:8;:14;;:17;;:22;;;;471:7;446:8;:14;;:22;;:32;;;;313:170;;;:::o;487:211::-;573:7;601:92;620:72;657:34;674:16;657;:34::i;:::-;620:8;:36;;:72;;;;:::i;:::-;601:18;:92::i;:::-;588:105;;487:211;;;:::o;1485:94:6:-;1533:15;;:::i;:::-;1563:11;;;;;;;;1572:1;1563:11;;;1556:18;;1485:94;;;:::o;6391:693:55:-;6526:27;;:::i;:::-;6561:16;6580:8;:14;;:18;;;6561:37;;6620:1;6608:8;:13;6604:64;;;6638:23;6659:1;6638:20;:23::i;:::-;6631:30;;;;;6604:64;6673:15;6691:8;:14;;:17;;;6673:35;;6714:18;6735:49;6761:8;:14;;:22;;;6735:21;6748:7;6735:8;:12;;:21;;;;:::i;:::-;:25;;:49;;;;:::i;:::-;6714:70;;6790:21;6814:87;:68;6837:44;6858:8;:22;;;6837:20;:44::i;:::-;6814:6;:22;;:68;;;;:::i;:::-;:85;:87::i;:::-;6790:111;;6927:10;6911:13;:26;6907:99;;;6957:42;6969:29;6987:10;6969:13;:17;;:29;;;;:::i;:::-;6957:7;:11;;:42;;;;:::i;:::-;6947:52;;6907:99;7018:61;7047:8;7057:21;7070:7;7057:8;:12;;:21;;;;:::i;:::-;7018:28;:61::i;:::-;7011:68;;;;;;6391:693;;;;;:::o;1657:92:6:-;1715:7;1737:1;:7;;;1730:14;;1657:92;;;:::o;4179:145::-;4231:15;;:::i;:::-;4267:13;:11;:13::i;:::-;4262:1;:18;;4254:27;;;;;;4294:25;;;;;;;;979;4303:1;:15;4294:25;;;4287:32;;4179:145;;;:::o;1439::107:-;1497:7;1516:9;1532:1;1528;:5;1516:17;;1556:1;1551;:6;;1543:15;;;;;;1576:1;1569:8;;;1439:145;;;;:::o;7584:1591:6:-;7663:15;;:::i;:::-;7701:1;7690;:7;;;:12;:28;;;;7717:1;7706;:7;;;:12;7690:28;7686:52;;;7727:11;;;;;;;;7736:1;7727:11;;;7720:18;;;;7686:52;979:25;7748:1;:7;;;:22;7744:36;;;7779:1;7772:8;;;;7744:36;979:25;7790:1;:7;;;:22;7786:36;;;7821:1;7814:8;;;;7786:36;7911:10;979:25;7924:10;7932:1;7924:7;:10::i;:::-;:16;;;:30;;;;;;7911:43;;7960:10;7973:13;7984:1;7973:10;:13::i;:::-;:19;;;7960:32;;7998:10;979:25;8011:10;8019:1;8011:7;:10::i;:::-;:16;;;:30;;;;;;7998:43;;8047:10;8060:13;8071:1;8060:10;:13::i;:::-;:19;;;8047:32;;8163:12;8183:2;8178;:7;8163:22;;8201:1;8195:2;:7;8191:37;;8225:2;8219;8212:4;:9;;;;;;:15;8204:24;;;;;;8191:37;8344:18;979:25;8365:4;:18;8344:39;;8401:1;8393:4;:9;8389:56;;979:25;8425:4;8412:10;:17;;;;;;:32;8404:41;;;;;;8389:56;8484:10;8477:17;;8501:12;8521:2;8516;:7;8501:22;;8539:1;8533:2;:7;8529:37;;8563:2;8557;8550:4;:9;;;;;;:15;8542:24;;;;;;8529:37;8590:12;8610:2;8605;:7;8590:22;;8628:1;8622:2;:7;8618:37;;8652:2;8646;8639:4;:9;;;;;;:15;8631:24;;;;;;8618:37;8689:14;:12;:14::i;:::-;8684:2;:19;;;;;;8679:24;;8719:14;:12;:14::i;:::-;8714:2;:19;;;;;;8709:24;;8739:12;8759:2;8754;:7;8739:22;;8777:1;8771:2;:7;8767:37;;8801:2;8795;8788:4;:9;;;;;;:15;8780:24;;;;;;8767:37;8905:22;;:::i;:::-;8930:14;;;;;;;;8939:4;8930:14;;;8905:39;;8959:27;8963:6;8971:14;;;;;;;;8980:4;8971:14;;;8959:3;:27::i;:::-;8950:36;;9028:27;9032:6;9040:14;;;;;;;;9049:4;9040:14;;;9028:3;:27::i;:::-;9019:36;;9097:27;9101:6;9109:14;;;;;;;;9118:4;9109:14;;;9097:3;:27::i;:::-;9088:36;;9164:6;9157:13;;;;;;;;;;;;7584:1591;;;;;:::o;4483:109::-;4544:7;979:25;4566:1;:7;;;:21;;;;;;4559:28;;4483:109;;;:::o;1211:145:107:-;1269:7;1301:1;1296;:6;;1288:15;;;;;;1313:9;1329:1;1325;:5;1313:17;;1348:1;1341:8;;;1211:145;;;;:::o;5143:429:6:-;5244:15;;:::i;:::-;5290:13;:11;:13::i;:::-;5277:9;:26;;5269:35;;;;;;5333:13;:11;:13::i;:::-;5318:11;:28;;5310:37;;;;;;5376:1;5361:11;:16;;5353:25;;;;;;5384:34;;:::i;:::-;5421:19;5430:9;5421:8;:19::i;:::-;5384:56;;5446:36;;:::i;:::-;5485:21;5494:11;5485:8;:21::i;:::-;5446:60;;5519:48;5526:18;5546:20;5519:6;:48::i;:::-;5512:55;;;;5143:429;;;;:::o;2425:127::-;2471:7;2493:54;2486:61;;2425:127;:::o;5811:159::-;5870:15;;:::i;:::-;5900:47;;;;;;;;979:25;;5910:1;:7;;;:21;;;;;;5909:37;5900:47;;;5893:54;;5811:159;;;:::o;6257:172::-;6319:15;;:::i;:::-;6349:57;;;;;;;;979:25;;6369:1;:7;;;:21;;;;;;6368:37;6358:1;:7;;;:47;6349:57;;;6342:64;;6257:172;;;:::o;1888:87::-;1935:7;1957:13;1950:20;;1888:87;:::o;6708:182::-;6782:15;;:::i;:::-;6805:9;6827:1;:7;;;6817:1;:7;;;:17;6805:29;;6853:1;:7;;;6848:1;:12;;6840:21;;;;;;6874:11;;;;;;;;6883:1;6874:11;;;6867:18;;;6708:182;;;;:::o;9995:240::-;10072:15;;:::i;:::-;10114:1;10103;:7;;;:12;;10095:21;;;;;;10122:9;979:25;10134:1;:7;;;:21;10122:33;;10188:1;:7;;;979:25;10169:1;:15;;;;;;:26;10161:35;;;;;;10209:21;;;;;;;;10222:1;:7;;;10218:1;:11;;;;;;10209:21;;;10202:28;;;9995:240;;;;:::o;92:608:74:-;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.8;\n\nimport \"../Proposals.sol\";\nimport \"../../common/FixidityLib.sol\";\n\ncontract ProposalsTest {\n  using Proposals for Proposals.Proposal;\n\n  Proposals.Proposal private proposal;\n\n  function setNetworkWeight(uint256 networkWeight) external {\n    proposal.networkWeight = networkWeight;\n  }\n\n  function setVotes(uint256 yes, uint256 no, uint256 abstain) external {\n    proposal.votes.yes = yes;\n    proposal.votes.no = no;\n    proposal.votes.abstain = abstain;\n  }\n\n  function getSupportWithQuorumPadding(uint256 criticalBaseline) external view returns (uint256) {\n    return\n      FixidityLib.unwrap(proposal.getSupportWithQuorumPadding(FixidityLib.wrap(criticalBaseline)));\n  }\n}\n",
+  "sourcePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/test/ProposalsTest.sol",
+  "ast": {
+    "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/test/ProposalsTest.sol",
+    "exportedSymbols": {
+      "ProposalsTest": [
+        20695
+      ]
+    },
+    "id": 20696,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 20622,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".8"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:74"
+      },
+      {
+        "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/Proposals.sol",
+        "file": "../Proposals.sol",
+        "id": 20623,
+        "nodeType": "ImportDirective",
+        "scope": 20696,
+        "sourceUnit": 16953,
+        "src": "25:26:74",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/common/FixidityLib.sol",
+        "file": "../../common/FixidityLib.sol",
+        "id": 20624,
+        "nodeType": "ImportDirective",
+        "scope": 20696,
+        "sourceUnit": 1925,
+        "src": "52:38:74",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 20695,
+        "linearizedBaseContracts": [
+          20695
+        ],
+        "name": "ProposalsTest",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 20627,
+            "libraryName": {
+              "contractScope": null,
+              "id": 20625,
+              "name": "Proposals",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16952,
+              "src": "125:9:74",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Proposals_$16952",
+                "typeString": "library Proposals"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "119:39:74",
+            "typeName": {
+              "contractScope": null,
+              "id": 20626,
+              "name": "Proposals.Proposal",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16195,
+              "src": "139:18:74",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Proposal_$16195_storage_ptr",
+                "typeString": "struct Proposals.Proposal"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 20629,
+            "name": "proposal",
+            "nodeType": "VariableDeclaration",
+            "scope": 20695,
+            "src": "162:35:74",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+              "typeString": "struct Proposals.Proposal"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 20628,
+              "name": "Proposals.Proposal",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16195,
+              "src": "162:18:74",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Proposal_$16195_storage_ptr",
+                "typeString": "struct Proposals.Proposal"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 20640,
+              "nodeType": "Block",
+              "src": "260:49:74",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 20638,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 20634,
+                        "name": "proposal",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 20629,
+                        "src": "266:8:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                          "typeString": "struct Proposals.Proposal storage ref"
+                        }
+                      },
+                      "id": 20636,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "networkWeight",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16194,
+                      "src": "266:22:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20637,
+                      "name": "networkWeight",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20631,
+                      "src": "291:13:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "266:38:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 20639,
+                  "nodeType": "ExpressionStatement",
+                  "src": "266:38:74"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 20641,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setNetworkWeight",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 20632,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20631,
+                  "name": "networkWeight",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20641,
+                  "src": "228:21:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20630,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "228:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "227:23:74"
+            },
+            "returnParameters": {
+              "id": 20633,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "260:0:74"
+            },
+            "scope": 20695,
+            "src": "202:107:74",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 20674,
+              "nodeType": "Block",
+              "src": "382:101:74",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 20656,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 20650,
+                          "name": "proposal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 20629,
+                          "src": "388:8:74",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                            "typeString": "struct Proposals.Proposal storage ref"
+                          }
+                        },
+                        "id": 20653,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "votes",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 16187,
+                        "src": "388:14:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VoteTotals_$16172_storage",
+                          "typeString": "struct Proposals.VoteTotals storage ref"
+                        }
+                      },
+                      "id": 20654,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "yes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16167,
+                      "src": "388:18:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20655,
+                      "name": "yes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20643,
+                      "src": "409:3:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "388:24:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 20657,
+                  "nodeType": "ExpressionStatement",
+                  "src": "388:24:74"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 20664,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 20658,
+                          "name": "proposal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 20629,
+                          "src": "418:8:74",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                            "typeString": "struct Proposals.Proposal storage ref"
+                          }
+                        },
+                        "id": 20661,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "votes",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 16187,
+                        "src": "418:14:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VoteTotals_$16172_storage",
+                          "typeString": "struct Proposals.VoteTotals storage ref"
+                        }
+                      },
+                      "id": 20662,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "no",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16169,
+                      "src": "418:17:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20663,
+                      "name": "no",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20645,
+                      "src": "438:2:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "418:22:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 20665,
+                  "nodeType": "ExpressionStatement",
+                  "src": "418:22:74"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 20672,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 20666,
+                          "name": "proposal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 20629,
+                          "src": "446:8:74",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                            "typeString": "struct Proposals.Proposal storage ref"
+                          }
+                        },
+                        "id": 20669,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "votes",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 16187,
+                        "src": "446:14:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VoteTotals_$16172_storage",
+                          "typeString": "struct Proposals.VoteTotals storage ref"
+                        }
+                      },
+                      "id": 20670,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "abstain",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16171,
+                      "src": "446:22:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20671,
+                      "name": "abstain",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20647,
+                      "src": "471:7:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "446:32:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 20673,
+                  "nodeType": "ExpressionStatement",
+                  "src": "446:32:74"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 20675,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setVotes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 20648,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20643,
+                  "name": "yes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20675,
+                  "src": "331:11:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20642,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "331:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 20645,
+                  "name": "no",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20675,
+                  "src": "344:10:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20644,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "344:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 20647,
+                  "name": "abstain",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20675,
+                  "src": "356:15:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20646,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "356:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "330:42:74"
+            },
+            "returnParameters": {
+              "id": 20649,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "382:0:74"
+            },
+            "scope": 20695,
+            "src": "313:170:74",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 20693,
+              "nodeType": "Block",
+              "src": "582:116:74",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "id": 20688,
+                                "name": "criticalBaseline",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 20677,
+                                "src": "674:16:74",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 20686,
+                                "name": "FixidityLib",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 1924,
+                                "src": "657:11:74",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_contract$_FixidityLib_$1924_$",
+                                  "typeString": "type(library FixidityLib)"
+                                }
+                              },
+                              "id": 20687,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "wrap",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 1317,
+                              "src": "657:16:74",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_internal_pure$_t_uint256_$returns$_t_struct$_Fraction_$1284_memory_ptr_$",
+                                "typeString": "function (uint256) pure returns (struct FixidityLib.Fraction memory)"
+                              }
+                            },
+                            "id": 20689,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "657:34:74",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Fraction_$1284_memory_ptr",
+                              "typeString": "struct FixidityLib.Fraction memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_struct$_Fraction_$1284_memory_ptr",
+                              "typeString": "struct FixidityLib.Fraction memory"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 20684,
+                            "name": "proposal",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 20629,
+                            "src": "620:8:74",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                              "typeString": "struct Proposals.Proposal storage ref"
+                            }
+                          },
+                          "id": 20685,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getSupportWithQuorumPadding",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 16709,
+                          "src": "620:36:74",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$_t_struct$_Proposal_$16195_storage_ptr_$_t_struct$_Fraction_$1284_memory_ptr_$returns$_t_struct$_Fraction_$1284_memory_ptr_$bound_to$_t_struct$_Proposal_$16195_storage_ptr_$",
+                            "typeString": "function (struct Proposals.Proposal storage pointer,struct FixidityLib.Fraction memory) view returns (struct FixidityLib.Fraction memory)"
+                          }
+                        },
+                        "id": 20690,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "620:72:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Fraction_$1284_memory_ptr",
+                          "typeString": "struct FixidityLib.Fraction memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Fraction_$1284_memory_ptr",
+                          "typeString": "struct FixidityLib.Fraction memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 20682,
+                        "name": "FixidityLib",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1924,
+                        "src": "601:11:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_FixidityLib_$1924_$",
+                          "typeString": "type(library FixidityLib)"
+                        }
+                      },
+                      "id": 20683,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "unwrap",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 1328,
+                      "src": "601:18:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_struct$_Fraction_$1284_memory_ptr_$returns$_t_uint256_$",
+                        "typeString": "function (struct FixidityLib.Fraction memory) pure returns (uint256)"
+                      }
+                    },
+                    "id": 20691,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "601:92:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 20681,
+                  "id": 20692,
+                  "nodeType": "Return",
+                  "src": "588:105:74"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 20694,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSupportWithQuorumPadding",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 20678,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20677,
+                  "name": "criticalBaseline",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20694,
+                  "src": "524:24:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20676,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "524:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "523:26:74"
+            },
+            "returnParameters": {
+              "id": 20681,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20680,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20694,
+                  "src": "573:7:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20679,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "573:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "572:9:74"
+            },
+            "scope": 20695,
+            "src": "487:211:74",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 20696,
+        "src": "92:608:74"
+      }
+    ],
+    "src": "0:701:74"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/test/ProposalsTest.sol",
+    "exportedSymbols": {
+      "ProposalsTest": [
+        20695
+      ]
+    },
+    "id": 20696,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 20622,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".8"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:74"
+      },
+      {
+        "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/Proposals.sol",
+        "file": "../Proposals.sol",
+        "id": 20623,
+        "nodeType": "ImportDirective",
+        "scope": 20696,
+        "sourceUnit": 16953,
+        "src": "25:26:74",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/common/FixidityLib.sol",
+        "file": "../../common/FixidityLib.sol",
+        "id": 20624,
+        "nodeType": "ImportDirective",
+        "scope": 20696,
+        "sourceUnit": 1925,
+        "src": "52:38:74",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 20695,
+        "linearizedBaseContracts": [
+          20695
+        ],
+        "name": "ProposalsTest",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 20627,
+            "libraryName": {
+              "contractScope": null,
+              "id": 20625,
+              "name": "Proposals",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16952,
+              "src": "125:9:74",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Proposals_$16952",
+                "typeString": "library Proposals"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "119:39:74",
+            "typeName": {
+              "contractScope": null,
+              "id": 20626,
+              "name": "Proposals.Proposal",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16195,
+              "src": "139:18:74",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Proposal_$16195_storage_ptr",
+                "typeString": "struct Proposals.Proposal"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 20629,
+            "name": "proposal",
+            "nodeType": "VariableDeclaration",
+            "scope": 20695,
+            "src": "162:35:74",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+              "typeString": "struct Proposals.Proposal"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 20628,
+              "name": "Proposals.Proposal",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16195,
+              "src": "162:18:74",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Proposal_$16195_storage_ptr",
+                "typeString": "struct Proposals.Proposal"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 20640,
+              "nodeType": "Block",
+              "src": "260:49:74",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 20638,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 20634,
+                        "name": "proposal",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 20629,
+                        "src": "266:8:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                          "typeString": "struct Proposals.Proposal storage ref"
+                        }
+                      },
+                      "id": 20636,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "networkWeight",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16194,
+                      "src": "266:22:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20637,
+                      "name": "networkWeight",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20631,
+                      "src": "291:13:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "266:38:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 20639,
+                  "nodeType": "ExpressionStatement",
+                  "src": "266:38:74"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 20641,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setNetworkWeight",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 20632,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20631,
+                  "name": "networkWeight",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20641,
+                  "src": "228:21:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20630,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "228:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "227:23:74"
+            },
+            "returnParameters": {
+              "id": 20633,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "260:0:74"
+            },
+            "scope": 20695,
+            "src": "202:107:74",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 20674,
+              "nodeType": "Block",
+              "src": "382:101:74",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 20656,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 20650,
+                          "name": "proposal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 20629,
+                          "src": "388:8:74",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                            "typeString": "struct Proposals.Proposal storage ref"
+                          }
+                        },
+                        "id": 20653,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "votes",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 16187,
+                        "src": "388:14:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VoteTotals_$16172_storage",
+                          "typeString": "struct Proposals.VoteTotals storage ref"
+                        }
+                      },
+                      "id": 20654,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "yes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16167,
+                      "src": "388:18:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20655,
+                      "name": "yes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20643,
+                      "src": "409:3:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "388:24:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 20657,
+                  "nodeType": "ExpressionStatement",
+                  "src": "388:24:74"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 20664,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 20658,
+                          "name": "proposal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 20629,
+                          "src": "418:8:74",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                            "typeString": "struct Proposals.Proposal storage ref"
+                          }
+                        },
+                        "id": 20661,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "votes",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 16187,
+                        "src": "418:14:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VoteTotals_$16172_storage",
+                          "typeString": "struct Proposals.VoteTotals storage ref"
+                        }
+                      },
+                      "id": 20662,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "no",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16169,
+                      "src": "418:17:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20663,
+                      "name": "no",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20645,
+                      "src": "438:2:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "418:22:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 20665,
+                  "nodeType": "ExpressionStatement",
+                  "src": "418:22:74"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 20672,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 20666,
+                          "name": "proposal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 20629,
+                          "src": "446:8:74",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                            "typeString": "struct Proposals.Proposal storage ref"
+                          }
+                        },
+                        "id": 20669,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "votes",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 16187,
+                        "src": "446:14:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VoteTotals_$16172_storage",
+                          "typeString": "struct Proposals.VoteTotals storage ref"
+                        }
+                      },
+                      "id": 20670,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "abstain",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16171,
+                      "src": "446:22:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 20671,
+                      "name": "abstain",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20647,
+                      "src": "471:7:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "446:32:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 20673,
+                  "nodeType": "ExpressionStatement",
+                  "src": "446:32:74"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 20675,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setVotes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 20648,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20643,
+                  "name": "yes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20675,
+                  "src": "331:11:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20642,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "331:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 20645,
+                  "name": "no",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20675,
+                  "src": "344:10:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20644,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "344:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 20647,
+                  "name": "abstain",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20675,
+                  "src": "356:15:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20646,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "356:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "330:42:74"
+            },
+            "returnParameters": {
+              "id": 20649,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "382:0:74"
+            },
+            "scope": 20695,
+            "src": "313:170:74",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 20693,
+              "nodeType": "Block",
+              "src": "582:116:74",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "id": 20688,
+                                "name": "criticalBaseline",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 20677,
+                                "src": "674:16:74",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 20686,
+                                "name": "FixidityLib",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 1924,
+                                "src": "657:11:74",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_contract$_FixidityLib_$1924_$",
+                                  "typeString": "type(library FixidityLib)"
+                                }
+                              },
+                              "id": 20687,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "wrap",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 1317,
+                              "src": "657:16:74",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_internal_pure$_t_uint256_$returns$_t_struct$_Fraction_$1284_memory_ptr_$",
+                                "typeString": "function (uint256) pure returns (struct FixidityLib.Fraction memory)"
+                              }
+                            },
+                            "id": 20689,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "657:34:74",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Fraction_$1284_memory_ptr",
+                              "typeString": "struct FixidityLib.Fraction memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_struct$_Fraction_$1284_memory_ptr",
+                              "typeString": "struct FixidityLib.Fraction memory"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 20684,
+                            "name": "proposal",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 20629,
+                            "src": "620:8:74",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Proposal_$16195_storage",
+                              "typeString": "struct Proposals.Proposal storage ref"
+                            }
+                          },
+                          "id": 20685,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getSupportWithQuorumPadding",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 16709,
+                          "src": "620:36:74",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$_t_struct$_Proposal_$16195_storage_ptr_$_t_struct$_Fraction_$1284_memory_ptr_$returns$_t_struct$_Fraction_$1284_memory_ptr_$bound_to$_t_struct$_Proposal_$16195_storage_ptr_$",
+                            "typeString": "function (struct Proposals.Proposal storage pointer,struct FixidityLib.Fraction memory) view returns (struct FixidityLib.Fraction memory)"
+                          }
+                        },
+                        "id": 20690,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "620:72:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Fraction_$1284_memory_ptr",
+                          "typeString": "struct FixidityLib.Fraction memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Fraction_$1284_memory_ptr",
+                          "typeString": "struct FixidityLib.Fraction memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 20682,
+                        "name": "FixidityLib",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1924,
+                        "src": "601:11:74",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_FixidityLib_$1924_$",
+                          "typeString": "type(library FixidityLib)"
+                        }
+                      },
+                      "id": 20683,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "unwrap",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 1328,
+                      "src": "601:18:74",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_struct$_Fraction_$1284_memory_ptr_$returns$_t_uint256_$",
+                        "typeString": "function (struct FixidityLib.Fraction memory) pure returns (uint256)"
+                      }
+                    },
+                    "id": 20691,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "601:92:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 20681,
+                  "id": 20692,
+                  "nodeType": "Return",
+                  "src": "588:105:74"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 20694,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSupportWithQuorumPadding",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 20678,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20677,
+                  "name": "criticalBaseline",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20694,
+                  "src": "524:24:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20676,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "524:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "523:26:74"
+            },
+            "returnParameters": {
+              "id": 20681,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20680,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 20694,
+                  "src": "573:7:74",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 20679,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "573:7:74",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "572:9:74"
+            },
+            "scope": 20695,
+            "src": "487:211:74",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 20696,
+        "src": "92:608:74"
+      }
+    ],
+    "src": "0:701:74"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.10",
+  "updatedAt": "2019-12-06T00:02:49.927Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

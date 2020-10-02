@@ -1,0 +1,17 @@
+import { BigNumber } from 'bignumber.js';
+import { GoldToken as GoldTokenType } from '../types/GoldToken';
+import { IERC20Token as TokenType } from '../types/IERC20Token';
+import { StableToken as StableTokenType } from '../types/StableToken';
+export declare type CeloTokenType = GoldTokenType | StableTokenType;
+declare type TransferableWithCommentTokenType = CeloTokenType;
+export declare function getErc20Balance(contract: TokenType, address: string, web3: any): Promise<BigNumber>;
+export declare function balanceOf(contract: TokenType, address: string, web3: any): Promise<BigNumber>;
+export declare function convertToContractDecimals(value: number | BigNumber, contract: TokenType): Promise<BigNumber>;
+export declare function parseFromContractDecimals(value: BigNumber, contract: TokenType): Promise<BigNumber>;
+export declare function selectTokenContractByIdentifier(contracts: TokenType[], identifier: string): Promise<TokenType>;
+export declare function approveToken(token: TokenType, address: string, approveAmount: BigNumber, txOptions?: {}): Promise<any>;
+export declare function allowance(token: TokenType, owner: string, spender: string): Promise<BigNumber>;
+export declare function transferToken(toAddress: string, token: TokenType, amount: BigNumber, txOptions?: {}): Promise<any>;
+export declare function transferTokenWithComment(toAddress: string, token: TransferableWithCommentTokenType, amount: BigNumber, comment: string, txOptions?: {}): Promise<any>;
+export declare function getGoldTokenAddress(web3: any): Promise<string>;
+export {};

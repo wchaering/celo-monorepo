@@ -1,0 +1,4208 @@
+{
+  "contractName": "BlockchainParameters",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "initialized",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "blockGasLimit",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "intrinsicGasForAlternativeFeeCurrency",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "major",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "minor",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "patch",
+          "type": "uint256"
+        }
+      ],
+      "name": "MinimumClientVersionSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "gas",
+          "type": "uint256"
+        }
+      ],
+      "name": "IntrinsicGasForAlternativeFeeCurrencySet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "limit",
+          "type": "uint256"
+        }
+      ],
+      "name": "BlockGasLimitSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "major",
+          "type": "uint256"
+        },
+        {
+          "name": "minor",
+          "type": "uint256"
+        },
+        {
+          "name": "patch",
+          "type": "uint256"
+        },
+        {
+          "name": "_gasForNonGoldCurrencies",
+          "type": "uint256"
+        },
+        {
+          "name": "gasLimit",
+          "type": "uint256"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "major",
+          "type": "uint256"
+        },
+        {
+          "name": "minor",
+          "type": "uint256"
+        },
+        {
+          "name": "patch",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMinimumClientVersion",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "gasLimit",
+          "type": "uint256"
+        }
+      ],
+      "name": "setBlockGasLimit",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "gas",
+          "type": "uint256"
+        }
+      ],
+      "name": "setIntrinsicGasForAlternativeFeeCurrency",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getMinimumClientVersion",
+      "outputs": [
+        {
+          "name": "major",
+          "type": "uint256"
+        },
+        {
+          "name": "minor",
+          "type": "uint256"
+        },
+        {
+          "name": "patch",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"initialized\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getMinimumClientVersion\",\"outputs\":[{\"name\":\"major\",\"type\":\"uint256\"},{\"name\":\"minor\",\"type\":\"uint256\"},{\"name\":\"patch\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"blockGasLimit\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"intrinsicGasForAlternativeFeeCurrency\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"gasLimit\",\"type\":\"uint256\"}],\"name\":\"setBlockGasLimit\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"major\",\"type\":\"uint256\"},{\"name\":\"minor\",\"type\":\"uint256\"},{\"name\":\"patch\",\"type\":\"uint256\"}],\"name\":\"setMinimumClientVersion\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"gas\",\"type\":\"uint256\"}],\"name\":\"setIntrinsicGasForAlternativeFeeCurrency\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"major\",\"type\":\"uint256\"},{\"name\":\"minor\",\"type\":\"uint256\"},{\"name\":\"patch\",\"type\":\"uint256\"},{\"name\":\"_gasForNonGoldCurrencies\",\"type\":\"uint256\"},{\"name\":\"gasLimit\",\"type\":\"uint256\"}],\"name\":\"initialize\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"major\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"minor\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"patch\",\"type\":\"uint256\"}],\"name\":\"MinimumClientVersionSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"gas\",\"type\":\"uint256\"}],\"name\":\"IntrinsicGasForAlternativeFeeCurrencySet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"limit\",\"type\":\"uint256\"}],\"name\":\"BlockGasLimitSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{\"getMinimumClientVersion()\":{\"return\":\"Returns major, minor, and patch version numbers.\"},\"initialize(uint256,uint256,uint256,uint256,uint256)\":{\"params\":{\"_gasForNonGoldCurrencies\":\"Intrinsic gas for non-gold gas currencies.\",\"gasLimit\":\"Block gas limit.\",\"major\":\"Minimum client version that can be used in the chain, major version.\",\"minor\":\"Minimum client version that can be used in the chain, minor version.\",\"patch\":\"Minimum client version that can be used in the chain, patch level.\"}},\"isOwner()\":{\"return\":\"true if `msg.sender` is the owner of the contract.\"},\"owner()\":{\"return\":\"the address of the owner.\"},\"renounceOwnership()\":{\"details\":\"Allows the current owner to relinquish control of the contract. It will not be possible to call the functions with the `onlyOwner` modifier anymore.\"},\"setBlockGasLimit(uint256)\":{\"params\":{\"gasLimit\":\"New block gas limit.\"}},\"setIntrinsicGasForAlternativeFeeCurrency(uint256)\":{\"params\":{\"gas\":\"Intrinsic gas for non-gold gas currencies.\"}},\"setMinimumClientVersion(uint256,uint256,uint256)\":{\"details\":\"For example if the version is 1.9.2, 1 is the major version, 9 is minor, and 2 is the patch level.\",\"params\":{\"major\":\"Major version.\",\"minor\":\"Minor version.\",\"patch\":\"Patch version.\"}},\"transferOwnership(address)\":{\"details\":\"Allows the current owner to transfer control of the contract to a newOwner.\",\"params\":{\"newOwner\":\"The address to transfer ownership to.\"}}},\"title\":\"Contract for storing blockchain parameters that can be set by governance.\"},\"userdoc\":{\"methods\":{\"getMinimumClientVersion()\":{\"notice\":\"Query minimum client version.\"},\"initialize(uint256,uint256,uint256,uint256,uint256)\":{\"notice\":\"Initializes critical variables.\"},\"renounceOwnership()\":{\"notice\":\"Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"setBlockGasLimit(uint256)\":{\"notice\":\"Sets the block gas limit.\"},\"setIntrinsicGasForAlternativeFeeCurrency(uint256)\":{\"notice\":\"Sets the intrinsic gas for non-gold gas currencies.\"},\"setMinimumClientVersion(uint256,uint256,uint256)\":{\"notice\":\"Sets the minimum client version.\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/BlockchainParameters.sol\":\"BlockchainParameters\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/common/Initializable.sol\":{\"keccak256\":\"0xd2732488e07ec27bbb2c343ecb10ad0f76adce402b13b976aee88342be5c11e8\",\"urls\":[\"bzzr://97c9b03aad5c74adb18b6c40e14f2cc22b784a6d8841914e43f7c44e6ee340b7\"]},\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/BlockchainParameters.sol\":{\"keccak256\":\"0xbad9e9e8a22197d58f64d6ed1b95e08e31bba8a2f1a6808535de1addcf5f7303\",\"urls\":[\"bzzr://e2023e8cf58795dcb5614b03a9a6953175a23e1deb389572edbc2dfd18034f08\"]},\"openzeppelin-solidity/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0xcb16adc00dcf0d75e0bdf94379f4d5a6d74dca7c74e4183b94e15721159f8a30\",\"urls\":[\"bzzr://b81e03f7203cd628cfed19255911a04a05e8670d248afb48a7b067dd03b4ff55\"]}},\"version\":1}",
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3610742806100cf6000396000f3fe608060405234801561001057600080fd5b50600436106100b45760003560e01c80638f32d59b116100715780638f32d59b14610197578063a69257f3146101b9578063bb3ff745146101e7578063cb0ec62814610229578063dcbab60814610257578063f2fde38b146102ad576100b4565b8063158ef93e146100b957806325eb315d146100db578063715018a6146101075780637877a79714610111578063808474f11461012f5780638da5cb5b1461014d575b600080fd5b6100c16102f1565b604051808215151515815260200191505060405180910390f35b6100e3610304565b60405180848152602001838152602001828152602001935050505060405180910390f35b61010f610325565b005b6101196103f5565b6040518082815260200191505060405180910390f35b6101376103fb565b6040518082815260200191505060405180910390f35b610155610401565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61019f61042a565b604051808215151515815260200191505060405180910390f35b6101e5600480360360208110156101cf57600080fd5b8101908080359060200190929190505050610481565b005b610227600480360360608110156101fd57600080fd5b810190808035906020019092919080359060200190929190803590602001909291905050506104d3565b005b6102556004803603602081101561023f57600080fd5b810190808035906020019092919050505061054d565b005b6102ab600480360360a081101561026d57600080fd5b81019080803590602001909291908035906020019092919080359060200190929190803590602001909291908035906020019092919050505061059f565b005b6102ef600480360360208110156102c357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610601565b005b600060149054906101000a900460ff1681565b60008060006001600001546001800154600160020154925092509250909192565b61032d61042a565b61033657600080fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60045481565b60055481565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614905090565b61048961042a565b61049257600080fd5b806004819055507f55311ae9c14427b0863f38ed97a2a5944c50d824bbf692836246512e6822c3cf816040518082815260200191505060405180910390a150565b6104db61042a565b6104e457600080fd5b82600160000181905550816001800181905550806001600201819055507f809db05bd174a70ede53d18fc046c5ceb86ebffbb7746a0c8605772c97ef0d5283838360405180848152602001838152602001828152602001935050505060405180910390a1505050565b61055561042a565b61055e57600080fd5b806005819055507fba9c6f28c7d9990745a5b5282dbee04706c28cae24a44736c3ba99b57c021f3e816040518082815260200191505060405180910390a150565b600060149054906101000a900460ff16156105b957600080fd5b6001600060146101000a81548160ff0219169083151502179055506105dd3361061e565b6105e88585856104d3565b6105f181610481565b6105fa8261054d565b5050505050565b61060961042a565b61061257600080fd5b61061b8161061e565b50565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141561065857600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fea165627a7a72305820ba267929e72ef58edd3521908781f077e8701f462e08264a5d5fd79ac8f4c8570029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100b45760003560e01c80638f32d59b116100715780638f32d59b14610197578063a69257f3146101b9578063bb3ff745146101e7578063cb0ec62814610229578063dcbab60814610257578063f2fde38b146102ad576100b4565b8063158ef93e146100b957806325eb315d146100db578063715018a6146101075780637877a79714610111578063808474f11461012f5780638da5cb5b1461014d575b600080fd5b6100c16102f1565b604051808215151515815260200191505060405180910390f35b6100e3610304565b60405180848152602001838152602001828152602001935050505060405180910390f35b61010f610325565b005b6101196103f5565b6040518082815260200191505060405180910390f35b6101376103fb565b6040518082815260200191505060405180910390f35b610155610401565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61019f61042a565b604051808215151515815260200191505060405180910390f35b6101e5600480360360208110156101cf57600080fd5b8101908080359060200190929190505050610481565b005b610227600480360360608110156101fd57600080fd5b810190808035906020019092919080359060200190929190803590602001909291905050506104d3565b005b6102556004803603602081101561023f57600080fd5b810190808035906020019092919050505061054d565b005b6102ab600480360360a081101561026d57600080fd5b81019080803590602001909291908035906020019092919080359060200190929190803590602001909291908035906020019092919050505061059f565b005b6102ef600480360360208110156102c357600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610601565b005b600060149054906101000a900460ff1681565b60008060006001600001546001800154600160020154925092509250909192565b61032d61042a565b61033657600080fd5b600073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a360008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b60045481565b60055481565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614905090565b61048961042a565b61049257600080fd5b806004819055507f55311ae9c14427b0863f38ed97a2a5944c50d824bbf692836246512e6822c3cf816040518082815260200191505060405180910390a150565b6104db61042a565b6104e457600080fd5b82600160000181905550816001800181905550806001600201819055507f809db05bd174a70ede53d18fc046c5ceb86ebffbb7746a0c8605772c97ef0d5283838360405180848152602001838152602001828152602001935050505060405180910390a1505050565b61055561042a565b61055e57600080fd5b806005819055507fba9c6f28c7d9990745a5b5282dbee04706c28cae24a44736c3ba99b57c021f3e816040518082815260200191505060405180910390a150565b600060149054906101000a900460ff16156105b957600080fd5b6001600060146101000a81548160ff0219169083151502179055506105dd3361061e565b6105e88585856104d3565b6105f181610481565b6105fa8261054d565b5050505050565b61060961042a565b61061257600080fd5b61061b8161061e565b50565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141561065857600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505056fea165627a7a72305820ba267929e72ef58edd3521908781f077e8701f462e08264a5d5fd79ac8f4c8570029",
+  "sourceMap": "220:2724:50:-;;;524:10:108;515:6;;:19;;;;;;;;;;;;;;;;;;582:6;;;;;;;;;;;549:40;;578:1;549:40;;;;;;;;;;;;220:2724:50;;;;;;",
+  "deployedSourceMap": "220:2724:50:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;220:2724:50;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;52:23:10;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;2722:219:50;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1423:137:108;;;:::i;:::-;;413:28:50;;;:::i;:::-;;;;;;;;;;;;;;;;;;;445:52;;;:::i;:::-;;;;;;;;;;;;;;;;;;;659:77:108;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;979:90;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;2138:133:50;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2138:133:50;;;;;;;;;;;;;;;;;:::i;:::-;;1766:275;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1766:275:50;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;2411:190;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2411:190:50;;;;;;;;;;;;;;;;;:::i;:::-;;1134:357;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;1134:357:50;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;1731:107:108;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1731:107:108;;;;;;;;;;;;;;;;;;;:::i;:::-;;52:23:10;;;;;;;;;;;;;:::o;2722:219:50:-;2792:13;2807;2822;2853:20;:26;;;2881:20;:26;;;2909:20;:26;;;2845:91;;;;;;2722:219;;;:::o;1423:137:108:-;863:9;:7;:9::i;:::-;855:18;;;;;;1521:1;1484:40;;1505:6;;;;;;;;;;;1484:40;;;;;;;;;;;;1551:1;1534:6;;:19;;;;;;;;;;;;;;;;;;1423:137::o;413:28:50:-;;;;:::o;445:52::-;;;;:::o;659:77:108:-;697:7;723:6;;;;;;;;;;;716:13;;659:77;:::o;979:90::-;1019:4;1056:6;;;;;;;;;;;1042:20;;:10;:20;;;1035:27;;979:90;:::o;2138:133:50:-;863:9:108;:7;:9::i;:::-;855:18;;;;;;2221:8:50;2205:13;:24;;;;2240:26;2257:8;2240:26;;;;;;;;;;;;;;;;;;2138:133;:::o;1766:275::-;863:9:108;:7;:9::i;:::-;855:18;;;;;;1896:5:50;1867:20;:26;;:34;;;;1936:5;1907:20;:26;;:34;;;;1976:5;1947:20;:26;;:34;;;;1992:44;2016:5;2023;2030;1992:44;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1766:275;;;:::o;2411:190::-;863:9:108;:7;:9::i;:::-;855:18;;;;;;2537:3:50;2497:37;:43;;;;2551:45;2592:3;2551:45;;;;;;;;;;;;;;;;;;2411:190;:::o;1134:357::-;118:11:10;;;;;;;;;;;117:12;109:21;;;;;;150:4;136:11;;:18;;;;;;;;;;;;;;;;;;1302:30:50;1321:10;1302:18;:30::i;:::-;1338:44;1362:5;1369;1376;1338:23;:44::i;:::-;1388:26;1405:8;1388:16;:26::i;:::-;1420:66;1461:24;1420:40;:66::i;:::-;1134:357;;;;;:::o;1731:107:108:-;863:9;:7;:9::i;:::-;855:18;;;;;;1803:28;1822:8;1803:18;:28::i;:::-;1731:107;:::o;1982:183::-;2075:1;2055:22;;:8;:22;;;;2047:31;;;;;;2122:8;2093:38;;2114:6;;;;;;;;;;;2093:38;;;;;;;;;;;;2150:8;2141:6;;:17;;;;;;;;;;;;;;;;;;1982:183;:::o",
+  "source": "pragma solidity ^0.5.3;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\nimport \"../common/Initializable.sol\";\n\n/**\n * @title Contract for storing blockchain parameters that can be set by governance.\n */\ncontract BlockchainParameters is Ownable, Initializable {\n  struct ClientVersion {\n    uint256 major;\n    uint256 minor;\n    uint256 patch;\n  }\n\n  ClientVersion private minimumClientVersion;\n  uint256 public blockGasLimit;\n  uint256 public intrinsicGasForAlternativeFeeCurrency;\n\n  event MinimumClientVersionSet(uint256 major, uint256 minor, uint256 patch);\n  event IntrinsicGasForAlternativeFeeCurrencySet(uint256 gas);\n  event BlockGasLimitSet(uint256 limit);\n\n  /**\n   * @notice Initializes critical variables.\n   * @param major Minimum client version that can be used in the chain,\n   * major version.\n   * @param minor Minimum client version that can be used in the chain,\n   * minor version.\n   * @param patch Minimum client version that can be used in the chain,\n   * patch level.\n   * @param _gasForNonGoldCurrencies Intrinsic gas for non-gold gas currencies.\n   * @param gasLimit Block gas limit.\n   */\n  function initialize(\n    uint256 major,\n    uint256 minor,\n    uint256 patch,\n    uint256 _gasForNonGoldCurrencies,\n    uint256 gasLimit\n  ) external initializer {\n    _transferOwnership(msg.sender);\n    setMinimumClientVersion(major, minor, patch);\n    setBlockGasLimit(gasLimit);\n    setIntrinsicGasForAlternativeFeeCurrency(_gasForNonGoldCurrencies);\n  }\n\n  /**\n   * @notice Sets the minimum client version.\n   * @param major Major version.\n   * @param minor Minor version.\n   * @param patch Patch version.\n   * @dev For example if the version is 1.9.2, 1 is the major version, 9 is minor,\n   * and 2 is the patch level.\n   */\n  function setMinimumClientVersion(uint256 major, uint256 minor, uint256 patch) public onlyOwner {\n    minimumClientVersion.major = major;\n    minimumClientVersion.minor = minor;\n    minimumClientVersion.patch = patch;\n    emit MinimumClientVersionSet(major, minor, patch);\n  }\n\n  /**\n   * @notice Sets the block gas limit.\n   * @param gasLimit New block gas limit.\n   */\n  function setBlockGasLimit(uint256 gasLimit) public onlyOwner {\n    blockGasLimit = gasLimit;\n    emit BlockGasLimitSet(gasLimit);\n  }\n\n  /**\n   * @notice Sets the intrinsic gas for non-gold gas currencies.\n   * @param gas Intrinsic gas for non-gold gas currencies.\n   */\n  function setIntrinsicGasForAlternativeFeeCurrency(uint256 gas) public onlyOwner {\n    intrinsicGasForAlternativeFeeCurrency = gas;\n    emit IntrinsicGasForAlternativeFeeCurrencySet(gas);\n  }\n\n  /**\n   * @notice Query minimum client version.\n   * @return Returns major, minor, and patch version numbers.\n   */\n  function getMinimumClientVersion()\n    external\n    view\n    returns (uint256 major, uint256 minor, uint256 patch)\n  {\n    return (minimumClientVersion.major, minimumClientVersion.minor, minimumClientVersion.patch);\n  }\n\n}\n",
+  "sourcePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/BlockchainParameters.sol",
+  "ast": {
+    "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/BlockchainParameters.sol",
+    "exportedSymbols": {
+      "BlockchainParameters": [
+        9709
+      ]
+    },
+    "id": 9710,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9552,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:50"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 9553,
+        "nodeType": "ImportDirective",
+        "scope": 9710,
+        "sourceUnit": 27897,
+        "src": "25:63:50",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/common/Initializable.sol",
+        "file": "../common/Initializable.sol",
+        "id": 9554,
+        "nodeType": "ImportDirective",
+        "scope": 9710,
+        "sourceUnit": 3121,
+        "src": "89:37:50",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 9555,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 27896,
+              "src": "253:7:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$27896",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 9556,
+            "nodeType": "InheritanceSpecifier",
+            "src": "253:7:50"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 9557,
+              "name": "Initializable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3120,
+              "src": "262:13:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Initializable_$3120",
+                "typeString": "contract Initializable"
+              }
+            },
+            "id": 9558,
+            "nodeType": "InheritanceSpecifier",
+            "src": "262:13:50"
+          }
+        ],
+        "contractDependencies": [
+          3120,
+          27896
+        ],
+        "contractKind": "contract",
+        "documentation": "@title Contract for storing blockchain parameters that can be set by governance.",
+        "fullyImplemented": true,
+        "id": 9709,
+        "linearizedBaseContracts": [
+          9709,
+          3120,
+          27896
+        ],
+        "name": "BlockchainParameters",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "BlockchainParameters.ClientVersion",
+            "id": 9565,
+            "members": [
+              {
+                "constant": false,
+                "id": 9560,
+                "name": "major",
+                "nodeType": "VariableDeclaration",
+                "scope": 9565,
+                "src": "307:13:50",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 9559,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "307:7:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 9562,
+                "name": "minor",
+                "nodeType": "VariableDeclaration",
+                "scope": 9565,
+                "src": "326:13:50",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 9561,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "326:7:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 9564,
+                "name": "patch",
+                "nodeType": "VariableDeclaration",
+                "scope": 9565,
+                "src": "345:13:50",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 9563,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "345:7:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ClientVersion",
+            "nodeType": "StructDefinition",
+            "scope": 9709,
+            "src": "280:83:50",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 9567,
+            "name": "minimumClientVersion",
+            "nodeType": "VariableDeclaration",
+            "scope": 9709,
+            "src": "367:42:50",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+              "typeString": "struct BlockchainParameters.ClientVersion"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 9566,
+              "name": "ClientVersion",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 9565,
+              "src": "367:13:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_ClientVersion_$9565_storage_ptr",
+                "typeString": "struct BlockchainParameters.ClientVersion"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 9569,
+            "name": "blockGasLimit",
+            "nodeType": "VariableDeclaration",
+            "scope": 9709,
+            "src": "413:28:50",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 9568,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "413:7:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 9571,
+            "name": "intrinsicGasForAlternativeFeeCurrency",
+            "nodeType": "VariableDeclaration",
+            "scope": 9709,
+            "src": "445:52:50",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 9570,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "445:7:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9579,
+            "name": "MinimumClientVersionSet",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9578,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9573,
+                  "indexed": false,
+                  "name": "major",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9579,
+                  "src": "532:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9572,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "532:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9575,
+                  "indexed": false,
+                  "name": "minor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9579,
+                  "src": "547:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9574,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "547:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9577,
+                  "indexed": false,
+                  "name": "patch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9579,
+                  "src": "562:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9576,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "562:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "531:45:50"
+            },
+            "src": "502:75:50"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9583,
+            "name": "IntrinsicGasForAlternativeFeeCurrencySet",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9582,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9581,
+                  "indexed": false,
+                  "name": "gas",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9583,
+                  "src": "627:11:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9580,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "627:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "626:13:50"
+            },
+            "src": "580:60:50"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9587,
+            "name": "BlockGasLimitSet",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9586,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9585,
+                  "indexed": false,
+                  "name": "limit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9587,
+                  "src": "666:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9584,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "666:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "665:15:50"
+            },
+            "src": "643:38:50"
+          },
+          {
+            "body": {
+              "id": 9621,
+              "nodeType": "Block",
+              "src": "1296:195:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 9603,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 28640,
+                          "src": "1321:3:50",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 9604,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1321:10:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 9602,
+                      "name": "_transferOwnership",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 27895,
+                      "src": "1302:18:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 9605,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1302:30:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9606,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1302:30:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9608,
+                        "name": "major",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9589,
+                        "src": "1362:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9609,
+                        "name": "minor",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9591,
+                        "src": "1369:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9610,
+                        "name": "patch",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9593,
+                        "src": "1376:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9607,
+                      "name": "setMinimumClientVersion",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9658,
+                      "src": "1338:23:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,uint256,uint256)"
+                      }
+                    },
+                    "id": 9611,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1338:44:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9612,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1338:44:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9614,
+                        "name": "gasLimit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9597,
+                        "src": "1405:8:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9613,
+                      "name": "setBlockGasLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9674,
+                      "src": "1388:16:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 9615,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1388:26:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9616,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1388:26:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9618,
+                        "name": "_gasForNonGoldCurrencies",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9595,
+                        "src": "1461:24:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9617,
+                      "name": "setIntrinsicGasForAlternativeFeeCurrency",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9690,
+                      "src": "1420:40:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 9619,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1420:66:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9620,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1420:66:50"
+                }
+              ]
+            },
+            "documentation": "@notice Initializes critical variables.\n@param major Minimum client version that can be used in the chain,\nmajor version.\n@param minor Minimum client version that can be used in the chain,\nminor version.\n@param patch Minimum client version that can be used in the chain,\npatch level.\n@param _gasForNonGoldCurrencies Intrinsic gas for non-gold gas currencies.\n@param gasLimit Block gas limit.",
+            "id": 9622,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 9600,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 9599,
+                  "name": "initializer",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3119,
+                  "src": "1284:11:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1284:11:50"
+              }
+            ],
+            "name": "initialize",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9598,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9589,
+                  "name": "major",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1159:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9588,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1159:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9591,
+                  "name": "minor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1178:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9590,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1178:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9593,
+                  "name": "patch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1197:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9592,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1197:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9595,
+                  "name": "_gasForNonGoldCurrencies",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1216:32:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9594,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1216:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9597,
+                  "name": "gasLimit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1254:16:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9596,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1254:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1153:121:50"
+            },
+            "returnParameters": {
+              "id": 9601,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1296:0:50"
+            },
+            "scope": 9709,
+            "src": "1134:357:50",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 9657,
+              "nodeType": "Block",
+              "src": "1861:180:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9637,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 9633,
+                        "name": "minimumClientVersion",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9567,
+                        "src": "1867:20:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                          "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                        }
+                      },
+                      "id": 9635,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "major",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 9560,
+                      "src": "1867:26:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9636,
+                      "name": "major",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9624,
+                      "src": "1896:5:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1867:34:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9638,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1867:34:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9643,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 9639,
+                        "name": "minimumClientVersion",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9567,
+                        "src": "1907:20:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                          "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                        }
+                      },
+                      "id": 9641,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "minor",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 9562,
+                      "src": "1907:26:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9642,
+                      "name": "minor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9626,
+                      "src": "1936:5:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1907:34:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9644,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1907:34:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9649,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 9645,
+                        "name": "minimumClientVersion",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9567,
+                        "src": "1947:20:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                          "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                        }
+                      },
+                      "id": 9647,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "patch",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 9564,
+                      "src": "1947:26:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9648,
+                      "name": "patch",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9628,
+                      "src": "1976:5:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1947:34:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9650,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1947:34:50"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9652,
+                        "name": "major",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9624,
+                        "src": "2016:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9653,
+                        "name": "minor",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9626,
+                        "src": "2023:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9654,
+                        "name": "patch",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9628,
+                        "src": "2030:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9651,
+                      "name": "MinimumClientVersionSet",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9579,
+                      "src": "1992:23:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,uint256,uint256)"
+                      }
+                    },
+                    "id": 9655,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1992:44:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9656,
+                  "nodeType": "EmitStatement",
+                  "src": "1987:49:50"
+                }
+              ]
+            },
+            "documentation": "@notice Sets the minimum client version.\n@param major Major version.\n@param minor Minor version.\n@param patch Patch version.\n@dev For example if the version is 1.9.2, 1 is the major version, 9 is minor,\nand 2 is the patch level.",
+            "id": 9658,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 9631,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 9630,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 27830,
+                  "src": "1851:9:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1851:9:50"
+              }
+            ],
+            "name": "setMinimumClientVersion",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9629,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9624,
+                  "name": "major",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9658,
+                  "src": "1799:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9623,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1799:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9626,
+                  "name": "minor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9658,
+                  "src": "1814:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9625,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1814:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9628,
+                  "name": "patch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9658,
+                  "src": "1829:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9627,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1829:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1798:45:50"
+            },
+            "returnParameters": {
+              "id": 9632,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1861:0:50"
+            },
+            "scope": 9709,
+            "src": "1766:275:50",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9673,
+              "nodeType": "Block",
+              "src": "2199:72:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9667,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 9665,
+                      "name": "blockGasLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9569,
+                      "src": "2205:13:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9666,
+                      "name": "gasLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9660,
+                      "src": "2221:8:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "2205:24:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9668,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2205:24:50"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9670,
+                        "name": "gasLimit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9660,
+                        "src": "2257:8:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9669,
+                      "name": "BlockGasLimitSet",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9587,
+                      "src": "2240:16:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 9671,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2240:26:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9672,
+                  "nodeType": "EmitStatement",
+                  "src": "2235:31:50"
+                }
+              ]
+            },
+            "documentation": "@notice Sets the block gas limit.\n@param gasLimit New block gas limit.",
+            "id": 9674,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 9663,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 9662,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 27830,
+                  "src": "2189:9:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2189:9:50"
+              }
+            ],
+            "name": "setBlockGasLimit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9661,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9660,
+                  "name": "gasLimit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9674,
+                  "src": "2164:16:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9659,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2164:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2163:18:50"
+            },
+            "returnParameters": {
+              "id": 9664,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2199:0:50"
+            },
+            "scope": 9709,
+            "src": "2138:133:50",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9689,
+              "nodeType": "Block",
+              "src": "2491:110:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9683,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 9681,
+                      "name": "intrinsicGasForAlternativeFeeCurrency",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9571,
+                      "src": "2497:37:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9682,
+                      "name": "gas",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9676,
+                      "src": "2537:3:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "2497:43:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9684,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2497:43:50"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9686,
+                        "name": "gas",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9676,
+                        "src": "2592:3:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9685,
+                      "name": "IntrinsicGasForAlternativeFeeCurrencySet",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9583,
+                      "src": "2551:40:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 9687,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2551:45:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9688,
+                  "nodeType": "EmitStatement",
+                  "src": "2546:50:50"
+                }
+              ]
+            },
+            "documentation": "@notice Sets the intrinsic gas for non-gold gas currencies.\n@param gas Intrinsic gas for non-gold gas currencies.",
+            "id": 9690,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 9679,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 9678,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 27830,
+                  "src": "2481:9:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2481:9:50"
+              }
+            ],
+            "name": "setIntrinsicGasForAlternativeFeeCurrency",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9677,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9676,
+                  "name": "gas",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9690,
+                  "src": "2461:11:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9675,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2461:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2460:13:50"
+            },
+            "returnParameters": {
+              "id": 9680,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2491:0:50"
+            },
+            "scope": 9709,
+            "src": "2411:190:50",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9707,
+              "nodeType": "Block",
+              "src": "2839:102:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 9699,
+                          "name": "minimumClientVersion",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9567,
+                          "src": "2853:20:50",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                            "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                          }
+                        },
+                        "id": 9700,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "major",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 9560,
+                        "src": "2853:26:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 9701,
+                          "name": "minimumClientVersion",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9567,
+                          "src": "2881:20:50",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                            "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                          }
+                        },
+                        "id": 9702,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "minor",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 9562,
+                        "src": "2881:26:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 9703,
+                          "name": "minimumClientVersion",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9567,
+                          "src": "2909:20:50",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                            "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                          }
+                        },
+                        "id": 9704,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "patch",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 9564,
+                        "src": "2909:26:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 9705,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "2852:84:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$",
+                      "typeString": "tuple(uint256,uint256,uint256)"
+                    }
+                  },
+                  "functionReturnParameters": 9698,
+                  "id": 9706,
+                  "nodeType": "Return",
+                  "src": "2845:91:50"
+                }
+              ]
+            },
+            "documentation": "@notice Query minimum client version.\n@return Returns major, minor, and patch version numbers.",
+            "id": 9708,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getMinimumClientVersion",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9691,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2754:2:50"
+            },
+            "returnParameters": {
+              "id": 9698,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9693,
+                  "name": "major",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9708,
+                  "src": "2792:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9692,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2792:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9695,
+                  "name": "minor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9708,
+                  "src": "2807:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9694,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2807:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9697,
+                  "name": "patch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9708,
+                  "src": "2822:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9696,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2822:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2791:45:50"
+            },
+            "scope": 9709,
+            "src": "2722:219:50",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 9710,
+        "src": "220:2724:50"
+      }
+    ],
+    "src": "0:2945:50"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/BlockchainParameters.sol",
+    "exportedSymbols": {
+      "BlockchainParameters": [
+        9709
+      ]
+    },
+    "id": 9710,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9552,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:50"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "id": 9553,
+        "nodeType": "ImportDirective",
+        "scope": 9710,
+        "sourceUnit": 27897,
+        "src": "25:63:50",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/common/Initializable.sol",
+        "file": "../common/Initializable.sol",
+        "id": 9554,
+        "nodeType": "ImportDirective",
+        "scope": 9710,
+        "sourceUnit": 3121,
+        "src": "89:37:50",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 9555,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 27896,
+              "src": "253:7:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$27896",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 9556,
+            "nodeType": "InheritanceSpecifier",
+            "src": "253:7:50"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 9557,
+              "name": "Initializable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3120,
+              "src": "262:13:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Initializable_$3120",
+                "typeString": "contract Initializable"
+              }
+            },
+            "id": 9558,
+            "nodeType": "InheritanceSpecifier",
+            "src": "262:13:50"
+          }
+        ],
+        "contractDependencies": [
+          3120,
+          27896
+        ],
+        "contractKind": "contract",
+        "documentation": "@title Contract for storing blockchain parameters that can be set by governance.",
+        "fullyImplemented": true,
+        "id": 9709,
+        "linearizedBaseContracts": [
+          9709,
+          3120,
+          27896
+        ],
+        "name": "BlockchainParameters",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "BlockchainParameters.ClientVersion",
+            "id": 9565,
+            "members": [
+              {
+                "constant": false,
+                "id": 9560,
+                "name": "major",
+                "nodeType": "VariableDeclaration",
+                "scope": 9565,
+                "src": "307:13:50",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 9559,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "307:7:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 9562,
+                "name": "minor",
+                "nodeType": "VariableDeclaration",
+                "scope": 9565,
+                "src": "326:13:50",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 9561,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "326:7:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 9564,
+                "name": "patch",
+                "nodeType": "VariableDeclaration",
+                "scope": 9565,
+                "src": "345:13:50",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 9563,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "345:7:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ClientVersion",
+            "nodeType": "StructDefinition",
+            "scope": 9709,
+            "src": "280:83:50",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 9567,
+            "name": "minimumClientVersion",
+            "nodeType": "VariableDeclaration",
+            "scope": 9709,
+            "src": "367:42:50",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+              "typeString": "struct BlockchainParameters.ClientVersion"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 9566,
+              "name": "ClientVersion",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 9565,
+              "src": "367:13:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_ClientVersion_$9565_storage_ptr",
+                "typeString": "struct BlockchainParameters.ClientVersion"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 9569,
+            "name": "blockGasLimit",
+            "nodeType": "VariableDeclaration",
+            "scope": 9709,
+            "src": "413:28:50",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 9568,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "413:7:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 9571,
+            "name": "intrinsicGasForAlternativeFeeCurrency",
+            "nodeType": "VariableDeclaration",
+            "scope": 9709,
+            "src": "445:52:50",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 9570,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "445:7:50",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9579,
+            "name": "MinimumClientVersionSet",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9578,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9573,
+                  "indexed": false,
+                  "name": "major",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9579,
+                  "src": "532:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9572,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "532:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9575,
+                  "indexed": false,
+                  "name": "minor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9579,
+                  "src": "547:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9574,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "547:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9577,
+                  "indexed": false,
+                  "name": "patch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9579,
+                  "src": "562:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9576,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "562:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "531:45:50"
+            },
+            "src": "502:75:50"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9583,
+            "name": "IntrinsicGasForAlternativeFeeCurrencySet",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9582,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9581,
+                  "indexed": false,
+                  "name": "gas",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9583,
+                  "src": "627:11:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9580,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "627:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "626:13:50"
+            },
+            "src": "580:60:50"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9587,
+            "name": "BlockGasLimitSet",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9586,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9585,
+                  "indexed": false,
+                  "name": "limit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9587,
+                  "src": "666:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9584,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "666:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "665:15:50"
+            },
+            "src": "643:38:50"
+          },
+          {
+            "body": {
+              "id": 9621,
+              "nodeType": "Block",
+              "src": "1296:195:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 9603,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 28640,
+                          "src": "1321:3:50",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 9604,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1321:10:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 9602,
+                      "name": "_transferOwnership",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 27895,
+                      "src": "1302:18:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 9605,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1302:30:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9606,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1302:30:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9608,
+                        "name": "major",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9589,
+                        "src": "1362:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9609,
+                        "name": "minor",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9591,
+                        "src": "1369:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9610,
+                        "name": "patch",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9593,
+                        "src": "1376:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9607,
+                      "name": "setMinimumClientVersion",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9658,
+                      "src": "1338:23:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,uint256,uint256)"
+                      }
+                    },
+                    "id": 9611,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1338:44:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9612,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1338:44:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9614,
+                        "name": "gasLimit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9597,
+                        "src": "1405:8:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9613,
+                      "name": "setBlockGasLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9674,
+                      "src": "1388:16:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 9615,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1388:26:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9616,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1388:26:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9618,
+                        "name": "_gasForNonGoldCurrencies",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9595,
+                        "src": "1461:24:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9617,
+                      "name": "setIntrinsicGasForAlternativeFeeCurrency",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9690,
+                      "src": "1420:40:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 9619,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1420:66:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9620,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1420:66:50"
+                }
+              ]
+            },
+            "documentation": "@notice Initializes critical variables.\n@param major Minimum client version that can be used in the chain,\nmajor version.\n@param minor Minimum client version that can be used in the chain,\nminor version.\n@param patch Minimum client version that can be used in the chain,\npatch level.\n@param _gasForNonGoldCurrencies Intrinsic gas for non-gold gas currencies.\n@param gasLimit Block gas limit.",
+            "id": 9622,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 9600,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 9599,
+                  "name": "initializer",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3119,
+                  "src": "1284:11:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1284:11:50"
+              }
+            ],
+            "name": "initialize",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9598,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9589,
+                  "name": "major",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1159:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9588,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1159:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9591,
+                  "name": "minor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1178:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9590,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1178:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9593,
+                  "name": "patch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1197:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9592,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1197:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9595,
+                  "name": "_gasForNonGoldCurrencies",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1216:32:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9594,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1216:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9597,
+                  "name": "gasLimit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9622,
+                  "src": "1254:16:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9596,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1254:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1153:121:50"
+            },
+            "returnParameters": {
+              "id": 9601,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1296:0:50"
+            },
+            "scope": 9709,
+            "src": "1134:357:50",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 9657,
+              "nodeType": "Block",
+              "src": "1861:180:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9637,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 9633,
+                        "name": "minimumClientVersion",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9567,
+                        "src": "1867:20:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                          "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                        }
+                      },
+                      "id": 9635,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "major",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 9560,
+                      "src": "1867:26:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9636,
+                      "name": "major",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9624,
+                      "src": "1896:5:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1867:34:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9638,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1867:34:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9643,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 9639,
+                        "name": "minimumClientVersion",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9567,
+                        "src": "1907:20:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                          "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                        }
+                      },
+                      "id": 9641,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "minor",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 9562,
+                      "src": "1907:26:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9642,
+                      "name": "minor",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9626,
+                      "src": "1936:5:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1907:34:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9644,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1907:34:50"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9649,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 9645,
+                        "name": "minimumClientVersion",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9567,
+                        "src": "1947:20:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                          "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                        }
+                      },
+                      "id": 9647,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "patch",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 9564,
+                      "src": "1947:26:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9648,
+                      "name": "patch",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9628,
+                      "src": "1976:5:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1947:34:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9650,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1947:34:50"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9652,
+                        "name": "major",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9624,
+                        "src": "2016:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9653,
+                        "name": "minor",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9626,
+                        "src": "2023:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 9654,
+                        "name": "patch",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9628,
+                        "src": "2030:5:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9651,
+                      "name": "MinimumClientVersionSet",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9579,
+                      "src": "1992:23:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,uint256,uint256)"
+                      }
+                    },
+                    "id": 9655,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1992:44:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9656,
+                  "nodeType": "EmitStatement",
+                  "src": "1987:49:50"
+                }
+              ]
+            },
+            "documentation": "@notice Sets the minimum client version.\n@param major Major version.\n@param minor Minor version.\n@param patch Patch version.\n@dev For example if the version is 1.9.2, 1 is the major version, 9 is minor,\nand 2 is the patch level.",
+            "id": 9658,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 9631,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 9630,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 27830,
+                  "src": "1851:9:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1851:9:50"
+              }
+            ],
+            "name": "setMinimumClientVersion",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9629,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9624,
+                  "name": "major",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9658,
+                  "src": "1799:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9623,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1799:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9626,
+                  "name": "minor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9658,
+                  "src": "1814:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9625,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1814:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9628,
+                  "name": "patch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9658,
+                  "src": "1829:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9627,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1829:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1798:45:50"
+            },
+            "returnParameters": {
+              "id": 9632,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1861:0:50"
+            },
+            "scope": 9709,
+            "src": "1766:275:50",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9673,
+              "nodeType": "Block",
+              "src": "2199:72:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9667,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 9665,
+                      "name": "blockGasLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9569,
+                      "src": "2205:13:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9666,
+                      "name": "gasLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9660,
+                      "src": "2221:8:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "2205:24:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9668,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2205:24:50"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9670,
+                        "name": "gasLimit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9660,
+                        "src": "2257:8:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9669,
+                      "name": "BlockGasLimitSet",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9587,
+                      "src": "2240:16:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 9671,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2240:26:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9672,
+                  "nodeType": "EmitStatement",
+                  "src": "2235:31:50"
+                }
+              ]
+            },
+            "documentation": "@notice Sets the block gas limit.\n@param gasLimit New block gas limit.",
+            "id": 9674,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 9663,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 9662,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 27830,
+                  "src": "2189:9:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2189:9:50"
+              }
+            ],
+            "name": "setBlockGasLimit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9661,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9660,
+                  "name": "gasLimit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9674,
+                  "src": "2164:16:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9659,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2164:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2163:18:50"
+            },
+            "returnParameters": {
+              "id": 9664,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2199:0:50"
+            },
+            "scope": 9709,
+            "src": "2138:133:50",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9689,
+              "nodeType": "Block",
+              "src": "2491:110:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 9683,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 9681,
+                      "name": "intrinsicGasForAlternativeFeeCurrency",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9571,
+                      "src": "2497:37:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 9682,
+                      "name": "gas",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9676,
+                      "src": "2537:3:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "2497:43:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9684,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2497:43:50"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 9686,
+                        "name": "gas",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9676,
+                        "src": "2592:3:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 9685,
+                      "name": "IntrinsicGasForAlternativeFeeCurrencySet",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9583,
+                      "src": "2551:40:50",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 9687,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2551:45:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 9688,
+                  "nodeType": "EmitStatement",
+                  "src": "2546:50:50"
+                }
+              ]
+            },
+            "documentation": "@notice Sets the intrinsic gas for non-gold gas currencies.\n@param gas Intrinsic gas for non-gold gas currencies.",
+            "id": 9690,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 9679,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 9678,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 27830,
+                  "src": "2481:9:50",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2481:9:50"
+              }
+            ],
+            "name": "setIntrinsicGasForAlternativeFeeCurrency",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9677,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9676,
+                  "name": "gas",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9690,
+                  "src": "2461:11:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9675,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2461:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2460:13:50"
+            },
+            "returnParameters": {
+              "id": 9680,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2491:0:50"
+            },
+            "scope": 9709,
+            "src": "2411:190:50",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 9707,
+              "nodeType": "Block",
+              "src": "2839:102:50",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 9699,
+                          "name": "minimumClientVersion",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9567,
+                          "src": "2853:20:50",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                            "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                          }
+                        },
+                        "id": 9700,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "major",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 9560,
+                        "src": "2853:26:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 9701,
+                          "name": "minimumClientVersion",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9567,
+                          "src": "2881:20:50",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                            "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                          }
+                        },
+                        "id": 9702,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "minor",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 9562,
+                        "src": "2881:26:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 9703,
+                          "name": "minimumClientVersion",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9567,
+                          "src": "2909:20:50",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ClientVersion_$9565_storage",
+                            "typeString": "struct BlockchainParameters.ClientVersion storage ref"
+                          }
+                        },
+                        "id": 9704,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "patch",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 9564,
+                        "src": "2909:26:50",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 9705,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "2852:84:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$",
+                      "typeString": "tuple(uint256,uint256,uint256)"
+                    }
+                  },
+                  "functionReturnParameters": 9698,
+                  "id": 9706,
+                  "nodeType": "Return",
+                  "src": "2845:91:50"
+                }
+              ]
+            },
+            "documentation": "@notice Query minimum client version.\n@return Returns major, minor, and patch version numbers.",
+            "id": 9708,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getMinimumClientVersion",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9691,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2754:2:50"
+            },
+            "returnParameters": {
+              "id": 9698,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9693,
+                  "name": "major",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9708,
+                  "src": "2792:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9692,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2792:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9695,
+                  "name": "minor",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9708,
+                  "src": "2807:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9694,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2807:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9697,
+                  "name": "patch",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9708,
+                  "src": "2822:13:50",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9696,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2822:7:50",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2791:45:50"
+            },
+            "scope": 9709,
+            "src": "2722:219:50",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 9710,
+        "src": "220:2724:50"
+      }
+    ],
+    "src": "0:2945:50"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {
+    "1101": {
+      "events": {
+        "0x809db05bd174a70ede53d18fc046c5ceb86ebffbb7746a0c8605772c97ef0d52": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "major",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "minor",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "patch",
+              "type": "uint256"
+            }
+          ],
+          "name": "MinimumClientVersionSet",
+          "type": "event",
+          "signature": "0x809db05bd174a70ede53d18fc046c5ceb86ebffbb7746a0c8605772c97ef0d52"
+        },
+        "0xba9c6f28c7d9990745a5b5282dbee04706c28cae24a44736c3ba99b57c021f3e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "gas",
+              "type": "uint256"
+            }
+          ],
+          "name": "IntrinsicGasForAlternativeFeeCurrencySet",
+          "type": "event",
+          "signature": "0xba9c6f28c7d9990745a5b5282dbee04706c28cae24a44736c3ba99b57c021f3e"
+        },
+        "0x55311ae9c14427b0863f38ed97a2a5944c50d824bbf692836246512e6822c3cf": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "limit",
+              "type": "uint256"
+            }
+          ],
+          "name": "BlockGasLimitSet",
+          "type": "event",
+          "signature": "0x55311ae9c14427b0863f38ed97a2a5944c50d824bbf692836246512e6822c3cf"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event",
+          "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
+        }
+      },
+      "links": {},
+      "address": "0x812674f8d124D2808ef1f221a4C9faf0448a679D",
+      "transactionHash": "0x41a14e5dfba8c6ec87fe7aea35e186d9571b14b019c5bf1bc287406308597096"
+    }
+  },
+  "schemaVersion": "3.0.10",
+  "updatedAt": "2019-12-06T00:12:55.013Z",
+  "devdoc": {
+    "methods": {
+      "getMinimumClientVersion()": {
+        "return": "Returns major, minor, and patch version numbers."
+      },
+      "initialize(uint256,uint256,uint256,uint256,uint256)": {
+        "params": {
+          "_gasForNonGoldCurrencies": "Intrinsic gas for non-gold gas currencies.",
+          "gasLimit": "Block gas limit.",
+          "major": "Minimum client version that can be used in the chain, major version.",
+          "minor": "Minimum client version that can be used in the chain, minor version.",
+          "patch": "Minimum client version that can be used in the chain, patch level."
+        }
+      },
+      "isOwner()": {
+        "return": "true if `msg.sender` is the owner of the contract."
+      },
+      "owner()": {
+        "return": "the address of the owner."
+      },
+      "renounceOwnership()": {
+        "details": "Allows the current owner to relinquish control of the contract. It will not be possible to call the functions with the `onlyOwner` modifier anymore."
+      },
+      "setBlockGasLimit(uint256)": {
+        "params": {
+          "gasLimit": "New block gas limit."
+        }
+      },
+      "setIntrinsicGasForAlternativeFeeCurrency(uint256)": {
+        "params": {
+          "gas": "Intrinsic gas for non-gold gas currencies."
+        }
+      },
+      "setMinimumClientVersion(uint256,uint256,uint256)": {
+        "details": "For example if the version is 1.9.2, 1 is the major version, 9 is minor, and 2 is the patch level.",
+        "params": {
+          "major": "Major version.",
+          "minor": "Minor version.",
+          "patch": "Patch version."
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Allows the current owner to transfer control of the contract to a newOwner.",
+        "params": {
+          "newOwner": "The address to transfer ownership to."
+        }
+      }
+    },
+    "title": "Contract for storing blockchain parameters that can be set by governance."
+  },
+  "userdoc": {
+    "methods": {
+      "getMinimumClientVersion()": {
+        "notice": "Query minimum client version."
+      },
+      "initialize(uint256,uint256,uint256,uint256,uint256)": {
+        "notice": "Initializes critical variables."
+      },
+      "renounceOwnership()": {
+        "notice": "Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "setBlockGasLimit(uint256)": {
+        "notice": "Sets the block gas limit."
+      },
+      "setIntrinsicGasForAlternativeFeeCurrency(uint256)": {
+        "notice": "Sets the intrinsic gas for non-gold gas currencies."
+      },
+      "setMinimumClientVersion(uint256,uint256,uint256)": {
+        "notice": "Sets the minimum client version."
+      }
+    }
+  }
+}

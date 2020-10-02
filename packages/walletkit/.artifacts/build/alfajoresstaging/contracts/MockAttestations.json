@@ -1,0 +1,2271 @@
+{
+  "contractName": "MockAttestations",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "identifier",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "uint8"
+        },
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "complete",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "identifier",
+          "type": "bytes32"
+        },
+        {
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "getAttestationStats",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint64"
+        },
+        {
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"identifier\",\"type\":\"bytes32\"},{\"name\":\"account\",\"type\":\"address\"}],\"name\":\"getAttestationStats\",\"outputs\":[{\"name\":\"\",\"type\":\"uint64\"},{\"name\":\"\",\"type\":\"uint64\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"identifier\",\"type\":\"bytes32\"},{\"name\":\"\",\"type\":\"uint8\"},{\"name\":\"\",\"type\":\"bytes32\"},{\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"complete\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"A mock Attestations for testing.\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/identity/test/MockAttestations.sol\":\"MockAttestations\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/identity/test/MockAttestations.sol\":{\"keccak256\":\"0xfce46e24c9b6aa83f9a970357a436257992ce7e5e42965afa3f27d97ade71b82\",\"urls\":[\"bzzr://f49dee18ae0bc6e8cb2ac0fb86906ad59ff0d98b9012f615b5660f84d308ec14\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xc2a200a877c4a9b2475c246c54ffecc69ffde3e11af83319c63c2dc5458bac80\",\"urls\":[\"bzzr://c8876e2c39b60f155d748d71d715c8f3903fae5a405ac599adcb6ad2f9a583f9\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506102b8806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063596abea51461003b578063fb6a2e53146100cc575b600080fd5b6100876004803603604081101561005157600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061011b565b604051808367ffffffffffffffff1667ffffffffffffffff1681526020018267ffffffffffffffff1667ffffffffffffffff1681526020019250505060405180910390f35b610119600480360360808110156100e257600080fd5b8101908080359060200190929190803560ff16906020019092919080359060200190929190803590602001909291905050506101ec565b005b60008060008085815260200190815260200160002060010160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900467ffffffffffffffff1660008086815260200190815260200160002060010160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010180549050915091509250929050565b60008085815260200190815260200160002060010160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001600081819054906101000a900467ffffffffffffffff168092919060010191906101000a81548167ffffffffffffffff021916908367ffffffffffffffff160217905550505050505056fea165627a7a72305820f90b72004d74f34e011dd9892449dedb08161651ae112e0b2da4e45a332867ac0029",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c8063596abea51461003b578063fb6a2e53146100cc575b600080fd5b6100876004803603604081101561005157600080fd5b8101908080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061011b565b604051808367ffffffffffffffff1667ffffffffffffffff1681526020018267ffffffffffffffff1667ffffffffffffffff1681526020019250505060405180910390f35b610119600480360360808110156100e257600080fd5b8101908080359060200190929190803560ff16906020019092919080359060200190929190803590602001909291905050506101ec565b005b60008060008085815260200190815260200160002060010160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900467ffffffffffffffff1660008086815260200190815260200160002060010160008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010180549050915091509250929050565b60008085815260200190815260200160002060010160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001600081819054906101000a900467ffffffffffffffff168092919060010191906101000a81548167ffffffffffffffff021916908367ffffffffffffffff160217905550505050505056fea165627a7a72305820f90b72004d74f34e011dd9892449dedb08161651ae112e0b2da4e45a332867ac0029",
+  "sourceMap": "137:883:86:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;137:883:86;;;;;;;",
+  "deployedSourceMap": "137:883:86:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;137:883:86;;;;;;;;;;;;;;;;;;;;;;;;736:282;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;736:282:86;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;589:143;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;589:143:86;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;736:282;837:6;845;876:11;:23;888:10;876:23;;;;;;;;;;;:36;;:45;913:7;876:45;;;;;;;;;;;;;;;:55;;;;;;;;;;;;946:11;:23;958:10;946:23;;;;;;;;;;;:36;;:45;983:7;946:45;;;;;;;;;;;;;;;:53;;:60;;;;861:152;;;;736:282;;;;;:::o;589:143::-;667:11;:23;679:10;667:23;;;;;;;;;;;:36;;:48;704:10;667:48;;;;;;;;;;;;;;;:58;;;:60;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;589:143;;;;:::o",
+  "source": "pragma solidity ^0.5.3;\n\nimport \"openzeppelin-solidity/contracts/math/SafeMath.sol\";\n\n/**\n * @title A mock Attestations for testing.\n */\ncontract MockAttestations {\n  enum AttestationStatus { None, Incomplete, Complete }\n\n  struct Attestation {\n    AttestationStatus status;\n    uint128 time;\n  }\n\n  struct Attestations {\n    uint64 completed;\n    address[] issuers;\n    mapping(address => Attestation) issuedAttestations;\n  }\n\n  struct IdentifierState {\n    address[] accounts;\n    mapping(address => Attestations) attestations;\n  }\n\n  mapping(bytes32 => IdentifierState) identifiers;\n\n  function complete(bytes32 identifier, uint8, bytes32, bytes32) external {\n    identifiers[identifier].attestations[msg.sender].completed++;\n  }\n\n  function getAttestationStats(bytes32 identifier, address account)\n    external\n    view\n    returns (uint64, uint64)\n  {\n    return (\n      identifiers[identifier].attestations[account].completed,\n      uint64(identifiers[identifier].attestations[account].issuers.length)\n    );\n  }\n}\n",
+  "sourcePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/identity/test/MockAttestations.sol",
+  "ast": {
+    "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/identity/test/MockAttestations.sol",
+    "exportedSymbols": {
+      "MockAttestations": [
+        23631
+      ]
+    },
+    "id": 23632,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 23545,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:86"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "id": 23546,
+        "nodeType": "ImportDirective",
+        "scope": 23632,
+        "sourceUnit": 27788,
+        "src": "25:59:86",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title A mock Attestations for testing.",
+        "fullyImplemented": true,
+        "id": 23631,
+        "linearizedBaseContracts": [
+          23631
+        ],
+        "name": "MockAttestations",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "MockAttestations.AttestationStatus",
+            "id": 23550,
+            "members": [
+              {
+                "id": 23547,
+                "name": "None",
+                "nodeType": "EnumValue",
+                "src": "192:4:86"
+              },
+              {
+                "id": 23548,
+                "name": "Incomplete",
+                "nodeType": "EnumValue",
+                "src": "198:10:86"
+              },
+              {
+                "id": 23549,
+                "name": "Complete",
+                "nodeType": "EnumValue",
+                "src": "210:8:86"
+              }
+            ],
+            "name": "AttestationStatus",
+            "nodeType": "EnumDefinition",
+            "src": "167:53:86"
+          },
+          {
+            "canonicalName": "MockAttestations.Attestation",
+            "id": 23555,
+            "members": [
+              {
+                "constant": false,
+                "id": 23552,
+                "name": "status",
+                "nodeType": "VariableDeclaration",
+                "scope": 23555,
+                "src": "249:24:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_AttestationStatus_$23550",
+                  "typeString": "enum MockAttestations.AttestationStatus"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 23551,
+                  "name": "AttestationStatus",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 23550,
+                  "src": "249:17:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AttestationStatus_$23550",
+                    "typeString": "enum MockAttestations.AttestationStatus"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23554,
+                "name": "time",
+                "nodeType": "VariableDeclaration",
+                "scope": 23555,
+                "src": "279:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 23553,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "279:7:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Attestation",
+            "nodeType": "StructDefinition",
+            "scope": 23631,
+            "src": "224:72:86",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "MockAttestations.Attestations",
+            "id": 23565,
+            "members": [
+              {
+                "constant": false,
+                "id": 23557,
+                "name": "completed",
+                "nodeType": "VariableDeclaration",
+                "scope": 23565,
+                "src": "326:16:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 23556,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "326:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23560,
+                "name": "issuers",
+                "nodeType": "VariableDeclaration",
+                "scope": 23565,
+                "src": "348:17:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 23558,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "348:7:86",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 23559,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "348:9:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                    "typeString": "address[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23564,
+                "name": "issuedAttestations",
+                "nodeType": "VariableDeclaration",
+                "scope": 23565,
+                "src": "371:50:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestation_$23555_storage_$",
+                  "typeString": "mapping(address => struct MockAttestations.Attestation)"
+                },
+                "typeName": {
+                  "id": 23563,
+                  "keyType": {
+                    "id": 23561,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "379:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "371:31:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestation_$23555_storage_$",
+                    "typeString": "mapping(address => struct MockAttestations.Attestation)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 23562,
+                    "name": "Attestation",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 23555,
+                    "src": "390:11:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Attestation_$23555_storage_ptr",
+                      "typeString": "struct MockAttestations.Attestation"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Attestations",
+            "nodeType": "StructDefinition",
+            "scope": 23631,
+            "src": "300:126:86",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "MockAttestations.IdentifierState",
+            "id": 23573,
+            "members": [
+              {
+                "constant": false,
+                "id": 23568,
+                "name": "accounts",
+                "nodeType": "VariableDeclaration",
+                "scope": 23573,
+                "src": "459:18:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 23566,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "459:7:86",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 23567,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "459:9:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                    "typeString": "address[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23572,
+                "name": "attestations",
+                "nodeType": "VariableDeclaration",
+                "scope": 23573,
+                "src": "483:45:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                  "typeString": "mapping(address => struct MockAttestations.Attestations)"
+                },
+                "typeName": {
+                  "id": 23571,
+                  "keyType": {
+                    "id": 23569,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "491:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "483:32:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                    "typeString": "mapping(address => struct MockAttestations.Attestations)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 23570,
+                    "name": "Attestations",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 23565,
+                    "src": "502:12:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Attestations_$23565_storage_ptr",
+                      "typeString": "struct MockAttestations.Attestations"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "IdentifierState",
+            "nodeType": "StructDefinition",
+            "scope": 23631,
+            "src": "430:103:86",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 23577,
+            "name": "identifiers",
+            "nodeType": "VariableDeclaration",
+            "scope": 23631,
+            "src": "537:47:86",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+              "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState)"
+            },
+            "typeName": {
+              "id": 23576,
+              "keyType": {
+                "id": 23574,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "545:7:86",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "537:35:86",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+                "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 23575,
+                "name": "IdentifierState",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 23573,
+                "src": "556:15:86",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_IdentifierState_$23573_storage_ptr",
+                  "typeString": "struct MockAttestations.IdentifierState"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 23598,
+              "nodeType": "Block",
+              "src": "661:71:86",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 23596,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "667:60:86",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 23588,
+                              "name": "identifiers",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 23577,
+                              "src": "667:11:86",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+                                "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState storage ref)"
+                              }
+                            },
+                            "id": 23590,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 23589,
+                              "name": "identifier",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 23579,
+                              "src": "679:10:86",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "667:23:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_IdentifierState_$23573_storage",
+                              "typeString": "struct MockAttestations.IdentifierState storage ref"
+                            }
+                          },
+                          "id": 23591,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "attestations",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 23572,
+                          "src": "667:36:86",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                            "typeString": "mapping(address => struct MockAttestations.Attestations storage ref)"
+                          }
+                        },
+                        "id": 23594,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 23592,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 28640,
+                            "src": "704:3:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 23593,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "704:10:86",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "667:48:86",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Attestations_$23565_storage",
+                          "typeString": "struct MockAttestations.Attestations storage ref"
+                        }
+                      },
+                      "id": 23595,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "completed",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 23557,
+                      "src": "667:58:86",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint64",
+                        "typeString": "uint64"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "id": 23597,
+                  "nodeType": "ExpressionStatement",
+                  "src": "667:60:86"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 23599,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "complete",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 23586,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23579,
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23599,
+                  "src": "607:18:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 23578,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "607:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23581,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23599,
+                  "src": "627:5:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 23580,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "627:5:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23583,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23599,
+                  "src": "634:7:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 23582,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "634:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23585,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23599,
+                  "src": "643:7:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 23584,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "643:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "606:45:86"
+            },
+            "returnParameters": {
+              "id": 23587,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "661:0:86"
+            },
+            "scope": 23631,
+            "src": "589:143:86",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 23629,
+              "nodeType": "Block",
+              "src": "855:163:86",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 23610,
+                                "name": "identifiers",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 23577,
+                                "src": "876:11:86",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+                                  "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState storage ref)"
+                                }
+                              },
+                              "id": 23612,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 23611,
+                                "name": "identifier",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 23601,
+                                "src": "888:10:86",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "876:23:86",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IdentifierState_$23573_storage",
+                                "typeString": "struct MockAttestations.IdentifierState storage ref"
+                              }
+                            },
+                            "id": 23613,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "attestations",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 23572,
+                            "src": "876:36:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                              "typeString": "mapping(address => struct MockAttestations.Attestations storage ref)"
+                            }
+                          },
+                          "id": 23615,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 23614,
+                            "name": "account",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 23603,
+                            "src": "913:7:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "876:45:86",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Attestations_$23565_storage",
+                            "typeString": "struct MockAttestations.Attestations storage ref"
+                          }
+                        },
+                        "id": 23616,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "completed",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 23557,
+                        "src": "876:55:86",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint64",
+                          "typeString": "uint64"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "baseExpression": {
+                                  "argumentTypes": null,
+                                  "expression": {
+                                    "argumentTypes": null,
+                                    "baseExpression": {
+                                      "argumentTypes": null,
+                                      "id": 23618,
+                                      "name": "identifiers",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 23577,
+                                      "src": "946:11:86",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+                                        "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState storage ref)"
+                                      }
+                                    },
+                                    "id": 23620,
+                                    "indexExpression": {
+                                      "argumentTypes": null,
+                                      "id": 23619,
+                                      "name": "identifier",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 23601,
+                                      "src": "958:10:86",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_bytes32",
+                                        "typeString": "bytes32"
+                                      }
+                                    },
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "nodeType": "IndexAccess",
+                                    "src": "946:23:86",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_IdentifierState_$23573_storage",
+                                      "typeString": "struct MockAttestations.IdentifierState storage ref"
+                                    }
+                                  },
+                                  "id": 23621,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "attestations",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 23572,
+                                  "src": "946:36:86",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                                    "typeString": "mapping(address => struct MockAttestations.Attestations storage ref)"
+                                  }
+                                },
+                                "id": 23623,
+                                "indexExpression": {
+                                  "argumentTypes": null,
+                                  "id": 23622,
+                                  "name": "account",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 23603,
+                                  "src": "983:7:86",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "946:45:86",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Attestations_$23565_storage",
+                                  "typeString": "struct MockAttestations.Attestations storage ref"
+                                }
+                              },
+                              "id": 23624,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "issuers",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 23560,
+                              "src": "946:53:86",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                                "typeString": "address[] storage ref"
+                              }
+                            },
+                            "id": 23625,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "length",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "946:60:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "id": 23617,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "939:6:86",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_uint64_$",
+                            "typeString": "type(uint64)"
+                          },
+                          "typeName": "uint64"
+                        },
+                        "id": 23626,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "939:68:86",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint64",
+                          "typeString": "uint64"
+                        }
+                      }
+                    ],
+                    "id": 23627,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "868:145:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint64_$_t_uint64_$",
+                      "typeString": "tuple(uint64,uint64)"
+                    }
+                  },
+                  "functionReturnParameters": 23609,
+                  "id": 23628,
+                  "nodeType": "Return",
+                  "src": "861:152:86"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 23630,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAttestationStats",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 23604,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23601,
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23630,
+                  "src": "765:18:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 23600,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "765:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23603,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23630,
+                  "src": "785:15:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 23602,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "785:7:86",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "764:37:86"
+            },
+            "returnParameters": {
+              "id": 23609,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23606,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23630,
+                  "src": "837:6:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 23605,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "837:6:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23608,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23630,
+                  "src": "845:6:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 23607,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "845:6:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "836:16:86"
+            },
+            "scope": 23631,
+            "src": "736:282:86",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 23632,
+        "src": "137:883:86"
+      }
+    ],
+    "src": "0:1021:86"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/identity/test/MockAttestations.sol",
+    "exportedSymbols": {
+      "MockAttestations": [
+        23631
+      ]
+    },
+    "id": 23632,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 23545,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:86"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "id": 23546,
+        "nodeType": "ImportDirective",
+        "scope": 23632,
+        "sourceUnit": 27788,
+        "src": "25:59:86",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title A mock Attestations for testing.",
+        "fullyImplemented": true,
+        "id": 23631,
+        "linearizedBaseContracts": [
+          23631
+        ],
+        "name": "MockAttestations",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "MockAttestations.AttestationStatus",
+            "id": 23550,
+            "members": [
+              {
+                "id": 23547,
+                "name": "None",
+                "nodeType": "EnumValue",
+                "src": "192:4:86"
+              },
+              {
+                "id": 23548,
+                "name": "Incomplete",
+                "nodeType": "EnumValue",
+                "src": "198:10:86"
+              },
+              {
+                "id": 23549,
+                "name": "Complete",
+                "nodeType": "EnumValue",
+                "src": "210:8:86"
+              }
+            ],
+            "name": "AttestationStatus",
+            "nodeType": "EnumDefinition",
+            "src": "167:53:86"
+          },
+          {
+            "canonicalName": "MockAttestations.Attestation",
+            "id": 23555,
+            "members": [
+              {
+                "constant": false,
+                "id": 23552,
+                "name": "status",
+                "nodeType": "VariableDeclaration",
+                "scope": 23555,
+                "src": "249:24:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_AttestationStatus_$23550",
+                  "typeString": "enum MockAttestations.AttestationStatus"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 23551,
+                  "name": "AttestationStatus",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 23550,
+                  "src": "249:17:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AttestationStatus_$23550",
+                    "typeString": "enum MockAttestations.AttestationStatus"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23554,
+                "name": "time",
+                "nodeType": "VariableDeclaration",
+                "scope": 23555,
+                "src": "279:12:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 23553,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "279:7:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Attestation",
+            "nodeType": "StructDefinition",
+            "scope": 23631,
+            "src": "224:72:86",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "MockAttestations.Attestations",
+            "id": 23565,
+            "members": [
+              {
+                "constant": false,
+                "id": 23557,
+                "name": "completed",
+                "nodeType": "VariableDeclaration",
+                "scope": 23565,
+                "src": "326:16:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 23556,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "326:6:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23560,
+                "name": "issuers",
+                "nodeType": "VariableDeclaration",
+                "scope": 23565,
+                "src": "348:17:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 23558,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "348:7:86",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 23559,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "348:9:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                    "typeString": "address[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23564,
+                "name": "issuedAttestations",
+                "nodeType": "VariableDeclaration",
+                "scope": 23565,
+                "src": "371:50:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestation_$23555_storage_$",
+                  "typeString": "mapping(address => struct MockAttestations.Attestation)"
+                },
+                "typeName": {
+                  "id": 23563,
+                  "keyType": {
+                    "id": 23561,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "379:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "371:31:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestation_$23555_storage_$",
+                    "typeString": "mapping(address => struct MockAttestations.Attestation)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 23562,
+                    "name": "Attestation",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 23555,
+                    "src": "390:11:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Attestation_$23555_storage_ptr",
+                      "typeString": "struct MockAttestations.Attestation"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Attestations",
+            "nodeType": "StructDefinition",
+            "scope": 23631,
+            "src": "300:126:86",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "MockAttestations.IdentifierState",
+            "id": 23573,
+            "members": [
+              {
+                "constant": false,
+                "id": 23568,
+                "name": "accounts",
+                "nodeType": "VariableDeclaration",
+                "scope": 23573,
+                "src": "459:18:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                  "typeString": "address[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 23566,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "459:7:86",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 23567,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "459:9:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                    "typeString": "address[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23572,
+                "name": "attestations",
+                "nodeType": "VariableDeclaration",
+                "scope": 23573,
+                "src": "483:45:86",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                  "typeString": "mapping(address => struct MockAttestations.Attestations)"
+                },
+                "typeName": {
+                  "id": 23571,
+                  "keyType": {
+                    "id": 23569,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "491:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "483:32:86",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                    "typeString": "mapping(address => struct MockAttestations.Attestations)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 23570,
+                    "name": "Attestations",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 23565,
+                    "src": "502:12:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Attestations_$23565_storage_ptr",
+                      "typeString": "struct MockAttestations.Attestations"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "IdentifierState",
+            "nodeType": "StructDefinition",
+            "scope": 23631,
+            "src": "430:103:86",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 23577,
+            "name": "identifiers",
+            "nodeType": "VariableDeclaration",
+            "scope": 23631,
+            "src": "537:47:86",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+              "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState)"
+            },
+            "typeName": {
+              "id": 23576,
+              "keyType": {
+                "id": 23574,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "545:7:86",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "537:35:86",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+                "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 23575,
+                "name": "IdentifierState",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 23573,
+                "src": "556:15:86",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_IdentifierState_$23573_storage_ptr",
+                  "typeString": "struct MockAttestations.IdentifierState"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 23598,
+              "nodeType": "Block",
+              "src": "661:71:86",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 23596,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "667:60:86",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 23588,
+                              "name": "identifiers",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 23577,
+                              "src": "667:11:86",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+                                "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState storage ref)"
+                              }
+                            },
+                            "id": 23590,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 23589,
+                              "name": "identifier",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 23579,
+                              "src": "679:10:86",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "667:23:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_IdentifierState_$23573_storage",
+                              "typeString": "struct MockAttestations.IdentifierState storage ref"
+                            }
+                          },
+                          "id": 23591,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "attestations",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 23572,
+                          "src": "667:36:86",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                            "typeString": "mapping(address => struct MockAttestations.Attestations storage ref)"
+                          }
+                        },
+                        "id": 23594,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 23592,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 28640,
+                            "src": "704:3:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 23593,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "704:10:86",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "667:48:86",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Attestations_$23565_storage",
+                          "typeString": "struct MockAttestations.Attestations storage ref"
+                        }
+                      },
+                      "id": 23595,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "completed",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 23557,
+                      "src": "667:58:86",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint64",
+                        "typeString": "uint64"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "id": 23597,
+                  "nodeType": "ExpressionStatement",
+                  "src": "667:60:86"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 23599,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "complete",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 23586,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23579,
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23599,
+                  "src": "607:18:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 23578,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "607:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23581,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23599,
+                  "src": "627:5:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 23580,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "627:5:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23583,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23599,
+                  "src": "634:7:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 23582,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "634:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23585,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23599,
+                  "src": "643:7:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 23584,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "643:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "606:45:86"
+            },
+            "returnParameters": {
+              "id": 23587,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "661:0:86"
+            },
+            "scope": 23631,
+            "src": "589:143:86",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 23629,
+              "nodeType": "Block",
+              "src": "855:163:86",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 23610,
+                                "name": "identifiers",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 23577,
+                                "src": "876:11:86",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+                                  "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState storage ref)"
+                                }
+                              },
+                              "id": 23612,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 23611,
+                                "name": "identifier",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 23601,
+                                "src": "888:10:86",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "876:23:86",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_IdentifierState_$23573_storage",
+                                "typeString": "struct MockAttestations.IdentifierState storage ref"
+                              }
+                            },
+                            "id": 23613,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "attestations",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 23572,
+                            "src": "876:36:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                              "typeString": "mapping(address => struct MockAttestations.Attestations storage ref)"
+                            }
+                          },
+                          "id": 23615,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 23614,
+                            "name": "account",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 23603,
+                            "src": "913:7:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "876:45:86",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Attestations_$23565_storage",
+                            "typeString": "struct MockAttestations.Attestations storage ref"
+                          }
+                        },
+                        "id": 23616,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "completed",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 23557,
+                        "src": "876:55:86",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint64",
+                          "typeString": "uint64"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "baseExpression": {
+                                  "argumentTypes": null,
+                                  "expression": {
+                                    "argumentTypes": null,
+                                    "baseExpression": {
+                                      "argumentTypes": null,
+                                      "id": 23618,
+                                      "name": "identifiers",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 23577,
+                                      "src": "946:11:86",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_IdentifierState_$23573_storage_$",
+                                        "typeString": "mapping(bytes32 => struct MockAttestations.IdentifierState storage ref)"
+                                      }
+                                    },
+                                    "id": 23620,
+                                    "indexExpression": {
+                                      "argumentTypes": null,
+                                      "id": 23619,
+                                      "name": "identifier",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 23601,
+                                      "src": "958:10:86",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_bytes32",
+                                        "typeString": "bytes32"
+                                      }
+                                    },
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "nodeType": "IndexAccess",
+                                    "src": "946:23:86",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_IdentifierState_$23573_storage",
+                                      "typeString": "struct MockAttestations.IdentifierState storage ref"
+                                    }
+                                  },
+                                  "id": 23621,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "attestations",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 23572,
+                                  "src": "946:36:86",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Attestations_$23565_storage_$",
+                                    "typeString": "mapping(address => struct MockAttestations.Attestations storage ref)"
+                                  }
+                                },
+                                "id": 23623,
+                                "indexExpression": {
+                                  "argumentTypes": null,
+                                  "id": 23622,
+                                  "name": "account",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 23603,
+                                  "src": "983:7:86",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "946:45:86",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_Attestations_$23565_storage",
+                                  "typeString": "struct MockAttestations.Attestations storage ref"
+                                }
+                              },
+                              "id": 23624,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "issuers",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 23560,
+                              "src": "946:53:86",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                                "typeString": "address[] storage ref"
+                              }
+                            },
+                            "id": 23625,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "length",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "946:60:86",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "id": 23617,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "939:6:86",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_uint64_$",
+                            "typeString": "type(uint64)"
+                          },
+                          "typeName": "uint64"
+                        },
+                        "id": 23626,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "939:68:86",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint64",
+                          "typeString": "uint64"
+                        }
+                      }
+                    ],
+                    "id": 23627,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "868:145:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint64_$_t_uint64_$",
+                      "typeString": "tuple(uint64,uint64)"
+                    }
+                  },
+                  "functionReturnParameters": 23609,
+                  "id": 23628,
+                  "nodeType": "Return",
+                  "src": "861:152:86"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 23630,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAttestationStats",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 23604,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23601,
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23630,
+                  "src": "765:18:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 23600,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "765:7:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23603,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23630,
+                  "src": "785:15:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 23602,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "785:7:86",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "764:37:86"
+            },
+            "returnParameters": {
+              "id": 23609,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23606,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23630,
+                  "src": "837:6:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 23605,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "837:6:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23608,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23630,
+                  "src": "845:6:86",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 23607,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "845:6:86",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "836:16:86"
+            },
+            "scope": 23631,
+            "src": "736:282:86",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 23632,
+        "src": "137:883:86"
+      }
+    ],
+    "src": "0:1021:86"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.10",
+  "updatedAt": "2019-12-06T00:01:36.119Z",
+  "devdoc": {
+    "methods": {},
+    "title": "A mock Attestations for testing."
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

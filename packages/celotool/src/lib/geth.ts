@@ -226,7 +226,6 @@ const validateGethRPC = async (
     location: '[GethRPC]',
     error: `Contractkit did not return a valid transaction`,
   })
-  console.log(`jcortejoso transaction: ${transaction}`)
   if (transaction == null) {
     return
   }

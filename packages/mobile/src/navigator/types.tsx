@@ -87,6 +87,7 @@ export type StackParamList = {
       makerTokenBalance: string
     }
   }
+  [Screens.ExternalExchanges]: undefined
   [Screens.FiatExchange]: undefined
   [Screens.FiatExchangeAmount]: {
     isAddFunds: boolean
@@ -210,7 +211,7 @@ export type StackParamList = {
     | { showSkipDialog?: boolean; hideOnboardingStep?: boolean }
     | undefined
   [Screens.VerificationInputScreen]: { showHelpDialog: boolean } | undefined
-  [Screens.VerificationLoadingScreen]: undefined
+  [Screens.VerificationLoadingScreen]: { withoutRevealing: boolean }
   [Screens.OnboardingEducationScreen]: undefined
   [Screens.OnboardingSuccessScreen]: undefined
   [Screens.WalletHome]: undefined

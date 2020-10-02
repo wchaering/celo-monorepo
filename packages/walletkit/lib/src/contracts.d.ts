@@ -1,0 +1,13 @@
+import Web3 from 'web3';
+import { Attestations as AttestationsType } from '../types/Attestations';
+import { Escrow as EscrowType } from '../types/Escrow';
+import { Exchange as ExchangeType } from '../types/Exchange';
+import { GasPriceMinimum as GasPriceMinimumType } from '../types/GasPriceMinimum';
+import { GoldToken as GoldTokenType } from '../types/GoldToken';
+import { StableToken as StableTokenType } from '../types/StableToken';
+export declare function getAttestationsContract(web3: Web3): Promise<AttestationsType>;
+export declare function getExchangeContract(web3: Web3): Promise<ExchangeType>;
+export declare function getEscrowContract(web3: Web3): Promise<EscrowType>;
+export declare function getGasPriceMinimumContract(web3: Web3): Promise<GasPriceMinimumType>;
+export declare function getGoldTokenContract(web3: Web3): Promise<GoldTokenType>;
+export declare function getStableTokenContract(web3: Web3): Promise<StableTokenType>;

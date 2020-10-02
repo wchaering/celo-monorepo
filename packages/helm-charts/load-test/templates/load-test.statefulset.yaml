@@ -38,8 +38,6 @@ spec:
         release: {{ .Release.Name }}
         component: load-test
     spec:
-      nodeSelector:
-        loadtest: "true"
       initContainers:
       - name: generate-keys
         image: {{ .Values.celotool.image.repository }}:{{ .Values.celotool.image.tag }}
@@ -129,7 +127,7 @@ spec:
           --rpcport {{ add 8545 $index }}
         resources:
           requests:
-            memory: 500Mi
+            memory: 200Mi
             cpu: 100m
           limits:
             memory: 1Gi

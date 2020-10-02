@@ -1,11 +1,11 @@
-import SectionHeadNew from '@celo/react-components/components/SectionHeadNew'
+import SectionHead from '@celo/react-components/components/SectionHead'
 import {
   SettingsExpandedItem,
   SettingsItemSwitch,
   SettingsItemTextValue,
 } from '@celo/react-components/components/SettingsItem'
 import colors from '@celo/react-components/styles/colors'
-import fontStyles from '@celo/react-components/styles/fonts.v2'
+import fontStyles from '@celo/react-components/styles/fonts'
 import { isE164Number } from '@celo/utils/src/phoneNumbers'
 import { StackScreenProps } from '@react-navigation/stack'
 import * as Sentry from '@sentry/react-native'
@@ -230,6 +230,11 @@ export class Account extends React.Component<Props, State> {
               <Text>Trigger a crash</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.devSettingsItem}>
+            <TouchableOpacity onPress={this.confirmAccountRemoval}>
+              <Text>Valora Quick Reset</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       )
     }
@@ -312,7 +317,7 @@ export class Account extends React.Component<Props, State> {
     return (
       <SafeAreaView style={styles.container}>
         <DrawerTopBar />
-        <ScrollView>
+        <ScrollView testID="SettingsScrollView">
           <TouchableWithoutFeedback onPress={this.onDevSettingsTriggerPress}>
             <Text style={styles.title} testID={'SettingsTitle'}>
               {t('global:settings')}
@@ -333,7 +338,7 @@ export class Account extends React.Component<Props, State> {
               value={this.props.preferredCurrencyCode}
               onPress={this.goToLocalCurrencySetting}
             />
-            <SectionHeadNew text={t('securityAndData')} style={styles.sectionTitle} />
+            <SectionHead text={t('securityAndData')} style={styles.sectionTitle} />
             <SettingsItemSwitch
               title={t('requirePinOnAppOpen')}
               value={this.props.requirePinOnAppOpen}
@@ -351,14 +356,15 @@ export class Account extends React.Component<Props, State> {
               onValueChange={this.props.setAnalyticsEnabled}
               details={t('shareAnalytics_detail')}
             />
-            <SectionHeadNew text={t('legal')} style={styles.sectionTitle} />
+            <SectionHead text={t('legal')} style={styles.sectionTitle} />
             <SettingsItemTextValue title={t('licenses')} onPress={this.goToLicenses} />
             <SettingsItemTextValue title={t('termsOfServiceLink')} onPress={this.onTermsPress} />
-            <SectionHeadNew text={''} style={styles.sectionTitle} />
+            <SectionHead text={''} style={styles.sectionTitle} />
             <SettingsExpandedItem
               title={t('removeAccountTitle')}
               details={t('removeAccountDetails')}
               onPress={this.onRemoveAccountPress}
+              testID="ResetAccount"
             />
           </View>
           {this.getDevSettingsComp()}
@@ -389,6 +395,7 @@ export class Account extends React.Component<Props, State> {
             actionPress={this.onPressContinueWithAccountRemoval}
             secondaryActionText={t('global:cancel')}
             secondaryActionPress={this.hideRemoveAccountModal}
+            testID="RemoveAccountModal"
           >
             {t('accountKeyModal.body1')}
             {'\n\n'}
@@ -401,6 +408,7 @@ export class Account extends React.Component<Props, State> {
             actionPress={this.confirmAccountRemoval}
             secondaryActionText={t('global:cancel')}
             secondaryActionPress={this.hideConfirmRemovalModal}
+            testID="ConfirmAccountRemovalModal"
           >
             {t('promptConfirmRemovalModal.body')}
           </Dialog>

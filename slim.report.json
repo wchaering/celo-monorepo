@@ -1,0 +1,33 @@
+{
+  "type": "build",
+  "state": "done",
+  "image_reference": "us.gcr.io/celo-testnet/celo-monorepo@sha256:a12dac29c9efb29ca387f2af33f3fec4a6679532420fb892ddfcaf09f25b6602",
+  "system": {
+    "type": "Linux",
+    "release": "4.15.0-1087-oem",
+    "os": "Debian GNU/Linux 9 (stretch)"
+  },
+  "source_image": {
+    "id": "sha256:ae663070af852ea03e38e859216ae19a1c33b865739e371e9459bbbde6f2ff53",
+    "name": "",
+    "size": 1233561238,
+    "size_human": "1.2 GB",
+    "create_time": "2020-06-24T15:04:11Z",
+    "all_names": null,
+    "docker_version": "18.09.7",
+    "architecture": "amd64",
+    "exposed_ports": [
+      "8080/tcp"
+    ]
+  },
+  "minified_image_size": 75459788,
+  "minified_image_size_human": "76 MB",
+  "minified_image": "slim",
+  "minified_image_has_data": true,
+  "minified_by": 16.347266149223742,
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/ae663070af852ea03e38e859216ae19a1c33b865739e371e9459bbbde6f2ff53/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "seccomp-profile",
+  "apparmor_profile_name": "apparmor-profile",
+  "image_stack": null
+}

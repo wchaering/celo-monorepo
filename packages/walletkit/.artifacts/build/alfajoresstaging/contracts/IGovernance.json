@@ -1,0 +1,290 @@
+{
+  "contractName": "IGovernance",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isVoting",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"isVoting\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/interfaces/IGovernance.sol\":\"IGovernance\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/interfaces/IGovernance.sol\":{\"keccak256\":\"0x585e6c90b0275e4115e4f34f80765119e0ab547dae6a87f905c9f87d2e6730d5\",\"urls\":[\"bzzr://d30bfcc72d46bcc87fd2cb9061a73fcc342bea9957630572d5e909fa7e1fb6b9\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.3;\n\ninterface IGovernance {\n  function isVoting(address) external view returns (bool);\n}\n",
+  "sourcePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/interfaces/IGovernance.sol",
+  "ast": {
+    "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/interfaces/IGovernance.sol",
+    "exportedSymbols": {
+      "IGovernance": [
+        19870
+      ]
+    },
+    "id": 19871,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 19862,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:58"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 19870,
+        "linearizedBaseContracts": [
+          19870
+        ],
+        "name": "IGovernance",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 19869,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isVoting",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 19865,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 19864,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 19869,
+                  "src": "69:7:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 19863,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "69:7:58",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "68:9:58"
+            },
+            "returnParameters": {
+              "id": 19868,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 19867,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 19869,
+                  "src": "101:4:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 19866,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "101:4:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "100:6:58"
+            },
+            "scope": 19870,
+            "src": "51:56:58",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 19871,
+        "src": "25:84:58"
+      }
+    ],
+    "src": "0:110:58"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/cmcewen/celo/celo-monorepo/packages/protocol/contracts/governance/interfaces/IGovernance.sol",
+    "exportedSymbols": {
+      "IGovernance": [
+        19870
+      ]
+    },
+    "id": 19871,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 19862,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".3"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:58"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 19870,
+        "linearizedBaseContracts": [
+          19870
+        ],
+        "name": "IGovernance",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 19869,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isVoting",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 19865,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 19864,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 19869,
+                  "src": "69:7:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 19863,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "69:7:58",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "68:9:58"
+            },
+            "returnParameters": {
+              "id": 19868,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 19867,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 19869,
+                  "src": "101:4:58",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 19866,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "101:4:58",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "100:6:58"
+            },
+            "scope": 19870,
+            "src": "51:56:58",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 19871,
+        "src": "25:84:58"
+      }
+    ],
+    "src": "0:110:58"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.10",
+  "updatedAt": "2019-12-06T00:01:35.932Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
