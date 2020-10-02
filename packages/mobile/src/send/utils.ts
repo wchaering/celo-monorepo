@@ -229,3 +229,53 @@ export function* handlePaymentDeeplink(deeplink: string) {
     Logger.warn('handlePaymentDeepLink', `deeplink ${deeplink} failed with ${e}`)
   }
 }
+
+// HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE
+// HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE
+// HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE
+
+export function* handleWithdrawData(
+  data: UriData,
+  cachedRecipient?: RecipientWithContact,
+  isOutgoingPaymentRequest?: true
+) {
+  const recipient: RecipientWithQrCode = {
+    kind: RecipientKind.QrCode,
+    address: data.address,
+    displayId: data.e164PhoneNumber,
+    displayName: data.displayName || cachedRecipient?.displayName || 'anonymous',
+    e164PhoneNumber: data.e164PhoneNumber,
+    phoneNumberLabel: cachedRecipient?.phoneNumberLabel,
+    thumbnailPath: cachedRecipient?.thumbnailPath,
+    contactId: cachedRecipient?.contactId,
+  }
+  yield put(storeLatestInRecents(recipient))
+
+  if (data.amount) {
+    const amount = new BigNumber(data.amount)
+    if (!amount) {
+      Logger.warn(TAG, '@handleWithdrawData null amount')
+      return
+    }
+    // navigate(Screens.WithdrawCeloReviewScreen, { transactionData, isFromScan: true })
+    navigate(Screens.WithdrawCeloReviewScreen, {
+      amount: amount,
+      recipientAddress: recipient.address,
+    })
+  } else {
+    navigate(Screens.WithdrawCeloScreen)
+  }
+}
+
+// HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE
+// HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE
+// HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE
+
+export function* handleWithdrawDeeplink(deeplink: string) {
+  try {
+    const paymentData = uriDataFromUrl(deeplink)
+    yield call(handleWithdrawData, paymentData)
+  } catch (e) {
+    Logger.warn('handleWithdrawDeepLink', `deeplink ${deeplink} failed with ${e}`)
+  }
+}
