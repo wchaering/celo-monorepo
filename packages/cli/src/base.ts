@@ -151,8 +151,8 @@ export abstract class BaseCommand extends LocalCommand {
   async init() {
     const res: ParserOutput<any, any> = this.parse()
 
-    const networkId = '44787' // alfajores
-    const celoImage = 'us.gcr.io/celo-org/celo-node:alfajores'
+    const networkId = '42220'
+    const celoImage = 'us.gcr.io/celo-org/celo-node:mainnet'
     const dataDir = '/tmp/celocli-lightest'
     const name = 'celocli-lightest'
 

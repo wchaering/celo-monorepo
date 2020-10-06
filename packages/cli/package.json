@@ -1,7 +1,7 @@
 {
   "name": "@alexbh/celocli",
   "description": "CLI Tool for transacting with the Celo protocol",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "alexbh",
   "license": "Apache-2.0",
   "repository": "celo-org/celo-monorepo",
