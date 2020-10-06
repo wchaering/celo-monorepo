@@ -69,7 +69,6 @@ library Proposals {
    */
   function make(
     Proposal storage proposal,
-    StageDurations storage stageDurations,
     uint256[] memory values,
     address[] memory destinations,
     bytes memory data,
@@ -82,11 +81,6 @@ library Proposals {
       values.length == destinations.length && destinations.length == dataLengths.length,
       "Array length mismatch"
     );
-    // solhint-disable-next-line not-rely-on-time
-    require(
-      executionTimestamp >= now.add(stageDurations.referendum),
-      "Execution timestamp must leave ample time for referendum"
-    );
     uint256 transactionCount = values.length;
     proposal.executionTimestamp = executionTimestamp;
 
@@ -96,7 +90,6 @@ library Proposals {
     proposal.submissionTimestamp = now;
 
     uint256 dataPosition = 0;
-    delete proposal.transactions;
     for (uint256 i = 0; i < transactionCount; i = i.add(1)) {
       proposal.transactions.push(
         Transaction(values[i], destinations[i], data.slice(dataPosition, dataLengths[i]))
@@ -111,13 +104,11 @@ library Proposals {
   }
 
   /**
-   * @notice Constructs a proposal for use in memory.
+   * @notice Executes a proposal in memory.
    * @param values The values of Celo Gold to be sent in the proposed transactions.
    * @param destinations The destination addresses of the proposed transactions.
    * @param data The concatenated data to be included in the proposed transactions.
    * @param dataLengths The lengths of each transaction's data.
-   * @param proposer The proposer.
-   * @param deposit The proposal deposit.
    */
   function executeMem(
     uint256[] memory values,
@@ -286,8 +277,7 @@ library Proposals {
       proposal.submissionTimestamp,
       proposal.executionTimestamp,
       proposal.transactions.length,
-      proposal.descriptionUrl,
-
+      proposal.descriptionUrl
     );
   }
 
@@ -319,6 +309,6 @@ library Proposals {
    * @return Whether or not the proposal exists.
    */
   function exists(Proposal storage proposal) internal view returns (bool) {
-    return proposal.timestamp > 0;
+    return proposal.submissionTimestamp > 0;
   }
 }
