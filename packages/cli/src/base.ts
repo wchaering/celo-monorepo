@@ -6,13 +6,16 @@ import {
   newLedgerWalletWithSetup,
 } from '@celo/contractkit/lib/wallets/ledger-wallet'
 import { ReadOnlyWallet } from '@celo/contractkit/lib/wallets/wallet'
+import { sleep } from '@celo/utils/lib/async'
 import TransportNodeHid from '@ledgerhq/hw-transport-node-hid'
 import { Command, flags } from '@oclif/command'
 import { ParserOutput } from '@oclif/parser/lib/parse'
+import { spawn, spawnSync } from 'child_process'
+import { existsSync } from 'fs'
 import net from 'net'
 import Web3 from 'web3'
 import { getGasCurrency, getNodeUrl } from './utils/config'
-import { requireNodeIsSynced } from './utils/helpers'
+import { nodeIsSynced } from './utils/helpers'
 
 // Base for commands that do not need web3.
 export abstract class LocalCommand extends Command {
@@ -111,6 +114,7 @@ export abstract class BaseCommand extends LocalCommand {
   private _web3: Web3 | null = null
   private _kit: ContractKit | null = null
   private _wallet?: ReadOnlyWallet
+  private _lightestDestroy: any
 
   get web3() {
     if (!this._web3) {
@@ -145,10 +149,60 @@ export abstract class BaseCommand extends LocalCommand {
   }
 
   async init() {
-    if (this.requireSynced) {
-      await requireNodeIsSynced(this.web3)
-    }
     const res: ParserOutput<any, any> = this.parse()
+
+    const networkId = '44787' // alfajores
+    const celoImage = 'us.gcr.io/celo-org/celo-node:alfajores'
+    const dataDir = '/tmp/celocli-lightest'
+    const name = 'celocli-lightest'
+
+    if (!existsSync(dataDir)) {
+      spawnSync('docker', [
+        'run',
+        '--rm',
+        `-v=${dataDir}:/root/.celo`,
+        celoImage,
+        '--nousb',
+        'init',
+        '/celo/genesis.json',
+      ])
+      const bootnodes = spawnSync('docker', [
+        'run',
+        '--rm',
+        '--entrypoint',
+        'cat',
+        celoImage,
+        '/celo/bootnodes',
+      ])
+      spawnSync('docker', ['rm', 'celocli-lightest'])
+      spawn(`docker`, [
+        'run',
+        '-d',
+        `--name=${name}`,
+        '-p=127.0.0.1:8545:8545',
+        '-p=127.0.0.1:8546:8546',
+        `-v=${dataDir}:/root/.celo`,
+        celoImage,
+        '--verbosity=3',
+        `--networkid=${networkId}`,
+        '--syncmode=lightest',
+        '--rpc',
+        '--rpcaddr=0.0.0.0',
+        '--rpcapi=eth,net,web3,debug,admin,personal',
+        '--maxpeers=10',
+        `--bootnodes=${bootnodes.stdout.toString().trim()}`,
+      ])
+    } else {
+      spawnSync('docker', ['start', name])
+    }
+
+    while (!(await nodeIsSynced(this.web3, true))) {
+      await sleep(200)
+    }
+    this._lightestDestroy = () => {
+      spawnSync(`docker`, ['stop', 'celocli-lightest'])
+    }
+
     if (res.flags.useLedger) {
       let transport: Transport
       try {
@@ -208,6 +262,7 @@ export abstract class BaseCommand extends LocalCommand {
   finally(arg: Error | undefined): Promise<any> {
     try {
       stopProvider(this.web3.currentProvider)
+      this._lightestDestroy && this._lightestDestroy()
     } catch (error) {
       this.log(`Failed to close the connection: ${error}`)
     }
