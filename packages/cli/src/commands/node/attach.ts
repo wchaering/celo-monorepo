@@ -9,7 +9,6 @@ export default class GethAttach extends BaseCommand {
   }
 
   async run() {
-    const res = this.parse(GethAttach)
     await execCmd('docker', [
       'run',
       '-it',
