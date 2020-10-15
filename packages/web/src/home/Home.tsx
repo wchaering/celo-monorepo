@@ -12,17 +12,32 @@ import HomeCover from 'src/home/version3/HomeCover'
 import { I18nProps, NameSpaces, withNamespaces } from 'src/i18n'
 import Press from 'src/press/Press'
 import FlowerArea from './FlowerArea'
+import Timeline from './roadmap/Timeline'
 
 interface State {
   mobile: boolean
 }
 
+interface Props {
+  milestones: any[]
+}
+
 const DESCRIPTION =
   'Celo is an open platform that makes financial tools accessible to anyone with a mobile phone'
 
-export class Home extends React.Component<I18nProps, State> {
-  static getInitialProps() {
-    return { namespacesRequired: [NameSpaces.home, NameSpaces.common] }
+export class Home extends React.Component<I18nProps & Props, State> {
+  static async getInitialProps({ req }) {
+    let milestones = []
+    // req exists if and only if this is being run on serverside
+    if (req) {
+      const fetchMilestones = await import('src/../server/fetchMilestones').then(
+        (mod) => mod.default
+      )
+      milestones = await fetchMilestones()
+    } else {
+      milestones = await fetch('/api/milestones').then((result) => result.json())
+    }
+    return { namespacesRequired: [NameSpaces.home, NameSpaces.common], milestones }
   }
 
   state: State
@@ -51,6 +66,7 @@ export class Home extends React.Component<I18nProps, State> {
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
         <HomeCover />
+        <Timeline milestones={this.props.milestones} />
         <ImagePanes />
         <HomeBenefits />
         <FlowerArea />
