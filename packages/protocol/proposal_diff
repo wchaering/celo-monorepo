@@ -1,0 +1,73 @@
+12c12
+<     "contract": "Accounts",
+---
+>     "contract": "AccountsProxy",
+47c47
+<     "contract": "Attestations",
+---
+>     "contract": "AttestationsProxy",
+55c55
+<     "contract": "DoubleSigningSlasher",
+---
+>     "contract": "DoubleSigningSlasherProxy",
+72c72
+<     "contract": "Election",
+---
+>     "contract": "ElectionProxy",
+80c80
+<     "contract": "EpochRewards",
+---
+>     "contract": "EpochRewardsProxy",
+88c88
+<     "contract": "Escrow",
+---
+>     "contract": "EscrowProxy",
+96c96
+<     "contract": "Exchange",
+---
+>     "contract": "ExchangeProxy",
+104c104
+<     "contract": "GasPriceMinimum",
+---
+>     "contract": "GasPriceMinimumProxy",
+112c112
+<     "contract": "GoldToken",
+---
+>     "contract": "GoldTokenProxy",
+126a127
+>     
+135a137
+>     
+138c140
+<     "contract": "Governance",
+---
+>     "contract": "GovernanceProxy",
+146c148
+<     "contract": "LockedGold",
+---
+>     "contract": "LockedGoldProxy",
+154c156
+<     "contract": "Random",
+---
+>     "contract": "RandomProxy",
+162c164
+<     "contract": "Reserve",
+---
+>     "contract": "ReserveProxy",
+170c172
+<     "contract": "SortedOracles",
+---
+>     "contract": "SortedOraclesProxy",
+178c180
+<     "contract": "StableToken",
+---
+>     "contract": "StableTokenProxy",
+186c188
+<     "contract": "Validators",
+---
+>     "contract": "ValidatorsProxy",
+193c195
+< ]
+\ No newline at end of file
+---
+> ]
