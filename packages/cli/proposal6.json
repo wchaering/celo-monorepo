@@ -1,0 +1,269 @@
+[
+  {
+    "contract": "Registry",
+    "function": "setAddressFor",
+    "args": [
+      "0xfbe799c5b69e5fe3989036326d867dac569988f1bfc8d2b15f23820d29361008",
+      "0x1B7b709d9c52A1affAb42a173099Eba997362e76"
+    ],
+    "params": {
+      "identifier": "0xfbe799c5b69e5fe3989036326d867dac569988f1bfc8d2b15f23820d29361008",
+      "addr": "0x1B7b709d9c52A1affAb42a173099Eba997362e76"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Accounts",
+    "function": "_setImplementation",
+    "args": [
+      "0x551122c3C5Ac1b4992d0eB11a8A7fDD63c79ec56"
+    ],
+    "params": {
+      "implementation": "0x551122c3C5Ac1b4992d0eB11a8A7fDD63c79ec56"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Registry",
+    "function": "setAddressFor",
+    "args": [
+      "0x84c3c634bfb29ce7eaa8304758494c38550b6db2707a5073aa1cd989477e0720",
+      "0x7be69bDF228e7CcF46578D4a7FDFe20e9e2Be9b7"
+    ],
+    "params": {
+      "identifier": "0x84c3c634bfb29ce7eaa8304758494c38550b6db2707a5073aa1cd989477e0720",
+      "addr": "0x7be69bDF228e7CcF46578D4a7FDFe20e9e2Be9b7"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Registry",
+    "function": "setAddressFor",
+    "args": [
+      "0x233b7a15c2eb7faee58fa32d919c1d2665fab3dbbed1c663fe7566823a8e55f8",
+      "0xbe5890Ec47aD4022805c4223bE963eAa255a04A5"
+    ],
+    "params": {
+      "identifier": "0x233b7a15c2eb7faee58fa32d919c1d2665fab3dbbed1c663fe7566823a8e55f8",
+      "addr": "0xbe5890Ec47aD4022805c4223bE963eAa255a04A5"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Registry",
+    "function": "setAddressFor",
+    "args": [
+      "0xcc9be77109ec401f6909a7c66c6c2636a72a1c4ea707e886eb03be69e56ae43c",
+      "0xf53aD14f63aB4fd8AC73bB3dba1dA5A2844399A5"
+    ],
+    "params": {
+      "identifier": "0xcc9be77109ec401f6909a7c66c6c2636a72a1c4ea707e886eb03be69e56ae43c",
+      "addr": "0xf53aD14f63aB4fd8AC73bB3dba1dA5A2844399A5"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Attestations",
+    "function": "_setImplementation",
+    "args": [
+      "0xD576ba7bC423A21653A313A75D5556861D85A253"
+    ],
+    "params": {
+      "implementation": "0xD576ba7bC423A21653A313A75D5556861D85A253"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "DoubleSigningSlasher",
+    "function": "_setImplementation",
+    "args": [
+      "0xd9E3C58dAd640cd44B861524CE59d8965c6B5e85"
+    ],
+    "params": {
+      "implementation": "0xd9E3C58dAd640cd44B861524CE59d8965c6B5e85"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Registry",
+    "function": "setAddressFor",
+    "args": [
+      "0xf85a8831772b00f60d09cf91c6167852af544ccf577454fa9a7f1277b735491d",
+      "0xc1FC021698492bb00Fca99d0dA029DF21A637fB8"
+    ],
+    "params": {
+      "identifier": "0xf85a8831772b00f60d09cf91c6167852af544ccf577454fa9a7f1277b735491d",
+      "addr": "0xc1FC021698492bb00Fca99d0dA029DF21A637fB8"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Election",
+    "function": "_setImplementation",
+    "args": [
+      "0x9D7b5cBF83F17a70de12a709E8596435c055f462"
+    ],
+    "params": {
+      "implementation": "0x9D7b5cBF83F17a70de12a709E8596435c055f462"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "EpochRewards",
+    "function": "_setImplementation",
+    "args": [
+      "0xC0fBB08ec8957e70B408080419bFA0dD44A318d2"
+    ],
+    "params": {
+      "implementation": "0xC0fBB08ec8957e70B408080419bFA0dD44A318d2"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Escrow",
+    "function": "_setImplementation",
+    "args": [
+      "0xb067fF5973011D3e66DBe153f7ff475cc7BfA3F5"
+    ],
+    "params": {
+      "implementation": "0xb067fF5973011D3e66DBe153f7ff475cc7BfA3F5"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Exchange",
+    "function": "_setImplementation",
+    "args": [
+      "0x1Ed46a55cd80c86f4ca64AED59721289A67FbC54"
+    ],
+    "params": {
+      "implementation": "0x1Ed46a55cd80c86f4ca64AED59721289A67FbC54"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "GasPriceMinimum",
+    "function": "_setImplementation",
+    "args": [
+      "0x06Cd9E60712D3604124a6ddbC0180D473D9aC78b"
+    ],
+    "params": {
+      "implementation": "0x06Cd9E60712D3604124a6ddbC0180D473D9aC78b"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "GoldToken",
+    "function": "_setImplementation",
+    "args": [
+      "0x17f44c7a4da535BE00c97997376b3dFAA414c74D"
+    ],
+    "params": {
+      "implementation": "0x17f44c7a4da535BE00c97997376b3dFAA414c74D"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Registry",
+    "function": "setAddressFor",
+    "args": [
+      "0x6c70dab6b74662678d543199490709cc5f39e1c1ec2129fc70b370c6ea8b85da",
+      "0x617e7E000F13c8b39A3dF26D574E2d81037Eca76"
+    ],
+    "params": {
+      "identifier": "0x6c70dab6b74662678d543199490709cc5f39e1c1ec2129fc70b370c6ea8b85da",
+      "addr": "0x617e7E000F13c8b39A3dF26D574E2d81037Eca76"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Registry",
+    "function": "setAddressFor",
+    "args": [
+      "0xde69c8a9f0433e85433db6d92de3c90c7f66ec187b212d26f4870196be7d396f",
+      "0x02cc8C5E680A75B1aDf0302B1c8Ff3dB8eDbC849"
+    ],
+    "params": {
+      "identifier": "0xde69c8a9f0433e85433db6d92de3c90c7f66ec187b212d26f4870196be7d396f",
+      "addr": "0x02cc8C5E680A75B1aDf0302B1c8Ff3dB8eDbC849"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Governance",
+    "function": "_setImplementation",
+    "args": [
+      "0xD8109A6b824A83E6D758335FB03a07EBA5ae70Ce"
+    ],
+    "params": {
+      "implementation": "0xD8109A6b824A83E6D758335FB03a07EBA5ae70Ce"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "LockedGold",
+    "function": "_setImplementation",
+    "args": [
+      "0x714a8498Ed8329fD7c72782f35e8DBa118637c3E"
+    ],
+    "params": {
+      "implementation": "0x714a8498Ed8329fD7c72782f35e8DBa118637c3E"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Random",
+    "function": "_setImplementation",
+    "args": [
+      "0xC54b56771A5523B75BF31Ca80337FF1C57C2E345"
+    ],
+    "params": {
+      "implementation": "0xC54b56771A5523B75BF31Ca80337FF1C57C2E345"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Reserve",
+    "function": "_setImplementation",
+    "args": [
+      "0x717BDF65BAD9a9029C357a202f210a55991818b8"
+    ],
+    "params": {
+      "implementation": "0x717BDF65BAD9a9029C357a202f210a55991818b8"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "SortedOracles",
+    "function": "_setImplementation",
+    "args": [
+      "0xBEA8D792669Fd14C640d7c1A47CeaEbCfBdFeC54"
+    ],
+    "params": {
+      "implementation": "0xBEA8D792669Fd14C640d7c1A47CeaEbCfBdFeC54"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "StableToken",
+    "function": "_setImplementation",
+    "args": [
+      "0xe6869bC124B1E508ca2F3b8B14eDeb2FDB8568CE"
+    ],
+    "params": {
+      "implementation": "0xe6869bC124B1E508ca2F3b8B14eDeb2FDB8568CE"
+    },
+    "value": "0"
+  },
+  {
+    "contract": "Validators",
+    "function": "_setImplementation",
+    "args": [
+      "0x736c2Bf91373ed8ffCCA4F8c40dB6E8c2f5B9A9f"
+    ],
+    "params": {
+      "implementation": "0x736c2Bf91373ed8ffCCA4F8c40dB6E8c2f5B9A9f"
+    },
+    "value": "0"
+  }
+]
