@@ -53,7 +53,7 @@ const DefaultConfig = {
     slashableDowntime: (8 * HOUR) / 5, // ~8 hours
   },
   election: {
-    minElectableValidators: '22',
+    minElectableValidators: '5',
     maxElectableValidators: '100',
     maxVotesPerAccount: 10,
     electabilityThreshold: 1 / 1000,
@@ -98,11 +98,11 @@ const DefaultConfig = {
   },
   governance: {
     queueExpiry: 4 * WEEK,
-    dequeueFrequency: DAY, // Change to 1 week once Mainnet activated
+    dequeueFrequency: 30 * MINUTE, // Change to 1 week once Mainnet activated
     concurrentProposals: 3,
-    approvalStageDuration: DAY, // Change to 3 days once Mainnet activated
-    referendumStageDuration: 2 * DAY, // Change to 1 week once Mainnet activated
-    executionStageDuration: 3 * DAY,
+    approvalStageDuration: HOUR, // Change to 3 days once Mainnet activated
+    referendumStageDuration: HOUR, // Change to 1 week once Mainnet activated
+    executionStageDuration: 3 * HOUR,
     minDeposit: 100, // 100 cGLD
     participationBaseline: 5 / 100, // Start with low participation requirements, let the protocol adjust
     participationBaselineFloor: 5 / 100,
@@ -110,21 +110,9 @@ const DefaultConfig = {
     participationBaselineQuorumFactor: 1,
   },
   governanceApproverMultiSig: {
-    // 3/9 multsig, with 5/9 to make multisig changes.
-    signatories: [
-      '0xBE0c3B35Ec3f759D9A67c4B7c539b0D5b52A4642',
-      '0xD6d48412dA0804CF88258bfDf5AaFcBe5FEd7ecC',
-      '0xFD74A4b05F12B9aB6020CB202aDE1BBa4Bc99aba',
-      '0x114a0f28f20a6cF1AD428C396f78248d0E76724e',
-      '0xC631Eb5dE231000f96F4973ca8516d487108b2BF',
-      '0xc85639289d4bbb5f90e380a0f4db6b77a2f777bf',
-      '0x92AD020Cde6A4e566770C603ae8315a9d7252740',
-      '0xba4862643d476acbc13276bd73daca7b27bf567c',
-      '0xe5bD469Ad2d2A160604e38ad123828B7754aa23b',
-    ],
-    numRequiredConfirmations: 3,
-    numInternalRequiredConfirmations: 5,
-    useMultiSig: true,
+    signatories: [network.from],
+    numRequiredConfirmations: 1,
+    numInternalRequiredConfirmations: 1,
   },
   lockedGold: {
     unlockingPeriod: 3 * DAY,
