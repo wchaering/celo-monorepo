@@ -98,10 +98,10 @@ const DefaultConfig = {
   },
   governance: {
     queueExpiry: 4 * WEEK,
-    dequeueFrequency: 30 * MINUTE, // Change to 1 week once Mainnet activated
+    dequeueFrequency: 1 * MINUTE, // Change to 1 week once Mainnet activated
     concurrentProposals: 3,
-    approvalStageDuration: HOUR, // Change to 3 days once Mainnet activated
-    referendumStageDuration: HOUR, // Change to 1 week once Mainnet activated
+    approvalStageDuration: 10 * MINUTE, // Change to 3 days once Mainnet activated
+    referendumStageDuration: 10 * MINUTE, // Change to 1 week once Mainnet activated
     executionStageDuration: 3 * HOUR,
     minDeposit: 100, // 100 cGLD
     participationBaseline: 5 / 100, // Start with low participation requirements, let the protocol adjust
