@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import * as React from 'react'
+import { Link } from '../i18n'
 
 interface Props {
   href: string
@@ -10,11 +10,7 @@ interface Props {
 
 export default function Link2({ href, children, passHref, prefetch = false }: Props) {
   if (href) {
-    return (
-      <Link prefetch={prefetch} href={href} passHref={passHref}>
-        {children}
-      </Link>
-    )
+    return <Link href={href}>{children}</Link>
   } else {
     return <>{children}</>
   }

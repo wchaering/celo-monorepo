@@ -3,9 +3,12 @@ import path from 'path'
 
 const options = {
   defaultLanguage: 'en',
-  otherLanguages: ['en'],
+  otherLanguages: ['es'],
   saveMissing: false,
   localePath: path.resolve('./public/static/locales'),
+  localeSubpaths: {
+    es: 'es',
+  },
 }
 const NextI18NextInstance = new NextI18Next(options)
 export const Trans = NextI18NextInstance.Trans

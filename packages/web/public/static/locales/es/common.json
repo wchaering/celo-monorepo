@@ -1,0 +1,74 @@
+{
+  "disclaimer": "SNothing herein constitutes an offer to sell, or the solicitation of an offer to buy, any securities or tokens.",
+  "About Us": "SAbout Us",
+  "Join Us": "SJoin Us",
+  "Home": "SHome",
+  "Join": "SJoin",
+  "Technology": "STechnology",
+  "Applications": "SApplications",
+  "Community": "SCommunity",
+  "Connect": "SConnect",
+  "Medium": "SMedium",
+  "blog": "SBlog",
+  "Twitter": "STwitter",
+  "github": "SGitHub",
+  "Privacy Policy": "SPrivacy Policy",
+  "email": "SEmail",
+  "weUseCookies": "SWe use cookies on our website",
+  "weUseCookiesReasons": "Sto better understand how visitors use our site so that we can improve the experience.",
+  "cookiesPrivacyInfo": "SBy selecting Agree, you consent to our use of cookies in accordance with our",
+  "cookiesPrivacyPolicy": "SPrivacy Policy.",
+  "cookiesAgree": "SAgree",
+  "cookiesDisagree": "SDisagree",
+  "footerReadMoreTerms": "SRead more in Celo <0>Terms of Service</0>",
+  "footer": {
+    "technology": "STechnology",
+    "resources": "SResources",
+    "social": "SSocial",
+    "copyright": "SThe Celo Foundation, © Celo {{year}}"
+  },
+  "channels": {
+    "brand": {
+      "name": "SBrand Toolkit",
+      "text": "SDesign with Celo"
+    },
+    "discord": {
+      "name": "SDiscord",
+      "text": "SCollaborate and get\ndeveloper support"
+    },
+    "events": {
+      "name": "SEvents",
+      "text": "SConnect in Person"
+    },
+    "forum": {
+      "name": "SForum",
+      "text": "SAsk technical questions"
+    },
+    "github": {
+      "name": "SGitHub",
+      "text": "SContribute to the codebase"
+    },
+    "linkedin": {
+      "name": "SLinkedIn",
+      "text": "SFind Professional Opportunities"
+    }
+  },
+  "stayConnected": "SStay connected",
+  "stayConnectedThanks": "SThanks for joining the Celo community, expect our newsletter soon.",
+  "readMoreFromOurBlog": "SRead more on our blog",
+  "receiveUpdates": "SReceive the latest updates to your inbox",
+  "signUp": "SSign Up",
+  "conductBtn": "SRead Document",
+  "experienceLabel": "SExperience",
+  "conductLabel": "SCode of Conduct",
+  "conductText": "SShared norms and behaviors are the foundation of a beautiful community. Please read and respect our code of conduct.",
+  "socialLabel": "SEngage",
+  "validationErrors": {
+    "email": "SPlease enter a valid email",
+    "generic": "SOops I’m blank!",
+    "unknownError": "SSomething went wrong",
+    "pleaseWait": "SPlease wait"
+  },
+  "shortSuccess": "SSubmitted",
+  "applicationSubmitted": "SApplication Submitted"
+}
