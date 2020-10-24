@@ -15,10 +15,8 @@ module.exports = (deployer: any) => {
       console.log('Linking proxy to', lib)
       await proxy._setImplementation(library.address)
       const Contracts = linkedLibraries[lib].map((contract: string) => artifacts.require(contract))
-      const ProxiedLibrary = Library.at(proxy.address)
       console.log('Linking', lib, proxy.address, 'to', linkedLibraries[lib])
-      Contracts.map((c: any) => c.link(ProxiedLibrary))
-      deployer.link(ProxiedLibrary, Contracts)
+      Contracts.map((c: any) => c.link(lib, proxy.address))
     })
   })
 }
