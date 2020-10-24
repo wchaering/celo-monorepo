@@ -35,7 +35,7 @@ export interface E164NumberToAddressType {
   [e164PhoneNumber: string]: string[] | null | undefined // null means unverified
 }
 
-export interface E164NumberToSaltType {
+export interface E164NumberToPepperType {
   [e164PhoneNumber: string]: string | null // null means unverified
 }
 
@@ -92,7 +92,7 @@ export interface State {
   addressToE164Number: AddressToE164NumberType
   // Note: Do not access values in this directly, use the `getAddressFromPhoneNumber` helper in contactMapping
   e164NumberToAddress: E164NumberToAddressType
-  e164NumberToSalt: E164NumberToSaltType
+  e164NumberToSalt: E164NumberToPepperType
   addressToDataEncryptionKey: AddressToDataEncryptionKeyType
   // Doesn't contain all known addresses, use only as a fallback.
   // TODO: Remove if unused after CIP-8 implementation.
@@ -385,7 +385,7 @@ export const e164NumberToAddressSelector = (state: RootState) => state.identity.
 export const addressToE164NumberSelector = (state: RootState) => state.identity.addressToE164Number
 export const addressToDataEncryptionKeySelector = (state: RootState) =>
   state.identity.addressToDataEncryptionKey
-export const e164NumberToSaltSelector = (state: RootState) => state.identity.e164NumberToSalt
+export const e164NumberToPepperSelector = (state: RootState) => state.identity.e164NumberToSalt
 export const secureSendPhoneNumberMappingSelector = (state: RootState) =>
   state.identity.secureSendPhoneNumberMapping
 export const importContactsProgressSelector = (state: RootState) =>

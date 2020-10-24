@@ -3,7 +3,7 @@ import {
   AddressToE164NumberType,
   AddressValidationType,
   E164NumberToAddressType,
-  E164NumberToSaltType,
+  E164NumberToPepperType,
   UpdatableVerificationState,
 } from 'src/identity/reducer'
 import { ContactMatches, ImportContactsStatus, VerificationStatus } from 'src/identity/types'
@@ -99,7 +99,7 @@ export interface UpdateE164PhoneNumberAddressesAction {
 
 export interface UpdateE164PhoneNumberSaltAction {
   type: Actions.UPDATE_E164_PHONE_NUMBER_SALT
-  e164NumberToSalt: E164NumberToSaltType
+  e164NumberToSalt: E164NumberToPepperType
 }
 
 export interface FetchAddressesAndValidateAction {
@@ -301,8 +301,8 @@ export const updateE164PhoneNumberAddresses = (
   addressToE164Number,
 })
 
-export const updateE164PhoneNumberSalts = (
-  e164NumberToSalt: E164NumberToSaltType
+export const updateE164PhoneNumberPeppers = (
+  e164NumberToSalt: E164NumberToPepperType
 ): UpdateE164PhoneNumberSaltAction => ({
   type: Actions.UPDATE_E164_PHONE_NUMBER_SALT,
   e164NumberToSalt,

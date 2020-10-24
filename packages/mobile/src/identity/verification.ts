@@ -38,7 +38,7 @@ import {
   StartVerificationAction,
   udpateVerificationState,
 } from 'src/identity/actions'
-import { fetchPhoneHashPrivate } from 'src/identity/privateHashing'
+import { fetchPhoneHashPrivate, getUserSelfPhoneHashDetails } from 'src/identity/privateHashing'
 import {
   acceptedAttestationCodesSelector,
   attestationCodesSelector,
@@ -59,6 +59,7 @@ import Logger from 'src/utils/Logger'
 import { getContractKit } from 'src/web3/contracts'
 import { registerAccountDek } from 'src/web3/dataEncryptionKey'
 import { getConnectedAccount, getConnectedUnlockedAccount } from 'src/web3/saga'
+import { scwAccountSelector } from 'src/web3/selectors'
 
 const TAG = 'identity/verification'
 
@@ -93,6 +94,7 @@ export function* fetchVerificationState() {
 
     let phoneHash: string
     let phoneHashDetails: PhoneNumberHashDetails
+
     const { timeout } = yield race({
       balances: all([
         call(waitFor, stableTokenBalanceSelector),
@@ -124,6 +126,85 @@ export function* fetchVerificationState() {
         salt: undefined,
       }
     }
+    ValoraAnalytics.track(VerificationEvents.verification_hash_retrieved, {
+      phoneHash,
+      address: account,
+    })
+
+    ValoraAnalytics.track(VerificationEvents.verification_fetch_status_start)
+    yield put(setVerificationStatus(VerificationStatus.GettingStatus))
+    // Get all relevant info about the account's verification status
+    const status: AttestationsStatus = yield call(
+      getAttestationsStatus,
+      attestationsWrapper,
+      account,
+      phoneHash
+    )
+    ValoraAnalytics.track(VerificationEvents.verification_fetch_status_complete, {
+      ...status,
+    })
+
+    const actionableAttestations: ActionableAttestation[] = yield call(
+      getActionableAttestations,
+      attestationsWrapper,
+      phoneHash,
+      account
+    )
+
+    yield put(
+      udpateVerificationState({
+        phoneHashDetails,
+        actionableAttestations,
+        status,
+      })
+    )
+  } catch (error) {
+    Logger.error(TAG, 'Error occured during fetching verification state', error)
+  }
+}
+
+export function* fetchScwVerificationState() {
+  try {
+    const account: string = yield call(getConnectedUnlockedAccount)
+    const scwAccount: string | null = yield select(scwAccountSelector)
+    const e164Number: string = yield select(e164NumberSelector)
+    const contractKit = yield call(getContractKit)
+    const attestationsWrapper: AttestationsWrapper = yield call([
+      contractKit.contracts,
+      contractKit.contracts.getAttestations,
+    ])
+    // Placeholder until there is a Komenci API to ping for a "health check"
+    const KOMENCI_ACTIVE = true
+
+    // If Komenci is not enabled, active, or hasn't been run before,
+    // then there is no verification state to populate
+    if (!features.KOMENCI || !KOMENCI_ACTIVE || !scwAccount) {
+      return
+    }
+
+    let phoneHashDetails: PhoneNumberHashDetails
+
+    // CHeck is user's pepper is already cached
+    const selfPhoneDetails: PhoneNumberHashDetails | undefined = yield call(
+      getUserSelfPhoneHashDetails
+    )
+
+    // Use it if we have it, otherwise we need to ping Komenci for it
+    if (selfPhoneDetails) {
+      phoneHashDetails = selfPhoneDetails
+    } else {
+      // Placholder for KomenciKit call
+      // Input: e164Number
+      // Output: {
+      //     e164Number: string;
+      //     phoneHash: string;
+      //     pepper: string;
+      // }
+      // Delete below once linter stops complaining
+      phoneHashDetails = yield call(fetchPhoneHashPrivate, e164Number)
+    }
+    const phoneHash: string = phoneHashDetails.phoneHash
+
     ValoraAnalytics.track(VerificationEvents.verification_hash_retrieved, {
       phoneHash,
       address: account,
@@ -351,8 +432,8 @@ export function* doVerificationFlow(withoutRevealing: boolean = false) {
     return true
   } catch (error) {
     Logger.error(TAG, 'Error occured during verification flow', error)
-    if (error.message === ErrorMessages.SALT_QUOTA_EXCEEDED) {
-      yield put(setVerificationStatus(VerificationStatus.SaltQuotaExceeded))
+    if (error.message === ErrorMessages.PEPPER_QUOTA_EXCEEDED) {
+      yield put(setVerificationStatus(VerificationStatus.PepperQuotaExceeded))
     } else if (error.message === ErrorMessages.ODIS_INSUFFICIENT_BALANCE) {
       yield put(setVerificationStatus(VerificationStatus.InsufficientBalance))
     } else {

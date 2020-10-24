@@ -16,7 +16,7 @@ import { TokenTransactionType, TransactionFeedFragment } from 'src/apollo/types'
 import { MAX_COMMENT_LENGTH } from 'src/config'
 import { features } from 'src/flags'
 import i18n from 'src/i18n'
-import { updateE164PhoneNumberAddresses, updateE164PhoneNumberSalts } from 'src/identity/actions'
+import { updateE164PhoneNumberAddresses, updateE164PhoneNumberPeppers } from 'src/identity/actions'
 import {
   getAddressesFromLookupResult,
   lookupAttestationIdentifiers,
@@ -26,8 +26,8 @@ import {
   AddressToE164NumberType,
   e164NumberToAddressSelector,
   E164NumberToAddressType,
-  e164NumberToSaltSelector,
-  E164NumberToSaltType,
+  e164NumberToPepperSelector,
+  E164NumberToPepperType,
 } from 'src/identity/reducer'
 import { NewTransactionsInFeedAction } from 'src/transactions/actions'
 import Logger from 'src/utils/Logger'
@@ -265,12 +265,12 @@ function* updatePhoneNumberMappings(newIdentityData: IdentityMetadataInTx[]) {
     return
   }
 
-  const e164NumberToSalt: E164NumberToSaltType = yield select(e164NumberToSaltSelector)
+  const e164NumberToSalt: E164NumberToPepperType = yield select(e164NumberToPepperSelector)
   const e164NumberToAddress: E164NumberToAddressType = yield select(e164NumberToAddressSelector)
 
   const e164NumberToAddressUpdates: E164NumberToAddressType = {}
   const addressToE164NumberUpdates: AddressToE164NumberType = {}
-  const e164NumberToSaltUpdates: E164NumberToSaltType = {}
+  const e164NumberToSaltUpdates: E164NumberToPepperType = {}
 
   for (const data of newIdentityData) {
     const { address, e164Number, salt } = data
@@ -293,6 +293,6 @@ function* updatePhoneNumberMappings(newIdentityData: IdentityMetadataInTx[]) {
     addressToE164NumberUpdates[address] = e164Number
   }
 
-  yield put(updateE164PhoneNumberSalts(e164NumberToSaltUpdates))
+  yield put(updateE164PhoneNumberPeppers(e164NumberToSaltUpdates))
   yield put(updateE164PhoneNumberAddresses(e164NumberToAddressUpdates, addressToE164NumberUpdates))
 }

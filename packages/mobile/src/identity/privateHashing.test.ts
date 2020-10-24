@@ -6,10 +6,10 @@ import { call, select } from 'redux-saga/effects'
 import { PincodeType } from 'src/account/reducer'
 import { e164NumberSelector } from 'src/account/selectors'
 import { ErrorMessages } from 'src/app/ErrorMessages'
-import { updateE164PhoneNumberSalts } from 'src/identity/actions'
+import { updateE164PhoneNumberPeppers } from 'src/identity/actions'
 import { fetchPhoneHashPrivate } from 'src/identity/privateHashing'
 import {
-  e164NumberToSaltSelector,
+  e164NumberToPepperSelector,
   isBalanceSufficientForSigRetrievalSelector,
 } from 'src/identity/reducer'
 import { isAccountUpToDate } from 'src/web3/dataEncryptionKey'
@@ -49,13 +49,13 @@ describe('Fetch phone hash details', () => {
         [call(getConnectedAccount), mockAccount],
         [select(isBalanceSufficientForSigRetrievalSelector), true],
         [select(e164NumberSelector), mockE164Number2],
-        [select(e164NumberToSaltSelector), {}],
+        [select(e164NumberToPepperSelector), {}],
         [matchers.call.fn(isAccountUpToDate), true],
         [matchers.call.fn(OdisUtils.PhoneNumberIdentifier.getPhoneNumberIdentifier), lookupResult],
       ])
       .withState(state)
       .put(
-        updateE164PhoneNumberSalts({
+        updateE164PhoneNumberPeppers({
           [mockE164Number]: expectedPepper,
         })
       )
@@ -79,7 +79,7 @@ describe('Fetch phone hash details', () => {
           [call(getConnectedAccount), mockAccount],
           [select(isBalanceSufficientForSigRetrievalSelector), false],
           [select(e164NumberSelector), mockE164Number2],
-          [select(e164NumberToSaltSelector), {}],
+          [select(e164NumberToPepperSelector), {}],
           [matchers.call.fn(isAccountUpToDate), true],
         ])
         .withState(state)

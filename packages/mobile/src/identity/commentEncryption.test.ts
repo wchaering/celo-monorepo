@@ -5,7 +5,7 @@ import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { call, select } from 'redux-saga/effects'
 import { TokenTransactionType, TransactionFeedFragment } from 'src/apollo/types'
-import { updateE164PhoneNumberAddresses, updateE164PhoneNumberSalts } from 'src/identity/actions'
+import { updateE164PhoneNumberAddresses, updateE164PhoneNumberPeppers } from 'src/identity/actions'
 import {
   checkTxsForIdentityMetadata,
   decryptComment,
@@ -14,7 +14,7 @@ import {
   extractPhoneNumberMetadata,
 } from 'src/identity/commentEncryption'
 import { lookupAttestationIdentifiers } from 'src/identity/contactMapping'
-import { e164NumberToAddressSelector, e164NumberToSaltSelector } from 'src/identity/reducer'
+import { e164NumberToAddressSelector, e164NumberToPepperSelector } from 'src/identity/reducer'
 import { doFetchDataEncryptionKey } from 'src/web3/dataEncryptionKey'
 import { dataEncryptionKeySelector } from 'src/web3/selectors'
 import { getMockStoreData } from 'test/utils'
@@ -235,10 +235,10 @@ describe(checkTxsForIdentityMetadata, () => {
       .provide([
         [select(dataEncryptionKeySelector), mockPrivateDEK2],
         [matchers.call.fn(lookupAttestationIdentifiers), lookupResult],
-        [select(e164NumberToSaltSelector), {}],
+        [select(e164NumberToPepperSelector), {}],
         [select(e164NumberToAddressSelector), {}],
       ])
-      .put(updateE164PhoneNumberSalts({ [mockE164Number]: mockE164NumberPepper }))
+      .put(updateE164PhoneNumberPeppers({ [mockE164Number]: mockE164NumberPepper }))
       .put(
         updateE164PhoneNumberAddresses(
           { [mockE164Number]: [mockAccount] },

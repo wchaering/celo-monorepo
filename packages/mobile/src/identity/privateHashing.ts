@@ -9,11 +9,11 @@ import { IdentityEvents } from 'src/analytics/Events'
 import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import { ErrorMessages } from 'src/app/ErrorMessages'
 import networkConfig from 'src/geth/networkConfig'
-import { updateE164PhoneNumberSalts } from 'src/identity/actions'
+import { updateE164PhoneNumberPeppers } from 'src/identity/actions'
 import { ReactBlsBlindingClient } from 'src/identity/bls-blinding-client'
 import {
-  e164NumberToSaltSelector,
-  E164NumberToSaltType,
+  e164NumberToPepperSelector,
+  E164NumberToPepperType,
   isBalanceSufficientForSigRetrievalSelector,
 } from 'src/identity/reducer'
 import { isUserBalanceSufficient } from 'src/identity/utils'
@@ -40,7 +40,7 @@ export function* fetchPhoneHashPrivate(e164Number: string) {
     if (error.message === ErrorMessages.ODIS_INSUFFICIENT_BALANCE) {
       Logger.error(`${TAG}@fetchPhoneHashPrivate`, 'ODIS insufficient balance', error)
       throw error
-    } else if (error.message === ErrorMessages.SALT_QUOTA_EXCEEDED) {
+    } else if (error.message === ErrorMessages.PEPPER_QUOTA_EXCEEDED) {
       Logger.error(
         `${TAG}@fetchPhoneHashPrivate`,
         'Salt quota exceeded, navigating to quota purchase screen'
@@ -51,33 +51,33 @@ export function* fetchPhoneHashPrivate(e164Number: string) {
         const details: PhoneNumberHashDetails = yield call(doFetchPhoneHashPrivate, e164Number)
         return details
       } else {
-        throw new Error(ErrorMessages.SALT_QUOTA_EXCEEDED)
+        throw new Error(ErrorMessages.PEPPER_QUOTA_EXCEEDED)
       }
     } else {
       Logger.error(`${TAG}@fetchPhoneHashPrivate`, 'Unknown error', error)
-      throw new Error(ErrorMessages.SALT_FETCH_FAILURE)
+      throw new Error(ErrorMessages.PEPPER_FETCH_FAILURE)
     }
   }
 }
 
 /**
- * Retrieve the salt from the cache if present,
+ * Retrieve the pepper from the cache if present,
  * otherwise query from the service
  */
 function* doFetchPhoneHashPrivate(e164Number: string) {
   const account: string = yield call(getConnectedAccount)
   Logger.debug(`${TAG}@fetchPrivatePhoneHash`, 'Fetching phone hash details')
-  const saltCache: E164NumberToSaltType = yield select(e164NumberToSaltSelector)
-  const cachedSalt = saltCache[e164Number]
+  const pepperCache: E164NumberToPepperType = yield select(e164NumberToPepperSelector)
+  const cachedPepper = pepperCache[e164Number]
 
-  if (cachedSalt) {
-    Logger.debug(`${TAG}@fetchPrivatePhoneHash`, 'Salt was cached')
-    const phoneHash = getPhoneHash(e164Number, cachedSalt)
-    const cachedDetails: PhoneNumberHashDetails = { e164Number, phoneHash, pepper: cachedSalt }
+  if (cachedPepper) {
+    Logger.debug(`${TAG}@fetchPrivatePhoneHash`, 'Pepper was cached')
+    const phoneHash = getPhoneHash(e164Number, cachedPepper)
+    const cachedDetails: PhoneNumberHashDetails = { e164Number, phoneHash, pepper: cachedPepper }
     return cachedDetails
   }
 
-  Logger.debug(`${TAG}@fetchPrivatePhoneHash`, 'Salt was not cached, fetching')
+  Logger.debug(`${TAG}@fetchPrivatePhoneHash`, 'Pepper was not cached, fetching')
   const isBalanceSufficientForQuota = yield select(isBalanceSufficientForSigRetrievalSelector)
   if (!isBalanceSufficientForQuota) {
     throw new Error(ErrorMessages.ODIS_INSUFFICIENT_BALANCE)
@@ -92,12 +92,12 @@ function* doFetchPhoneHashPrivate(e164Number: string) {
     account,
     selfPhoneHash
   )
-  yield put(updateE164PhoneNumberSalts({ [e164Number]: details.pepper }))
+  yield put(updateE164PhoneNumberPeppers({ [e164Number]: details.pepper }))
   return details
 }
 
 // Unlike the getPhoneHash in utils, this leverages the phone number
-// privacy service to compute a secure, unique salt for the phone number
+// privacy service to compute a secure, unique pepper for the phone number
 // and then appends it before hashing.
 function* getPhoneHashPrivate(e164Number: string, account: string, selfPhoneHash?: string) {
   if (!isE164Number(e164Number)) {
@@ -132,31 +132,31 @@ function* getPhoneHashPrivate(e164Number: string, account: string, selfPhoneHash
     )
   } catch (error) {
     if (error.message === ErrorMessages.ODIS_QUOTA_ERROR) {
-      throw new Error(ErrorMessages.SALT_QUOTA_EXCEEDED)
+      throw new Error(ErrorMessages.PEPPER_QUOTA_EXCEEDED)
     }
     throw error
   }
 }
 
 // Get the wallet user's own phone hash details if they're cached
-// null otherwise
+// undefined otherwise
 export function* getUserSelfPhoneHashDetails() {
   const e164Number: string = yield select(e164NumberSelector)
   if (!e164Number) {
     return undefined
   }
 
-  const saltCache: E164NumberToSaltType = yield select(e164NumberToSaltSelector)
-  const salt = saltCache[e164Number]
+  const pepperCache: E164NumberToPepperType = yield select(e164NumberToPepperSelector)
+  const pepper = pepperCache[e164Number]
 
-  if (!salt) {
+  if (!pepper) {
     return undefined
   }
 
   const details: PhoneNumberHashDetails = {
     e164Number,
-    pepper: salt,
-    phoneHash: PhoneNumberUtils.getPhoneHash(e164Number, salt),
+    pepper,
+    phoneHash: PhoneNumberUtils.getPhoneHash(e164Number, pepper),
   }
 
   return details

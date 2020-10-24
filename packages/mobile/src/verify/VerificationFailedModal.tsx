@@ -38,7 +38,7 @@ export function VerificationFailedModal({ verificationStatus, retryWithForno, fo
   }
 
   const userBalanceInsufficient = verificationStatus === VerificationStatus.InsufficientBalance
-  const saltQuotaExceeded = verificationStatus === VerificationStatus.SaltQuotaExceeded
+  const saltQuotaExceeded = verificationStatus === VerificationStatus.PepperQuotaExceeded
 
   const isVisible =
     (verificationStatus === VerificationStatus.Failed ||

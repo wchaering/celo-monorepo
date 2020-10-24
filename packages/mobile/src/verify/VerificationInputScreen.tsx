@@ -25,7 +25,6 @@ import {
   resendAttestations,
 } from 'src/identity/actions'
 import { isRevealAllowed } from 'src/identity/reducer'
-import { VerificationStatus } from 'src/identity/types'
 import {
   AttestationCode,
   CodeInputType,
@@ -49,7 +48,6 @@ interface StateProps {
   e164Number: string | null
   attestationCodes: AttestationCode[]
   numCompleteAttestations: number
-  verificationStatus: VerificationStatus
   underlyingError: ErrorMessages | null | undefined
   isRevealAllowed: boolean
 }
@@ -85,7 +83,6 @@ const mapStateToProps = (state: RootState): StateProps => {
     e164Number: state.account.e164PhoneNumber,
     attestationCodes: state.identity.attestationCodes,
     numCompleteAttestations: state.identity.numCompleteAttestations,
-    verificationStatus: state.identity.verificationStatus,
     underlyingError: errorSelector(state),
     isRevealAllowed: isRevealAllowed(state),
   }

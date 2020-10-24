@@ -1,6 +1,6 @@
 import { e164NumberSelector } from 'src/account/selectors'
 import {
-  e164NumberToSaltSelector,
+  e164NumberToPepperSelector,
   isBalanceSufficientForSigRetrievalSelector,
 } from 'src/identity/reducer'
 import { RootState } from 'src/redux/reducers'
@@ -27,7 +27,7 @@ export const sessionIdSelector = (state: RootState) => {
 
 export const verificationPossibleSelector = (state: RootState): boolean => {
   const e164Number = e164NumberSelector(state)
-  const saltCache = e164NumberToSaltSelector(state)
+  const saltCache = e164NumberToPepperSelector(state)
   return !!(
     (e164Number && saltCache[e164Number]) ||
     isBalanceSufficientForSigRetrievalSelector(state)
