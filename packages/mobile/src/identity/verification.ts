@@ -165,7 +165,6 @@ export function* fetchVerificationState() {
 
 export function* fetchScwVerificationState() {
   try {
-    const account: string = yield call(getConnectedUnlockedAccount)
     const scwAccount: string | null = yield select(scwAccountSelector)
     const e164Number: string = yield select(e164NumberSelector)
     const contractKit = yield call(getContractKit)
@@ -184,12 +183,12 @@ export function* fetchScwVerificationState() {
 
     let phoneHashDetails: PhoneNumberHashDetails
 
-    // CHeck is user's pepper is already cached
+    // Check if user's pepper is already cached
     const selfPhoneDetails: PhoneNumberHashDetails | undefined = yield call(
       getUserSelfPhoneHashDetails
     )
 
-    // Use it if we have it, otherwise we need to ping Komenci for it
+    // Use it if we have it, otherwise we need to ping Komenci/ODIS for it
     if (selfPhoneDetails) {
       phoneHashDetails = selfPhoneDetails
     } else {
@@ -207,7 +206,7 @@ export function* fetchScwVerificationState() {
 
     ValoraAnalytics.track(VerificationEvents.verification_hash_retrieved, {
       phoneHash,
-      address: account,
+      address: scwAccount,
     })
 
     ValoraAnalytics.track(VerificationEvents.verification_fetch_status_start)
@@ -216,7 +215,7 @@ export function* fetchScwVerificationState() {
     const status: AttestationsStatus = yield call(
       getAttestationsStatus,
       attestationsWrapper,
-      account,
+      scwAccount,
       phoneHash
     )
     ValoraAnalytics.track(VerificationEvents.verification_fetch_status_complete, {
@@ -227,7 +226,7 @@ export function* fetchScwVerificationState() {
       getActionableAttestations,
       attestationsWrapper,
       phoneHash,
-      account
+      scwAccount
     )
 
     yield put(
