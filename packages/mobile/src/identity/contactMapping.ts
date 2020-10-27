@@ -1,21 +1,20 @@
 import { PhoneNumberHashDetails } from '@celo/contractkit/lib/identity/odis/phone-number-identifier'
+import { AccountsWrapper } from '@celo/contractkit/lib/wrappers/Accounts'
 import {
   AttestationsWrapper,
   IdentifierLookupResult,
 } from '@celo/contractkit/lib/wrappers/Attestations'
 import { isValidAddress } from '@celo/utils/src/address'
 import { isAccountConsideredVerified } from '@celo/utils/src/attestations'
-import { getPhoneHash } from '@celo/utils/src/phoneNumbers'
 import BigNumber from 'bignumber.js'
 import { MinimalContact } from 'react-native-contacts'
-import { call, delay, put, race, select, take } from 'redux-saga/effects'
+import { all, call, delay, put, race, select, take } from 'redux-saga/effects'
 import { setUserContactDetails } from 'src/account/actions'
 import { defaultCountryCodeSelector, e164NumberSelector } from 'src/account/selectors'
 import { showErrorOrFallback } from 'src/alert/actions'
 import { IdentityEvents } from 'src/analytics/Events'
 import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import { ErrorMessages } from 'src/app/ErrorMessages'
-import { features } from 'src/flags'
 import {
   Actions,
   endFetchingAddresses,
@@ -169,7 +168,7 @@ export function* fetchAddressesAndValidateSaga({
     // Clear existing entries for those numbers so our mapping consumers know new status is pending.
     yield put(updateE164PhoneNumberAddresses({ [e164Number]: undefined }, {}))
 
-    const addresses: string[] = yield call(getAddresses, e164Number)
+    const addresses: string[] = yield call(getWalletAddresses, e164Number)
 
     const e164NumberToAddressUpdates: E164NumberToAddressType = {}
     const addressToE164NumberUpdates: AddressToE164NumberType = {}
@@ -218,17 +217,29 @@ export function* fetchAddressesAndValidateSaga({
   }
 }
 
-function* getAddresses(e164Number: string) {
-  let phoneHash: string
-  if (features.USE_PHONE_NUMBER_PRIVACY) {
-    const phoneHashDetails: PhoneNumberHashDetails = yield call(fetchPhoneHashPrivate, e164Number)
-    phoneHash = phoneHashDetails.phoneHash
-  } else {
-    phoneHash = getPhoneHash(e164Number)
-  }
-
+function* getAccountAddresses(e164Number: string) {
+  const phoneHashDetails: PhoneNumberHashDetails = yield call(fetchPhoneHashPrivate, e164Number)
+  const phoneHash: string = phoneHashDetails.phoneHash
   const lookupResult: IdentifierLookupResult = yield call(lookupAttestationIdentifiers, [phoneHash])
   return getAddressesFromLookupResult(lookupResult, phoneHash) || []
+}
+
+function* getWalletAddresses(e164Number: string) {
+  const contractKit = yield call(getContractKit)
+  const accountsWrapper: AccountsWrapper = yield call([
+    contractKit.contracts,
+    contractKit.contracts.getAccounts,
+  ])
+
+  const accountAddresses: string[] = yield call(getAccountAddresses, e164Number)
+
+  const walletAddresses: string[] = yield all(
+    accountAddresses.map((accountAddress) =>
+      call(() => accountsWrapper.getWalletAddress(accountAddress))
+    )
+  )
+
+  return walletAddresses
 }
 
 // Returns IdentifierLookupResult
