@@ -1,10 +1,33 @@
+import { BigNumber } from 'bignumber.js'
 import { BlockchainParameters } from '../generated/BlockchainParameters'
-import { BaseWrapper, proxyCall, proxySend, valueToInt } from './BaseWrapper'
+import { BaseWrapper, proxyCall, proxySend, valueToBigNumber, valueToInt } from './BaseWrapper'
+
+export interface ClientVersion {
+  major: number
+  minor: number
+  patch: number
+}
+
+export interface BlockchainParametersConfig {
+  blockGasLimit: BigNumber
+  minimumClientVersion: ClientVersion
+  intrinsicGasForAlternativeFeeCurrency: BigNumber
+  uptimeLookbackWindow: number
+}
 
 /**
  * Network parameters that are configurable by governance.
  */
 export class BlockchainParametersWrapper extends BaseWrapper<BlockchainParameters> {
+  /**
+   * Get the extra intrinsic gas for transactions, where gas is paid using non-gold currency.
+   */
+  getIntrinsicGasForAlternativeFeeCurrency = proxyCall(
+    this.contract.methods.intrinsicGasForAlternativeFeeCurrency,
+    undefined,
+    valueToBigNumber
+  )
+
   /**
    * Setting the extra intrinsic gas for transactions, where gas is paid using non-gold currency.
    */
@@ -16,15 +39,30 @@ export class BlockchainParametersWrapper extends BaseWrapper<BlockchainParameter
   /**
    * Getting the block gas limit.
    */
-  getBlockGasLimit = proxyCall(this.contract.methods.blockGasLimit, undefined, valueToInt)
+  getBlockGasLimit = proxyCall(this.contract.methods.blockGasLimit, undefined, valueToBigNumber)
+
   /**
    * Setting the block gas limit.
    */
   setBlockGasLimit = proxySend(this.kit, this.contract.methods.setBlockGasLimit)
+
+  /**
+   * Get minimum client version.
+   */
+  async getMinimumClientVersion(): Promise<ClientVersion> {
+    const v = await this.contract.methods.getMinimumClientVersion().call()
+    return {
+      major: valueToInt(v.major),
+      minor: valueToInt(v.minor),
+      patch: valueToInt(v.patch),
+    }
+  }
+
   /**
    * Set minimum client version.
    */
   setMinimumClientVersion = proxySend(this.kit, this.contract.methods.setMinimumClientVersion)
+  
   /**
    * Getting the uptime lookback window.
    */
@@ -37,4 +75,16 @@ export class BlockchainParametersWrapper extends BaseWrapper<BlockchainParameter
    * Setting the uptime lookback window.
    */
   setUptimeLookbackWindow = proxySend(this.kit, this.contract.methods.setUptimeLookbackWindow)
+
+  /**
+   * Returns current configuration parameters.
+   */
+  async getConfig(): Promise<BlockchainParametersConfig> {
+    return {
+      blockGasLimit: await this.getBlockGasLimit(),
+      minimumClientVersion: await this.getMinimumClientVersion(),
+      intrinsicGasForAlternativeFeeCurrency: await this.getIntrinsicGasForAlternativeFeeCurrency(),
+      uptimeLookbackWindow: await this.getUptimeLookbackWindow(),
+    }
+  }
 }
