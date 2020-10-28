@@ -24,6 +24,7 @@ import {
   requireSecureSend,
   updateE164PhoneNumberAddresses,
   updateImportContactsProgress,
+  updateWalletToAccountAddress,
 } from 'src/identity/actions'
 import { fetchContactMatches } from 'src/identity/matchmaking'
 import { fetchPhoneHashPrivate } from 'src/identity/privateHashing'
@@ -35,6 +36,7 @@ import {
   matchedContactsSelector,
   SecureSendPhoneNumberMapping,
   secureSendPhoneNumberMappingSelector,
+  WalletToAccountAddressType,
 } from 'src/identity/reducer'
 import { checkIfValidationRequired } from 'src/identity/secureSend'
 import { ImportContactsStatus } from 'src/identity/types'
@@ -168,31 +170,32 @@ export function* fetchAddressesAndValidateSaga({
     // Clear existing entries for those numbers so our mapping consumers know new status is pending.
     yield put(updateE164PhoneNumberAddresses({ [e164Number]: undefined }, {}))
 
-    const addresses: string[] = yield call(getWalletAddresses, e164Number)
+    const walletAddresses: string[] = yield call(getWalletAddressesAndUpdateCache, e164Number)
 
     const e164NumberToAddressUpdates: E164NumberToAddressType = {}
     const addressToE164NumberUpdates: AddressToE164NumberType = {}
 
-    if (!addresses.length) {
+    if (!walletAddresses.length) {
       Logger.debug(TAG + '@fetchAddressesAndValidate', `No addresses for number`)
       // Save invalid/0 addresses to avoid checking again
       // null means a contact is unverified, whereas undefined means we haven't checked yet
       e164NumberToAddressUpdates[e164Number] = null
     } else {
-      e164NumberToAddressUpdates[e164Number] = addresses
-      addresses.map((a) => (addressToE164NumberUpdates[a] = e164Number))
+      e164NumberToAddressUpdates[e164Number] = walletAddresses
+      walletAddresses.map((a) => (addressToE164NumberUpdates[a] = e164Number))
     }
 
     const userAddress = yield select(currentAccountSelector)
+    const secureSendPossibleAddresses = [...walletAddresses]
     const secureSendPhoneNumberMapping = yield select(secureSendPhoneNumberMappingSelector)
     // If fetch is being done as part of a payment request from an unverified address,
     // the unverified address should be considered in the Secure Send check
-    if (requesterAddress && !addresses.includes(requesterAddress)) {
-      addresses.push(requesterAddress)
+    if (requesterAddress && !secureSendPossibleAddresses.includes(requesterAddress)) {
+      secureSendPossibleAddresses.push(requesterAddress)
     }
     const addressValidationType = checkIfValidationRequired(
       oldAddresses,
-      addresses,
+      secureSendPossibleAddresses,
       userAddress,
       secureSendPhoneNumberMapping,
       e164Number
@@ -224,7 +227,7 @@ function* getAccountAddresses(e164Number: string) {
   return getAddressesFromLookupResult(lookupResult, phoneHash) || []
 }
 
-function* getWalletAddresses(e164Number: string) {
+function* getWalletAddressesAndUpdateCache(e164Number: string) {
   const contractKit = yield call(getContractKit)
   const accountsWrapper: AccountsWrapper = yield call([
     contractKit.contracts,
@@ -233,13 +236,22 @@ function* getWalletAddresses(e164Number: string) {
 
   const accountAddresses: string[] = yield call(getAccountAddresses, e164Number)
 
-  const walletAddresses: string[] = yield all(
+  const walletAddresses: Array<string | undefined> = yield all(
     accountAddresses.map((accountAddress) =>
       call(() => accountsWrapper.getWalletAddress(accountAddress))
     )
   )
 
-  return walletAddresses
+  const registeredWalletAddresses: string[] = []
+  const walletToAccountAddress: WalletToAccountAddressType = {}
+  walletAddresses.forEach((walletAddress, i) => {
+    if (walletAddress) {
+      walletToAccountAddress[walletAddress] = accountAddresses[i]
+      registeredWalletAddresses.push(walletAddress)
+    }
+  })
+  yield put(updateWalletToAccountAddress(walletToAccountAddress))
+  return registeredWalletAddresses
 }
 
 // Returns IdentifierLookupResult

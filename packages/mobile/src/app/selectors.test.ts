@@ -11,7 +11,7 @@ describe(verificationPossibleSelector, () => {
           account: { e164PhoneNumber: mockE164Number },
           stableToken: { balance: '0' },
           goldToken: { balance: '0' },
-          identity: { e164NumberToSalt: { [mockE164Number]: mockE164NumberPepper } },
+          identity: { e164NumberToPepper: { [mockE164Number]: mockE164NumberPepper } },
         })
       )
     ).toBe(true)
@@ -24,7 +24,7 @@ describe(verificationPossibleSelector, () => {
           account: { e164PhoneNumber: mockE164Number },
           stableToken: { balance: '0.01' },
           goldToken: { balance: '0' },
-          identity: { e164NumberToSalt: {} },
+          identity: { e164NumberToPepper: {} },
         })
       )
     ).toBe(true)
@@ -34,7 +34,7 @@ describe(verificationPossibleSelector, () => {
           account: { e164PhoneNumber: mockE164Number },
           stableToken: { balance: '0' },
           goldToken: { balance: '0.005' },
-          identity: { e164NumberToSalt: {} },
+          identity: { e164NumberToPepper: {} },
         })
       )
     ).toBe(true)
@@ -47,7 +47,7 @@ describe(verificationPossibleSelector, () => {
           account: { e164PhoneNumber: mockE164Number },
           stableToken: { balance: '0.009' },
           goldToken: { balance: '0.004' },
-          identity: { e164NumberToSalt: {} },
+          identity: { e164NumberToPepper: {} },
         })
       )
     ).toBe(false)

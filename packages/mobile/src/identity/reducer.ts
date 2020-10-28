@@ -47,6 +47,10 @@ export interface AddressToDisplayNameType {
   [address: string]: string | undefined
 }
 
+export interface WalletToAccountAddressType {
+  [address: string]: string
+}
+
 export interface ImportContactProgress {
   status: ImportContactsStatus
   current: number
@@ -92,7 +96,8 @@ export interface State {
   addressToE164Number: AddressToE164NumberType
   // Note: Do not access values in this directly, use the `getAddressFromPhoneNumber` helper in contactMapping
   e164NumberToAddress: E164NumberToAddressType
-  e164NumberToSalt: E164NumberToPepperType
+  walletToAccountAddress: WalletToAccountAddressType
+  e164NumberToPepper: E164NumberToPepperType
   addressToDataEncryptionKey: AddressToDataEncryptionKeyType
   // Doesn't contain all known addresses, use only as a fallback.
   // TODO: Remove if unused after CIP-8 implementation.
@@ -119,7 +124,8 @@ const initialState: State = {
   hasSeenVerificationNux: false,
   addressToE164Number: {},
   e164NumberToAddress: {},
-  e164NumberToSalt: {},
+  walletToAccountAddress: {},
+  e164NumberToPepper: {},
   addressToDataEncryptionKey: {},
   addressToDisplayName: {},
   askedContactsPermission: false,
@@ -212,10 +218,18 @@ export const reducer = (
           ...action.e164NumberToAddress,
         },
       }
-    case Actions.UPDATE_E164_PHONE_NUMBER_SALT:
+    case Actions.UPDATE_WALLET_TO_ACCOUNT_ADDRESS:
       return {
         ...state,
-        e164NumberToSalt: { ...state.e164NumberToSalt, ...action.e164NumberToSalt },
+        walletToAccountAddress: {
+          ...state.walletToAccountAddress,
+          ...action.walletToAccountAddress,
+        },
+      }
+    case Actions.UPDATE_E164_PHONE_NUMBER_PEPPER:
+      return {
+        ...state,
+        e164NumberToPepper: { ...state.e164NumberToPepper, ...action.e164NumberToPepper },
       }
     case SendActions.STORE_LATEST_IN_RECENTS:
       if (!action.recipient.address) {
@@ -332,7 +346,7 @@ export const reducer = (
         ...initialState,
         addressToE164Number: state.addressToE164Number,
         e164NumberToAddress: state.e164NumberToAddress,
-        e164NumberToSalt: state.e164NumberToSalt,
+        e164NumberToPepper: state.e164NumberToPepper,
         matchedContacts: state.matchedContacts,
         secureSendPhoneNumberMapping: state.secureSendPhoneNumberMapping,
       }
@@ -385,7 +399,7 @@ export const e164NumberToAddressSelector = (state: RootState) => state.identity.
 export const addressToE164NumberSelector = (state: RootState) => state.identity.addressToE164Number
 export const addressToDataEncryptionKeySelector = (state: RootState) =>
   state.identity.addressToDataEncryptionKey
-export const e164NumberToPepperSelector = (state: RootState) => state.identity.e164NumberToSalt
+export const e164NumberToPepperSelector = (state: RootState) => state.identity.e164NumberToPepper
 export const secureSendPhoneNumberMappingSelector = (state: RootState) =>
   state.identity.secureSendPhoneNumberMapping
 export const importContactsProgressSelector = (state: RootState) =>

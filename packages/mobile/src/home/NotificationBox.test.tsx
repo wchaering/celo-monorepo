@@ -44,7 +44,7 @@ describe('NotificationBox', () => {
         ...storeDataNotificationsEnabled.account,
         e164PhoneNumber: mockE164Number,
       },
-      identity: { e164NumberToSalt: { [mockE164Number]: mockE164NumberPepper } },
+      identity: { e164NumberToPepper: { [mockE164Number]: mockE164NumberPepper } },
       stableToken: { balance: '0.00' },
       goldToken: { balance: '0.00' },
     })
@@ -183,7 +183,7 @@ describe('NotificationBox', () => {
         dismissedGetVerified: false,
         e164PhoneNumber: mockE164Number,
       },
-      identity: { e164NumberToSalt: { [mockE164Number]: mockE164NumberPepper } },
+      identity: { e164NumberToPepper: { [mockE164Number]: mockE164NumberPepper } },
       stableToken: { balance: '0.00' },
     })
     const { getByText } = render(

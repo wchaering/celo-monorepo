@@ -90,7 +90,7 @@ describe('Encrypt Comment', () => {
   it('Handles comment with metadata enabled', async () => {
     const mockState = getMockStoreData({
       account: { e164PhoneNumber: mockE164Number },
-      identity: { e164NumberToSalt: { [mockE164Number]: mockE164NumberPepper } },
+      identity: { e164NumberToPepper: { [mockE164Number]: mockE164NumberPepper } },
     })
     await expectSaga(encryptComment, simpleComment, mockAccount2, mockAccount, true)
       .withState(mockState)
