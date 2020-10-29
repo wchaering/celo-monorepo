@@ -60,7 +60,7 @@ platform :android do
   desc 'Ship Alfajores to Playstore Internal'
   lane :alfajores do
     env = 'alfajores'
-    build(environment: env)
+    # build(environment: env)
     fastlane_supply(env, 'internal')
   end
 
@@ -108,7 +108,7 @@ platform :ios do
   desc 'Ship Alfajores to TestFlight'
   lane :alfajores do
     env = 'alfajores'
-    build(environment: env)
+    # build(environment: env)
     upload_to_testflight(
       skip_waiting_for_build_processing: true,
     )
