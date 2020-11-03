@@ -34,7 +34,7 @@ function getCiphertextLabel(
   const label = createHmac('blake2s256', sharedSecret)
     .update(Buffer.concat([senderPublicKeyBuffer, receiverPublicKeyBuffer, Buffer.from(path)]))
     .digest('hex')
-  return join(sep, 'ciphertexts', label)
+  return join(sep, senderPublicKey, 'ciphertexts', label)
 }
 
 // Assumes that the wallet has the dataEncryptionKey of wrapper.self available
@@ -119,6 +119,47 @@ async function fetchOrGenerateKey(
   }
 
   return Err(existingKey.error)
+}
+
+// export const writeEncryptedData = async (
+//   wrapper: OffchainDataWrapper,
+//   dataPath: string,
+//   data: Buffer,
+//   fetchKey: any
+// ): Promise<SchemaErrors | void> => {
+//   const iv = randomBytes(16)
+//   const payload = AES128Encrypt(fetchKey.result, iv, data)
+//   const signature = await signBuffer(wrapper, `${dataPath}.enc`, payload)
+
+//   const writeError = await wrapper.writeDataTo(
+//     payload,
+//     Buffer.from(trimLeading0x(signature), 'hex'),
+//     `${dataPath}.enc`
+//   )
+//   if (writeError) {
+//     return new OffchainError(writeError)
+//   }
+// }
+
+export const writeSymmetricKeys = async (
+  wrapper: OffchainDataWrapper,
+  dataPath: string,
+  toAddresses: Address[],
+  symmetricKey?: Buffer
+): Promise<SchemaErrors | void> => {
+  const fetchKey = await fetchOrGenerateKey(wrapper, dataPath, symmetricKey)
+  if (!fetchKey.ok) {
+    return fetchKey.error
+  }
+
+  const firstWriteError = (
+    await Promise.all(
+      toAddresses.map(async (toAddress) =>
+        distributeSymmetricKey(wrapper, dataPath, fetchKey.result, toAddress)
+      )
+    )
+  ).find(Boolean)
+  return firstWriteError
 }
 
 /**
