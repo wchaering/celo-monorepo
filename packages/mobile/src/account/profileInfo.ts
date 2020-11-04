@@ -16,6 +16,7 @@ const TAG = 'account/profileInfo'
 const BUCKET_URL = 'https://storage.googleapis.com/isabellewei-test/'
 
 class ValoraStorageWriter extends LocalStorageWriter {
+  // TEMP for testing
   async write(data: Buffer, dataPath: string): Promise<void> {
     const response = await fetch(`${BUCKET_URL}/${dataPath}`, {
       method: 'PUT',
@@ -84,6 +85,7 @@ export function* uploadName(contractKit: any) {
 }
 
 export function* uploadSymmetricKeys(recipientAddresses: string[]) {
+  // TODO: check if key for user already exists
   const address = yield select(currentAccountSelector)
   const contractKit = yield call(getContractKit)
 
