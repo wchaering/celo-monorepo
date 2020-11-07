@@ -14,6 +14,8 @@ import { ReactBlsBlindingClient } from 'src/identity/bls-blinding-client'
 import {
   e164NumberToSaltSelector,
   E164NumberToSaltType,
+  FeelessVerificationState,
+  feelessVerificationStateSelector,
   isBalanceSufficientForSigRetrievalSelector,
 } from 'src/identity/reducer'
 import { isUserBalanceSufficient } from 'src/identity/utils'
@@ -144,7 +146,14 @@ export function* getUserSelfPhoneHashDetails() {
   }
 
   const saltCache: E164NumberToSaltType = yield select(e164NumberToSaltSelector)
-  const salt = saltCache[e164Number]
+  let salt = saltCache[e164Number]
+
+  if (!salt) {
+    const feelessState: FeelessVerificationState = yield select(feelessVerificationStateSelector)
+    if (feelessState) {
+      salt = feelessState?.phoneHashDetails?.pepper
+    }
+  }
 
   if (!salt) {
     return undefined

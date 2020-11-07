@@ -580,4 +580,5 @@ export function* escrowSaga() {
   yield spawn(watchReclaimPayment)
   yield spawn(watchFetchSentPayments)
   yield spawn(watchVerificationEnd)
+  yield call(withdrawFromEscrowUsingPepper, false)
 }
