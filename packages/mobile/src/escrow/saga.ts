@@ -6,6 +6,7 @@ import { MetaTransactionWalletWrapper } from '@celo/contractkit/lib/wrappers/Met
 import { StableTokenWrapper } from '@celo/contractkit/lib/wrappers/StableTokenWrapper'
 import { KomenciKit } from '@celo/komencikit/lib/kit'
 import { FetchError, TxError } from '@celo/komencikit/src/errors'
+import { parseSignature } from '@celo/utils/lib/signatureUtils'
 import { privateKeyToAddress } from '@celo/utils/src/address'
 import BigNumber from 'bignumber.js'
 import { all, call, put, race, select, spawn, take, takeLeading } from 'redux-saga/effects'
@@ -243,10 +244,17 @@ async function formEscrowWithdrawTxWithNoCode(
     TAG + '@withdrawFromEscrowViaKomenci',
     `Signed message hash signature is ${signature}`
   )
-
-  const { r, s, v } = splitSignature(contractKit, signature)
+  console.log(paymentId)
+  const { r, s, v } = parseSignature(msgHash, signature, paymentId)
+  console.log(paymentId)
+  console.log(r, s, v)
   const withdrawTx = escrowWrapper.withdraw(paymentId, v, r, s)
-  const transferTx = stableTokenWrapper.transfer(walletAddress, value.toNumber())
+  Logger.debug(TAG + '@withdrawFromEscrowViaKomenci', `trying to estimate withdraw`)
+  await withdrawTx.txo.estimateGas({ from: metaTxWalletAddress })
+  Logger.debug(TAG + '@withdrawFromEscrowViaKomenci', `withdraw estimated`)
+  const transferTx = stableTokenWrapper.transfer(walletAddress, value.toString(10))
+  // await transferTx.txo.estimateGas()
+  Logger.debug(TAG + '@withdrawFromEscrowViaKomenci', `transfer estimated`)
   const batchedTx = mtwWrapper.executeTransactions([withdrawTx.txo, transferTx.txo])
   return batchedTx
 }
