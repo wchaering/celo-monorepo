@@ -225,14 +225,10 @@ function* registerStandbyTransaction(context: TransactionContext, value: string,
 
 async function formEscrowWithdrawTxWithNoCode(
   contractKit: ContractKit,
-  mtwWrapper: MetaTransactionWalletWrapper,
   escrowWrapper: EscrowWrapper,
-  stableTokenWrapper: StableTokenWrapper,
   paymentId: string,
   privateKey: string,
-  walletAddress: string,
-  metaTxWalletAddress: string,
-  value: BigNumber
+  metaTxWalletAddress: string
 ) {
   const msgHash = contractKit.web3.utils.soliditySha3({
     type: 'address',
@@ -251,12 +247,7 @@ async function formEscrowWithdrawTxWithNoCode(
   const withdrawTx = escrowWrapper.withdraw(paymentId, v, r, s)
   Logger.debug(TAG + '@withdrawFromEscrowViaKomenci', `trying to estimate withdraw`)
   await withdrawTx.txo.estimateGas({ from: metaTxWalletAddress })
-  Logger.debug(TAG + '@withdrawFromEscrowViaKomenci', `withdraw estimated`)
-  const transferTx = stableTokenWrapper.transfer(walletAddress, value.toString(10))
-  // await transferTx.txo.estimateGas()
-  Logger.debug(TAG + '@withdrawFromEscrowViaKomenci', `transfer estimated`)
-  const batchedTx = mtwWrapper.executeTransactions([withdrawTx.txo, transferTx.txo])
-  return batchedTx
+  return withdrawTx
 }
 
 function* withdrawFromEscrowUsingPepper(komenciActive: boolean = false) {
@@ -338,19 +329,24 @@ function* withdrawFromEscrowUsingPepper(komenciActive: boolean = false) {
 
       const withdrawTx: CeloTransactionObject<boolean> = yield formEscrowWithdrawTxWithNoCode(
         contractKit,
-        mtwWrapper,
         escrowWrapper,
-        stableTokenWrapper,
         paymentId,
         privateKey,
+        mtwAddress
+      )
+
+      const transferTx: CeloTransactionObject<boolean> = stableTokenWrapper.transfer(
         walletAddress,
-        mtwAddress,
-        value
+        value.toString(10)
       )
 
       try {
         if (!komenciActive) {
-          yield call(sendTransaction, withdrawTx.txo, walletAddress, context)
+          // Only the MTW has permission to withdraw from escrow and to then transfer those funds.
+          const wrappedWithdrawTx = mtwWrapper.executeTransaction(withdrawTx)
+          const wrappedTransferTx = mtwWrapper.executeTransaction(transferTx)
+          yield call(sendTransaction, wrappedWithdrawTx.txo, walletAddress, context)
+          yield call(sendTransaction, wrappedTransferTx.txo, walletAddress, context)
         } else {
           const withdrawTxResult: Result<TransactionReceipt, FetchError | TxError> = yield call(
             [komenciKit, komenciKit.submitMetaTransaction],
@@ -360,6 +356,16 @@ function* withdrawFromEscrowUsingPepper(komenciActive: boolean = false) {
 
           if (!withdrawTxResult.ok) {
             throw withdrawTxResult.error
+          }
+
+          const transferTxResult: Result<TransactionReceipt, FetchError | TxError> = yield call(
+            [komenciKit, komenciKit.submitMetaTransaction],
+            mtwAddress,
+            transferTx
+          )
+
+          if (!transferTxResult.ok) {
+            throw transferTxResult.error
           }
         }
         withdrawTxSuccess.push(true)
