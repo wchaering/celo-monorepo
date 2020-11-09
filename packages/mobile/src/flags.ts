@@ -7,7 +7,7 @@ export const features = {
   PHONE_NUM_METADATA_IN_TRANSFERS: true,
   VERIFICATION_FORNO_RETRY: true,
   CUSD_MOONPAY_ENABLED: false,
-  SHOW_CASH_OUT: false,
+  SHOW_CASH_OUT: true,
   PNP_USE_DEK_FOR_AUTH: true,
   KOMENCI: true,
   ESCROW_WITHOUT_CODE: true,
@@ -30,5 +30,8 @@ export const countryFeatures = {
     KP: true,
     SD: true,
     SY: true,
+  },
+  SIMPLEX_DISABLED: {
+    US: true,
   },
 }
